@@ -8,7 +8,7 @@ const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.inner
 
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
-// renderer.outputEncoding = THREE.sRGBEncoding;
+renderer.outputEncoding = THREE.sRGBEncoding;
 document.body.appendChild( renderer.domElement );
 
 const geometry = new THREE.BoxGeometry();
@@ -74,20 +74,49 @@ scene.add(light2);
 // 	}
 // );
 
+let skeleton, model_mario;
+let bones = [];
+let lifeE=0;
+let loade = new GLTFLoader(loadingManager);
+loade.load(
+	'./paladin/scene.gltf',
+	function (gltf) {
+		model_mario = gltf.scene;
+		// model_mario.rotation.y = 1.5708 * 2;
+		// model_mario.rotation.y = 2;
+		model_mario.position.y = -5;
+		model_mario.scale.x *= 0.05;
+		model_mario.scale.y *= 0.05;
+		model_mario.scale.z *= 0.05;
+		scene.add(model_mario);
+		model_mario.traverse(function (object) {
+			if (object.isMesh) object.castShadow = true;
+		});
+		THREE.sRGB
+		skeleton = new THREE.SkeletonHelper(model_mario);
+		skeleton.visible = false;
+		scene.add(skeleton);
+		bones = skeleton.bones;
+		console.log(bones);
+		//console.log(model_mario);
+		console.log(bones[63].rotation.x);
+	}
+);
+
 // let skeleton, model_mario;
 // let bones = [];
 // let lifeE=0;
 // let loade = new GLTFLoader(loadingManager);
 // loade.load(
-// 	'./rigged_and_textured_mid-poly_soldier/scene.gltf',
+// 	'./skeleton_rig/scene.gltf',
 // 	function (gltf) {
 // 		model_mario = gltf.scene;
 // 		// model_mario.rotation.y = 1.5708 * 2;
 // 		// model_mario.rotation.y = 2;
 // 		model_mario.position.y = -5;
-// 		model_mario.scale.x *= 0.05;
-// 		model_mario.scale.y *= 0.05;
-// 		model_mario.scale.z *= 0.05;
+// 		model_mario.scale.x *= 0.2;
+// 		model_mario.scale.y *= 0.2;
+// 		model_mario.scale.z *= 0.2;
 // 		scene.add(model_mario);
 // 		model_mario.traverse(function (object) {
 // 			if (object.isMesh) object.castShadow = true;
@@ -103,61 +132,32 @@ scene.add(light2);
 // 	}
 // );
 
-let skeleton, model_mario;
-let bones = [];
-let lifeE=0;
-let loade = new GLTFLoader(loadingManager);
-loade.load(
-	'./skeleton_rig/scene.gltf',
-	function (gltf) {
-		model_mario = gltf.scene;
-		// model_mario.rotation.y = 1.5708 * 2;
-		// model_mario.rotation.y = 2;
-		model_mario.position.y = -5;
-		model_mario.scale.x *= 0.2;
-		model_mario.scale.y *= 0.2;
-		model_mario.scale.z *= 0.2;
-		scene.add(model_mario);
-		model_mario.traverse(function (object) {
-			if (object.isMesh) object.castShadow = true;
-		});
-		THREE.sRGB
-		skeleton = new THREE.SkeletonHelper(model_mario);
-		skeleton.visible = false;
-		scene.add(skeleton);
-		bones = skeleton.bones;
-		console.log(bones);
-		//console.log(model_mario);
-		// console.log(bones[46].rotation.x);
+var flagAnim = [true, true];
+function anim(){
+	var id;
+	for(var i = 0; i < bones.length; i++){
+
+
+		if(bones[i].name == "RightUpLeg_063"){
+			
+			id = 0;
+			if(bones[i].rotation.x > 0.8 && flagAnim[id] == true) flagAnim[id] = false;
+			else if(bones[i].rotation.x < -0.8 && flagAnim[id] == false) flagAnim[id] = true;
+
+			if(flagAnim[id]) bones[i].rotation.x += 0.03;
+			else bones[i].rotation.x += -0.03;
+		}
+		else if(bones[i].name == "LeftUpLeg_058"){
+			
+			id = 1;
+			if(bones[i].rotation.x > 0.8 && flagAnim[id] == false) flagAnim[id] = true;
+			else if(bones[i].rotation.x < -0.8 && flagAnim[id] == true) flagAnim[id] = false;
+
+			if(flagAnim[id]) bones[i].rotation.x += -0.03;
+			else bones[i].rotation.x += 0.03;
+		}
 	}
-);
-
-// var flagAnim = [true, true];
-// function anim(){
-// 	var id;
-// 	for(var i = 0; i < bones.length; i++){
-
-
-// 		if(bones[i].name == 'J_Bip_R_UpperLeg'){
-			
-// 			id = 0;
-// 			if(bones[i].rotation.x > 4.14 && flagAnim[id] == true) flagAnim[id] = false;
-// 			else if(bones[i].rotation.x < 2.14 && flagAnim[id] == false) flagAnim[id] = true;
-
-// 			if(flagAnim[id]) bones[i].rotation.x += 0.01;
-// 			else bones[i].rotation.x += -0.01;
-// 		}
-// 		else if(bones[i].name == 'J_Bip_L_UpperLeg'){
-			
-// 			id = 1;
-// 			if(bones[i].rotation.x > 4.14 && flagAnim[id] == false) flagAnim[id] = true;
-// 			else if(bones[i].rotation.x < 2.14 && flagAnim[id] == true) flagAnim[id] = false;
-
-// 			if(flagAnim[id]) bones[i].rotation.x += -0.01;
-// 			else bones[i].rotation.x += 0.01;
-// 		}
-// 	}
-// }
+}
 
 
 
@@ -170,7 +170,7 @@ const animate = function () {
 	// tank1.rotation.x += 0.01;
 	// tank1.rotation.y += 0.01;
 	// tank1.children[33].rotation.x += 0.01;
-	// anim();
+	anim();
 
 	renderer.render( scene, camera );
 };
