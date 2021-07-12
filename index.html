@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>    
+	<head>
+		<meta charset="utf-8">
+		<title>three.js app</title>
+		<style>
+			body { margin: 0; }
+		</style>
+	
+		<script type="text/javascript" src="./variables.js"></script>
+		<script type="text/javascript" src="build/three.js-master/build/three.js"></script>
+		<script type="text/javascript" src="build/Physijs/physi.js"></script>
+		<script src="./code/variables.js"></script>
+		<script src="./code/gameMechanics.js"></script>
+		<script src="./code/CollHandler.js"></script>
+		<script src="./code/hitBox.js"></script>
+		<script src="./code/routine.js"></script>
+		<script type="module" src="./index.js"></script>
+		<link rel="stylesheet" href="./style/terminal.css">
+		<link rel="stylesheet" href="./style/normalize.css">
+		<link rel="stylesheet" href="./style/style.css">
+	</head>
+
+	<body class="hidebar">
+		<div class="flex">
+			<div style="min-width: 250px;"><a id="text">prova</a></div>
+			<a id="text0" class="info">prova</a>
+			<a id="text1" class="info">prova</a>
+			<a id="butn" class="info">charBox</a>
+			<a id="text2" class="info">lifes: 3</a>
+		</div>
+		<div id='start' class="visible container">
+			<section class="vertaligh">
+				<table>
+					<caption>
+						Controls
+					</caption>
+					<thead>
+						<tr>
+							<th>Keys</th>
+							<th>Controls</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th>A</th>
+							<td>Walk left</td>
+						</tr>
+						<tr>
+							<th>D</th>
+							<td>Walk right</td>
+						</tr>
+						<tr>
+							<th>Space</th>
+							<td>Jump</td>
+						</tr>
+						<tr>
+							<th>K</th>
+							<td>Attack</td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="center">
+					<a id="btnstart" class="btn btn-default">Start</a>
+				</div>
+			</section>
+		</div>
+		<div id='end' class="invisible container">
+			<section>
+				<div class="center vertaligh">
+					<a id="btnend" class="btn btn-default">Game Over</a>
+				</div>
+			</section>
+		</div>
+		<div id='game' class="invisible"></div>
+		
+	</body>
+</html>

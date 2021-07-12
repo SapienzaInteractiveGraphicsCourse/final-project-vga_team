@@ -1,0 +1,27 @@
+.info{
+	padding-right: 10px;
+}
+
+.hidebar{
+	overflow: hidden;
+}
+
+.flex{
+	display: flex;
+}
+
+.center{
+	text-align: center;
+}
+
+.vertaligh{
+	padding: 20% 0;
+}
+
+.visible{
+	display: block;
+}
+
+.invisible{
+	display: none;
+}
