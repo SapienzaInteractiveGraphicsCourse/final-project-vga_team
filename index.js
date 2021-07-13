@@ -75,7 +75,7 @@ function init(){
 	for (let index = 0; index < enNum; index++) {
 		setConstraint(enemyBox[index]);
 	}
-	animate();
+	setTimeout(function () {animate();}, 500);
 }
 
 // var flagAnim = [true, true];
