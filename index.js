@@ -193,6 +193,7 @@ function createLevel() {
 	build.createTorch2();
 	build.createBox2();
 	build.createSpear2();
+	build.createCup();
 }
 
 const animate = function () {

@@ -654,21 +654,21 @@ export function createSpear2(){
 
   }
 
-    export function createFlag(){
+    export function createCup(){
 
-      flag = new THREE.Scene();
+      cup = new THREE.Scene();
         {
-          const url_flag = "./flag_with_pole/scene.gltf";
-          gltfLoader.load(url_flag, (gltf) => {
-            flag = gltf.scene;
-            flag.name = "flag";
-            flag.scale.set(0.1,0.1,0.1);
-          flag.rotation.set(4.71,0,0); // rotation of the torch
-          flag.position.set(25,20,1300); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
-          flagClone = flag.clone();
-            scene.add(flagClone);
+          const url_cup = "./cup/scene.gltf";
+          gltfLoader.load(url_cup, (gltf) => {
+            cup = gltf.scene;
+            cup.name = "cup";
+            cup.scale.set(2,2,2);
+            cup.rotation.set(0,0,0); // rotation of the torch
+            cup.position.set(25,-14,1200); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
+            cupClone = cup.clone();
+            scene.add(cupClone);
                
-        flag.traverse(function (child) {
+            cup.traverse(function (child) {
               if (child instanceof THREE.Mesh) {
                 child.castShadow = true;
                 child.receiveShadow = true;
@@ -676,9 +676,9 @@ export function createSpear2(){
               }
               if (child.material) child.material.metalness = 0;
             });
-            flag.castShadow = true;
-            flag.receiveShadow = true;
-            flagLoaded = true;
+            cup.castShadow = true;
+            cup.receiveShadow = true;
+            cupLoaded = true;
             
             
           });

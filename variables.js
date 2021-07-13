@@ -26,3 +26,6 @@ var boxLoaded = false;
 var spear;
 var spearLoaded = false;
 var spearClone;
+var cupLoaded = false;
+var cup;
+var cupClone;
