@@ -93,6 +93,7 @@ document.addEventListener('keydown',Event=>{
 
 		case keysPressed['d'] && 'shift' :
 			animation.flags_1.torso_dir = true;
+			animation.flags_1.not_jump = true;
 			speed = 0.08;
 			walk_flag = true;
 			torso_dir = true;
@@ -100,6 +101,7 @@ document.addEventListener('keydown',Event=>{
 
 		case keysPressed['a'] && 'shift' :
 			animation.flags_1.torso_dir = false;
+			animation.flags_1.not_jump = true;
 			speed = 0.08;
 			walk_flag = true;
 			torso_dir = false;
@@ -108,6 +110,7 @@ document.addEventListener('keydown',Event=>{
 		case 'd':
 			animation.flags_1.walk_flag = true;
 			animation.flags_1.torso_dir = true;
+			animation.flags_1.not_jump = true;
 			walk_flag = true;
 			torso_dir = true;
 			break;
@@ -115,6 +118,7 @@ document.addEventListener('keydown',Event=>{
 		case 'a':
 			animation.flags_1.walk_flag = true;
 			animation.flags_1.torso_dir = false;
+			animation.flags_1.not_jump = true;
 			walk_flag = true;
 			torso_dir = false;
 			break;		
