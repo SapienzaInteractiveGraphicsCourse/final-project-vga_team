@@ -355,14 +355,14 @@ brick = new THREE.Scene();
 
     // QUARTO MINI SET DI MATTONCINI 
   for(var i=0;i<1;i++){ // numero di mattoncini
-    brick.position.set(20,0,i*6+242+600) // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
+    brick.position.set(10,0,i*6+242+600) // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
     brickClone = brick.clone();
     scene.add(brickClone)
     setPlateHB(brickClone.position.x, brickClone.position.y, brickClone.position.z);
     }
   
     for(var i=0;i<1;i++){ // numero di mattoncini
-      brick.position.set(10,-4,i*6+200+600) // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
+      brick.position.set(10,0,i*6+200+600) // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
       brickClone = brick.clone();
       scene.add(brickClone)
       setPlateHB(brickClone.position.x, brickClone.position.y, brickClone.position.z);
