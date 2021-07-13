@@ -185,7 +185,7 @@ export function walk(){
 }
 var complete = 0
 export function starting_pos(){
-	if(flags_1.rest){
+	if(flags_1.rest && !flags_1.jump_flag){
 			bones[knight_s.knight_bones.leftArm].rotation.x = startingpositions.leftarmx;
 			bones[knight_s.knight_bones.upperSpine].rotation.y = startingpositions.upperSpine;
 			bones[knight_s.knight_bones.leftForeArm].rotation.z = startingpositions.leftforearmz;
