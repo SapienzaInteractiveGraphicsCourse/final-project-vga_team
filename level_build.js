@@ -234,7 +234,7 @@ export function createBox(){
       
       //SCATOLA QUINTA
       box.rotation.set(0,4.75,0); // rotation of the torch
-      box.position.set(10,-7,550); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
+      box.position.set(16.5,-7,550); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
       boxClone = box.clone();
       scene.add(boxClone);
       setBoxHB(boxClone.position.x, boxClone.position.y, boxClone.position.z);
@@ -396,6 +396,7 @@ brick = new THREE.Scene();
     brick.position.set(10,30,i*6+458+600) // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
     brickClone = brick.clone();
     scene.add(brickClone)
+    setPlateHB(brickClone.position.x, brickClone.position.y, brickClone.position.z);
     }
 
 
@@ -403,12 +404,14 @@ brick = new THREE.Scene();
       brick.position.set(10,30,i*6+500+600) // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
       brickClone = brick.clone();
       scene.add(brickClone)
+      setPlateHB(brickClone.position.x, brickClone.position.y, brickClone.position.z);
       }
 
       for(var i=0;i<10;i++){ // numero di mattoncini
         brick.position.set(10,12,i*6+440+600) // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
         brickClone = brick.clone();
         scene.add(brickClone)
+        setPlateHB(brickClone.position.x, brickClone.position.y, brickClone.position.z);
         }
       
 
@@ -551,6 +554,7 @@ box = new THREE.Scene();
   box.rotation.set(0,4.75,0); // rotation of the torch
   box.position.set(16.5,-7,500+600); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
   boxClone = box.clone();
+  setBoxHB(boxClone.position.x, boxClone.position.y, boxClone.position.z);
   scene.add(boxClone);
   
   
