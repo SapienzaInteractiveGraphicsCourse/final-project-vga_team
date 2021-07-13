@@ -190,6 +190,11 @@ function createLevel() {
 	build.createTorch();
 	build.createBox();
 	build.createSpear();
+	
+	build.createGroup2();
+	build.createTorch2();
+	build.createBox2();
+	build.createSpear2();
 }
 
 const animate = function () {
