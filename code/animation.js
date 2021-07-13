@@ -216,7 +216,7 @@ export function jump(){
 			*/
 		}
 		if(time < 30){
-			paladin.position.y+=1;
+			// paladin.position.y+=1;
 			bones[knight_s.knight_bones.leftArm].rotation.x += init_jump_positions.leftarmx/30; //leftarm
 			bones[knight_s.knight_bones.rightArm].rotation.x += init_jump_positions.rightarmx/30; // rightarm
 			bones[knight_s.knight_bones.leftLeg].rotation.x += init_jump_positions.leftupperlegx/30;//leftupperleg
