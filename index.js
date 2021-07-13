@@ -1,12 +1,14 @@
 import * as THREE from "./build/three.js-master/build/three.module.js";
 import { GLTFLoader } from "./build/three.js-master/examples/jsm/loaders/GLTFLoader.js";
 import * as build from "./level_build.js";
+// import * as knight_s from "./code/knight.js";
+import * as animation from "./code/animation.js";
 
-var coord_x = -300;
+var coord_x = -200;
 var coord_y = 0;
 var coord_z = 0;
 
-Physijs.scripts.worker = "./build/Physijs/physijs_worker.js";
+Physijs.scripts.worker = "./build/Physijs-master/physijs_worker.js";
 Physijs.scripts.ammo = "./examples/js/ammo.js";
 
 gltfLoader = new GLTFLoader();
@@ -49,37 +51,16 @@ let light1 = new THREE.DirectionalLight(0xFFFFFF);
 light1.position.set(-3,1,1);
 scene.add(light1);
 
-let skeleton, model_mario;
+let skeleton;
 let bones = [];
 let lifeE=0;
 
-let loadingManager = new THREE.LoadingManager();
-let loade = new GLTFLoader(loadingManager);
-loade.load(
-	'./paladin/scene.gltf',
-	function (gltf) {
-		model_mario = gltf.scene;
-		// model_mario.rotation.y = 1.5708 * 2;
-		// model_mario.rotation.y = 2;
-		model_mario.position.x = 5;
-		model_mario.position.y = -13.5;
-		model_mario.position.z = -5;
-		model_mario.scale.x *= 0.05;
-		model_mario.scale.y *= 0.05;
-		model_mario.scale.z *= 0.05;
-		scene.add(model_mario);
-		model_mario.traverse(function (object) {
-			if (object.isMesh) object.castShadow = true;
-		});
-		THREE.sRGB
-		skeleton = new THREE.SkeletonHelper(model_mario);
-		skeleton.visible = false;
-		scene.add(skeleton);
-		bones = skeleton.bones;
-		
-	}
-);
-charGeometry(10, -13.5, -5);
+// let loadingManager = new THREE.LoadingManager();
+// let loade = new GLTFLoader(loadingManager);
+paladin = new THREE.Scene();
+animation.loadPaladin(gltfLoader);
+
+charGeometry(10, -8.5, -5);
 setConstraint(charBox);
 for (let index = 0; index < 2; index++) {
 	enemyBox[index] = enemyGeometry(index, ex[index], ey[index], ez[index]);;
@@ -88,48 +69,80 @@ for (let index = 0; index < 2; index++) {
 	setConstraint(enemyBox[index]);
 }
 
-// camera.lookAt(10, 1, 0);
+scene.addEventListener( 'update', function() {
+	// the scene's physics have finished updating
+	requestAnimationFrame( animate );
+});
 
 document.addEventListener('keydown',Event=>{
-	switch (Event.key) {
-		case keysPressed['d'] && 'Shift' :
+	
+	keysPressed[Event.key.toLowerCase()] = true;
+});
+
+document.addEventListener('keydown',Event=>{
+	switch (Event.key.toLowerCase()) {
+		case 'k' : 
+			animation.flags_1.hit_flag = true;
+			flagatt = true;
+			break;
+		case ' '  :
+			animation.flags_1.jump_flag = true;
+			animation.flags_1.not_jump = false;
+			jump_flag = true;
+			break;
+
+		case keysPressed['d'] && 'shift' :
+			animation.flags_1.torso_dir = true;
+			speed = 0.08;
+			walk_flag = true;
 			torso_dir = true;
 			break;
 
-		case keysPressed['a'] && 'Shift' :
+		case keysPressed['a'] && 'shift' :
+			animation.flags_1.torso_dir = false;
+			speed = 0.08;
+			walk_flag = true;
 			torso_dir = false;
 			break;
 
 		case 'd':
+			animation.flags_1.walk_flag = true;
+			animation.flags_1.torso_dir = true;
 			walk_flag = true;
 			torso_dir = true;
 			break;
 		
 		case 'a':
+			animation.flags_1.walk_flag = true;
+			animation.flags_1.torso_dir = false;
 			walk_flag = true;
 			torso_dir = false;
 			break;		
-		
-		case ' ':
-			jump_flag = true;
-			break;
-
+	
 		case 's':
 			break;
-
-		case 'k':
-			flagatt = true;
-			break;
-		}
+	}
+	
 
 
+});
+document.addEventListener('keyup', Event => {
+		keysPressed[(Event.key).toLowerCase()]=false;
+
+		
 });
 document.addEventListener('keyup',Event=>{
 	switch (Event.key.toLowerCase()){
 		case 'd':
-			 walk_flag = false;
-			 break;
+			animation.flags_1.walk_flag = false;
+			animation.flags_1.total_body = true;
+			animation.flags_1.rest = true;
+			walk_flag = false;
+			break;
 		case 'a':
+			animation.flags_1.walk_flag = false;
+			animation.flags_1.total_body = true;
+			animation.flags_1.rest = true;
 			walk_flag = false;
 			break;
 		
@@ -139,8 +152,8 @@ document.addEventListener('keyup',Event=>{
 		
 		case 's':
 			break;
-
 		case 'shift':
+			speed = 0.04;
 			break;
 	}
 });
@@ -181,9 +194,6 @@ function createLevel() {
 
 const animate = function () {
 	
-	//brick.rotation.y +=0.005;
-	
-	// anim();
 	gameRoutine();
 
 	charBox.rotation.set(0,0,0);
@@ -193,15 +203,20 @@ const animate = function () {
 	camera.lookAt(charBox.position.x, charBox.position.y, charBox.position.z);
 	camera.updateProjectionMatrix();
 
+	animation.jump();
+	animation.walk();
+	animation.hit();
+	animation.starting_pos();
+
 	document.getElementById("text").innerHTML = charBox.getLinearVelocity().x.toFixed(3)+" , "+charBox.getLinearVelocity().y.toFixed(3)+" , "+charBox.getLinearVelocity().z.toFixed(3);
 	// document.getElementById("text").innerHTML = charBox.position.x.toFixed(3)+" , "+charBox.position.y.toFixed(3)+" , "+charBox.position.z.toFixed(3);
-	document.getElementById("text0").innerHTML = torso_dir;
-	document.getElementById("text1").innerHTML = flagair;
-	document.getElementById("butn").innerHTML = charBox._physijs.touches.length;
+	// document.getElementById("text0").innerHTML = speed;
+	// document.getElementById("text1").innerHTML = flagair;
+	// document.getElementById("butn").innerHTML = charBox._physijs.touches.length;
 
 	scene.simulate();
 	renderer.render( scene, camera );
-	requestAnimationFrame( animate );
+	//requestAnimationFrame( animate );
 };
 
 function createBgSky() {
