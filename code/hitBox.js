@@ -1,6 +1,7 @@
 
 
 function setConstraint(mesh) {
+	//Set limits to player's movements
 	var constraint = new Physijs.DOFConstraint(
 		mesh, // First object to be constrained
 		// physijs_mesh_b, // OPTIONAL second object - if omitted then physijs_mesh_1 
@@ -19,6 +20,7 @@ function setConstraint(mesh) {
 }
 
 function setGround(){
+	//hitbox of the ground
 	var ground_geometry = new THREE.BoxGeometry(200, 20, 1500);
 	var ground_material = Physijs.createMaterial(
 		new THREE.MeshBasicMaterial({ 
@@ -40,20 +42,21 @@ function setGround(){
 }
 
 function charGeometry(x, y, z){
-
+	//hitbox of the player
 	var chr = new THREE.BoxGeometry(5, 9, 3);
 	boxMaterial = Physijs.createMaterial(
 		new THREE.MeshBasicMaterial({ 
 			color: 0x00ff00,
-			// opacity: 0,
-			// transparent: true
+			opacity: 0.3,
+			transparent: true
 		}),
 		1.0,		//friction
 		0.0			//return
 	);
 
 	charBox = new Physijs.BoxMesh(chr, boxMaterial, 50);
-	charBox.position.set(x, y+5, z);
+	charBox.name = "character";
+	charBox.position.set(x, y, z);
 	charBox.setCcdMotionThreshold(1);
   charBox.setCcdSweptSphereRadius(0.2);
 	charBox.setAngularFactor(new THREE.Vector3(0,0,0));
@@ -61,9 +64,11 @@ function charGeometry(x, y, z){
 	scene.add(charBox);
 	charBox.addEventListener("collision", function (collided_with, linearVelocity, angularVelocity, contactNormal) {
 		if(collided_with.material.color.r == 1){
+			//collision with enemy/spikes
 			collEnemy(contactNormal);
 		}
 		else if(collided_with.material.color.b == 1){
+			//collision with ground
 			collGround(contactNormal);
 		}
 	});
@@ -72,18 +77,19 @@ function charGeometry(x, y, z){
 }
 
 function enemyGeometry(i, x, y, z){
-
+	//hitbox of the enemy
 	var chr = new THREE.BoxGeometry(5, 9, 5);
 	boxMaterial = Physijs.createMaterial(
 		new THREE.MeshBasicMaterial({
 			color: 0xff0000,
-			// opacity: 0,
-			// transparent: true
+			opacity: 0.7,
+			transparent: true
 		}),
 		1.0,		//friction
 		0.01	//return
 	);
 	var eBox = new Physijs.BoxMesh(chr, boxMaterial, 50);
+	eBox.name = "enemy";
 	eBox.position.set(x, y, z);
 	eBox.setCcdMotionThreshold(1);
 	eBox.setCcdSweptSphereRadius(0.2);
@@ -100,6 +106,7 @@ function enemyGeometry(i, x, y, z){
 }
 
 function setPlateHB(x, y, z){
+	//hitbox of the plates for mid air ground
 	var ground_material = Physijs.createMaterial(
 		new THREE.MeshBasicMaterial({
 			color: 0x0000ff,
@@ -123,6 +130,7 @@ function setPlateHB(x, y, z){
 }
 
 function setBoxHB(x, y, z){
+	//hitbox of the box obstacle
 	var ground_material = Physijs.createMaterial(
 		new THREE.MeshBasicMaterial({
 			color: 0x0000ff,
@@ -144,6 +152,7 @@ function setBoxHB(x, y, z){
 }
 
 function setSpearHB(x, y, z){
+	//spear's hitbox
 	var ground_material = Physijs.createMaterial(
 		new THREE.MeshBasicMaterial({
 			color: 0xff0000,

@@ -1,12 +1,14 @@
 import * as knight_s from "./knight.js";
 
-let loadingManager = new THREE.LoadingManager();
+// let loadingManager = new THREE.LoadingManager();
 
 let skeleton;
 let bones = [];
-let loade = new GLTFLoader(loadingManager);
+// let loade = new GLTFLoader(loadingManager);
+// let loadingManager = new THREE.LoadingManager();
+// let loade = new GLTFLoader(loadingManager);
 
-var init_jump_positions = {
+export var init_jump_positions = {
 	leftarmx  : (-60*Math.PI)/180,
 	rightarmx : (-60*Math.PI)/180,
 	leftupperlegx : (-80*Math.PI)/180,
@@ -14,7 +16,7 @@ var init_jump_positions = {
 	rightupperlegx : (-60*Math.PI)/180,
 	rightlegx : (100*Math.PI)/180,
 }
-var startingpositions= {
+export var startingpositions= {
 	torso : (90*Math.PI)/180,
 	leftarmz : (-70*Math.PI)/180,
 	leftarmx : 0,
@@ -31,54 +33,12 @@ var startingpositions= {
 	upperSpine : 0,
 }
 
-// let paladin  = new Physijs.Scene();
-let paladin = new THREE.Scene();
-{
-	loade.load(
-		'./models/paladin/scene.gltf',
-		function (gltf) {
-			paladin = gltf.scene;
-			paladin.position.set(0, -5,0);
-			paladin.scale.x *= 0.02;
-			paladin.scale.y *= 0.02;
-			paladin.scale.z *= 0.02;
-			paladin.traverse(function (object) {
-				if (object.isMesh) object.castShadow = true;
-			});
-			paladin.castShadow = true;
-			paladin.receiveShadow = true;
-			THREE.sRGB;
-			skeleton = new THREE.SkeletonHelper(paladin);
-			skeleton.visible = false;
-			scene.add(paladin);
-			bones = skeleton.bones;
-			bones[knight_s.knight_bones.torso].rotation.y = startingpositions.torso;//rotazione del corpo
-			bones[knight_s.knight_bones.leftArm].rotation.z = startingpositions.leftarmz; //leftarm
-			bones[knight_s.knight_bones.leftForeArm].rotation.y = startingpositions.leftforearmy; //leftforearm
-			bones[knight_s.knight_bones.leftForeArm].rotation.z = startingpositions.leftforearmz; //leftforearm
-			bones[knight_s.knight_bones.rightArm].rotation.z = startingpositions.rightarm; // rightarm
-			bones[knight_s.knight_bones.rightForeArm].rotation.y = startingpositions.rightforearmy; //rightforearm
-			bones[knight_s.knight_bones.rightForeArm].rotation.z = startingpositions.rightforearmz; //rightforearm
-			console.log(bones)
-			for(var i = 0; i < bones.length; i++){
-
-				if (i>=41 && i<=56 || i>=15 && i<=31){
-					if (i<40){
-						bones[i].rotation.z = (-80*Math.PI)/180;
-					}
-					else{bones[i].rotation.z = (60*Math.PI)/180;}
-				}
-			}
-		}
-	);
-}
-
-var flagAnim = [true, true];
+export var flagAnim = [true, true];
 
 var bool = true
-var speed = 0.08;
+// var speed = 0.08;
 
-var flags_1 = {
+export var flags_1 = {
 	walk_flag : false,
 	torso_dir : false,
 	bool : false,
@@ -89,7 +49,7 @@ var flags_1 = {
 	rest : false,
 }
 
-var pre_jump_position = {
+export var pre_jump_position = {
 	leftarmx : 0,
 	rightarmx : 0,
 	leftupperlegx : 0,
@@ -98,53 +58,59 @@ var pre_jump_position = {
 	rightlegx : 0,
 
 }
-var fase1 = [true,false]
-function hit(){
+export var fase1 = [true,false]
+export function hit(){
 	if(flags_1.hit_flag){
 		if (fase1[0]){
 			if (bones[knight_s.knight_bones.rightArm].rotation.x<-2){
-				fase1[0]=false;
-				fase1[1] = true;
+					fase1[0]=false;
+					fase1[1] = true;
+
 			}
-		
+
 		bones[knight_s.knight_bones.rightArm].rotation.x -= 0.4;
 		if(bones[knight_s.knight_bones.rightForeArm].rotation.y>0.2){
-			bones[knight_s.knight_bones.rightForeArm].rotation.y -=0.2;
+				bones[knight_s.knight_bones.rightForeArm].rotation.y -=0.2;
 		}
-	}
+}
 		//bones[36].rotation.y = 0.5;
 		//bones[36].rotation.z += 0.2;
 		//flags_1.hit_flag = false;
 		if(fase1[1]){
-			if(bones[knight_s.knight_bones.rightArm].rotation.x <0){
-				bones[knight_s.knight_bones.rightArm].rotation.x += 0.4;	
+			if(flagatt){
+				flagatt = false;
+				attack();
+			}
+			if(bones[knight_s.knight_bones.rightArm].rotation.x <-0.2){
+					bones[knight_s.knight_bones.rightArm].rotation.x += 0.4;
 			}
 			else{
-				starting_pos();
-				flags_1.hit_flag = false;
-				fase1 = [true,false]
+					flags_1.rest = true;
+					starting_pos();
+					flags_1.hit_flag = false;
+					fase1 = [true,false]
 			}
 		}
 	}
 }
 
-function walk(){
+export function walk(){
     var id;
     if(flags_1.walk_flag){
 		if(flags_1.torso_dir){
 			flags_1.bool = true;
-			bones[knight_s.knight_bones.torso].rotation.y = (90*Math.PI)/180;
+			bones[knight_s.knight_bones.torso].rotation.y = (Math.PI)/180;
 		}
 		if(!flags_1.torso_dir){
 			flags_1.bool = false;
-			bones[knight_s.knight_bones.torso].rotation.y = (-90*Math.PI)/180;
+			bones[knight_s.knight_bones.torso].rotation.y = (-180*Math.PI)/180;
 
 		}
 		if(flags_1.bool){
-			paladin.position.x+=speed;
+			// paladin.position.x+=speed;
 		}
 		else{
-			paladin.position.x-=speed;
+			// paladin.position.x-=speed;
 		}
 
 		if(flags_1.not_jump){
@@ -219,115 +185,26 @@ function walk(){
 
 }
 var complete = 0
-function starting_pos(){
+export function starting_pos(){
 	if(flags_1.rest){
-		var tmp = 0.001;
-		if(Math.abs(bones[knight_s.knight_bones.leftArm].rotation.x - startingpositions.leftarmx > 0)){
-			if(bones[knight_s.knight_bones.leftArm].rotation.x - startingpositions.leftarmx > 0){
-				bones[knight_s.knight_bones.leftArm].rotation.x -=tmp;
-			}
-			else{
-				bones[knight_s.knight_bones.leftArm].rotation.x -=tmp;
-			}
-			
-		}
-		else{
-			bones[knight_s.knight_bones.leftArm].rotation.x += tmp;
-		}
-	
-		if(Math.abs(bones[knight_s.knight_bones.upperSpine].rotation.y -startingpositions.upperSpine > 0)){
-			bones[knight_s.knight_bones.upperSpine].rotation.y -= tmp;	
-		}
-		else{
-			bones[knight_s.knight_bones.upperSpine].rotation.y += tmp;
-		}
-	
-		if(Math.abs(bones[knight_s.knight_bones.leftForeArm].rotation.z - startingpositions.leftforearmz >0)){
-			bones[knight_s.knight_bones.leftForeArm].rotation.z -= tmp;	
-		}
-		else{
-			bones[knight_s.knight_bones.leftForeArm].rotation.z +=tmp;
-		}
-	
-		if(Math.abs(bones[knight_s.knight_bones.leftForeArm].rotation.z - startingpositions.leftforearmz >0)){
-			bones[knight_s.knight_bones.leftForeArm].rotation.z -=tmp;
-		}
-		else{
-			bones[knight_s.knight_bones.leftForeArm].rotation.z +=tmp;
-		}
-	
-		if(Math.abs(bones[knight_s.knight_bones.leftForeArm].rotation.y - startingpositions.leftforearmy>0)){
-			bones[knight_s.knight_bones.leftForeArm].rotation.y -= tmp;
-		}
-		else{
-			bones[knight_s.knight_bones.leftForeArm].rotation.y += tmp;
-		}
-	
-		if(Math.abs(bones[knight_s.knight_bones.rightArm].rotation.x - startingpositions.rightarmx>0)){
-			bones[knight_s.knight_bones.rightArm].rotation.x -=tmp;
-		}
-		else{
-			bones[knight_s.knight_bones.rightArm].rotation.x +=tmp;
-		}
-	
-		if(Math.abs(bones[knight_s.knight_bones.rightForeArm].rotation.z - startingpositions.rightforearmz>0)){
-			bones[knight_s.knight_bones.rightForeArm].rotation.z -=tmp;
-		}
-		else{
-			bones[knight_s.knight_bones.rightForeArm].rotation.z +=tmp;
-		}
-	
-		if(Math.abs(bones[knight_s.knight_bones.rightForeArm].rotation.y - startingpositions.rightforearmy>0)){
-			bones[knight_s.knight_bones.rightForeArm].rotation.y -=tmp;
-		}
-		else{
-			bones[knight_s.knight_bones.rightForeArm].rotation.y +=tmp;
-		}
-		
-		if(flags_1.total_body){
-			if(bones[knight_s.knight_bones.leftLeg].rotation.x >0){
-				bones[knight_s.knight_bones.leftLeg].rotation.x -= tmp;
-			}
-			else{
-				bones[knight_s.knight_bones.leftLeg].rotation.x =0;
-			}
-	
-			if(bones[knight_s.knight_bones.leftLeg].rotation.x >0){
-				bones[knight_s.knight_bones.leftLeg].rotation.x -= tmp;
-			}
-			else{
-				bones[knight_s.knight_bones.leftLeg].rotation.x = 0;
-			}
-			if(bones[knight_s.knight_bones.leftLowerLeg].rotation.x >0){
-				bones[knight_s.knight_bones.leftLowerLeg].rotation.x -= tmp;
-			}
-			else{
-				bones[knight_s.knight_bones.leftLowerLeg].rotation.x = 0;
-			}
-			
-			if(bones[knight_s.knight_bones.rightLeg].rotation.x > 0){
-				bones[knight_s.knight_bones.rightLeg].rotation.x -= tmp;
-			}
-			else{
-				bones[knight_s.knight_bones.rightLeg].rotation.x = 0;
-			}
-			if(bones[knight_s.knight_bones.rightLowerLeg].rotation.x >0){
-				bones[knight_s.knight_bones.rightLowerLeg].rotation.x -=tmp;
-			}
-			else{
-				bones[knight_s.knight_bones.rightLowerLeg].rotation.x = 0;
-			}		
-		}
-		
-		flags_1.total_body = false;
-		if(flags_1.total_body){
+			bones[knight_s.knight_bones.leftArm].rotation.x = startingpositions.leftarmx;
+			bones[knight_s.knight_bones.upperSpine].rotation.y = startingpositions.upperSpine;
+			bones[knight_s.knight_bones.leftForeArm].rotation.z = startingpositions.leftforearmz;
+			bones[knight_s.knight_bones.leftForeArm].rotation.y = startingpositions.leftforearmy;
+			bones[knight_s.knight_bones.rightArm].rotation.x = startingpositions.rightarmx;
+			bones[knight_s.knight_bones.rightForeArm].rotation.z = startingpositions.rightforearmz;
+			bones[knight_s.knight_bones.rightForeArm].rotation.y = startingpositions.rightforearmy;
+			bones[knight_s.knight_bones.leftLeg].rotation.x = 0;
+			bones[knight_s.knight_bones.leftLowerLeg].rotation.x = 0;
+			bones[knight_s.knight_bones.rightLeg].rotation.x = 0;
+			bones[knight_s.knight_bones.rightLowerLeg].rotation.x = 0;
+			flags_1.rest = false;
 			flagAnim = [true,true];
-		}
 	}
 }
 
 var time = 0;
-function jump(){
+export function jump(){
 	if(flags_1.jump_flag){
 		if(time == 0){
 			/*
@@ -366,6 +243,49 @@ function jump(){
 				time = 0;
 			}
 		}
+	}
+}
+
+export function loadPaladin(gltfLoader){
+	// let paladin0 = new THREE.Scene();
+	{
+		gltfLoader.load(
+			'./paladin/scene.gltf',
+			function (gltf) {
+				paladin = gltf.scene;
+				paladin.position.set(10, -13.5, -5);
+				paladin.scale.x *= 0.05;
+				paladin.scale.y *= 0.05;
+				paladin.scale.z *= 0.05;
+				paladin.traverse(function (object) {
+					if (object.isMesh) object.castShadow = true;
+				});
+				paladin.castShadow = true;
+				paladin.receiveShadow = true;
+				THREE.sRGB;
+				skeleton = new THREE.SkeletonHelper(paladin);
+				skeleton.visible = false;
+				scene.add(paladin);
+				bones = skeleton.bones;
+				bones[knight_s.knight_bones.torso].rotation.y = startingpositions.torso;//rotazione del corpo
+				bones[knight_s.knight_bones.leftArm].rotation.z = startingpositions.leftarmz; //leftarm
+				bones[knight_s.knight_bones.leftForeArm].rotation.y = startingpositions.leftforearmy; //leftforearm
+				bones[knight_s.knight_bones.leftForeArm].rotation.z = startingpositions.leftforearmz; //leftforearm
+				bones[knight_s.knight_bones.rightArm].rotation.z = startingpositions.rightarm; // rightarm
+				bones[knight_s.knight_bones.rightForeArm].rotation.y = startingpositions.rightforearmy; //rightforearm
+				bones[knight_s.knight_bones.rightForeArm].rotation.z = startingpositions.rightforearmz; //rightforearm
+				// console.log(bones);
+				for(var i = 0; i < bones.length; i++){
+	
+					if (i>=41 && i<=56 || i>=15 && i<=31){
+						if (i<40){
+							bones[i].rotation.z = (-80*Math.PI)/180;
+						}
+						else{bones[i].rotation.z = (60*Math.PI)/180;}
+					}
+				}
+			}
+		);
 	}
 }
 
