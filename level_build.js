@@ -88,6 +88,15 @@ export function createGroup1() { // creazione del primo gruppo di mattoncini
         scene.add(brickClone);
         setPlateHB(brickClone.position.x, brickClone.position.y, brickClone.position.z);
         }
+      
+    
+    // MINI SET DI MATTONCINI per il atterrare
+    for(var i=0;i<2;i++){ // numero di mattoncini
+      brick.position.set(10,13,i*6+570) // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
+      brickClone = brick.clone();
+      scene.add(brickClone);
+      setPlateHB(brickClone.position.x, brickClone.position.y, brickClone.position.z);
+      }
   
       brick.traverse(function (child) {
         if (child instanceof THREE.Mesh) {
@@ -222,6 +231,14 @@ export function createBox(){
       boxClone = box.clone();
       scene.add(boxClone);
       setBoxHB(boxClone.position.x, boxClone.position.y, boxClone.position.z);
+      
+      //SCATOLA QUINTA
+      box.rotation.set(0,4.75,0); // rotation of the torch
+      box.position.set(10,-7,550); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
+      boxClone = box.clone();
+      scene.add(boxClone);
+      setBoxHB(boxClone.position.x, boxClone.position.y, boxClone.position.z);
+      
 
       
       box.castShadow = true;
@@ -260,6 +277,14 @@ export function createSpear(){
 
       spear.rotation.set(0,0,0); // rotation of the spear
       spear.position.set(19,-1,40+209.5); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
+      spearClone = spear.clone();
+      scene.add(spearClone);
+      setSpearHB(spearClone.position.x, spearClone.position.y, spearClone.position.z);//da ruotare
+      
+      // Fourth spear
+
+      spear.rotation.set(0,0,0); // rotation of the spear
+      spear.position.set(19,-1,550); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
       spearClone = spear.clone();
       scene.add(spearClone);
       setSpearHB(spearClone.position.x, spearClone.position.y, spearClone.position.z);//da ruotare

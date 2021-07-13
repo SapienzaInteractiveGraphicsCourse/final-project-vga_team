@@ -223,7 +223,7 @@ const animate = function () {
 };
 
 function createBgSky() {
-	var bgSky = new THREE.PlaneGeometry(1500, 200);
+	var bgSky = new THREE.PlaneGeometry(3000, 200);
 	var skyTexture = THREE.ImageUtils.loadTexture("bg.png");
 	skyTexture.wrapS = THREE.RepeatWrapping;
 	skyTexture.wrapT = THREE.RepeatWrapping;
@@ -240,7 +240,7 @@ function createBgSky() {
 }
 
 var landscapeFunction = function () {
-	var geometry = new THREE.BoxGeometry(200, 20, 1500);
+	var geometry = new THREE.BoxGeometry(200, 20, 3000);
 	var texture = THREE.ImageUtils.loadTexture("brick_ground.jpg");
 	texture.wrapS = THREE.RepeatWrapping;
 	texture.wrapT = THREE.RepeatWrapping;
