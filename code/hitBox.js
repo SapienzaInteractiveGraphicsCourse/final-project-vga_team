@@ -134,7 +134,7 @@ function setBoxHB(x, y, z){
 	var ground_material = Physijs.createMaterial(
 		new THREE.MeshBasicMaterial({
 			color: 0x0000ff,
-			opacity: 0.5,
+			opacity: 0,
 			transparent: true
 		}),
 		0.9,

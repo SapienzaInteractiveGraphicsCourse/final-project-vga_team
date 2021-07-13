@@ -38,13 +38,13 @@ function enemyAI() {
 	//move enemy in player direction
 	for (let j = 0; j < enemyBox.length; j++) {
 		if(enemyBox[j] != null){
-			if(Math.abs(enemyBox[j].position.z - charBox.position.z) < 10){
+			if(Math.abs(enemyBox[j].position.z - charBox.position.z) < 25){
 				if(enemyBox[j].position.z < charBox.position.z){
-					enemyBox[j].position.set(enemyBox[j].position.x, enemyBox[j].position.y, enemyBox[j].position.z+0.06);
+					enemyBox[j].position.set(enemyBox[j].position.x, enemyBox[j].position.y, enemyBox[j].position.z+0.1);
 					enemyBox[j].__dirtyPosition = true;
 				}
 				else{
-					enemyBox[j].position.set(enemyBox[j].position.x, enemyBox[j].position.y, enemyBox[j].position.z-0.06);
+					enemyBox[j].position.set(enemyBox[j].position.x, enemyBox[j].position.y, enemyBox[j].position.z-0.1);
 					enemyBox[j].__dirtyPosition = true;
 				}
 			}
