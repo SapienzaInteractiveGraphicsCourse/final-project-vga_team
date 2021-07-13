@@ -5,7 +5,7 @@ import * as build from "./level_build.js";
 import * as animation from "./code/animation.js";
 
 var coord_x = -200;
-var coord_y = 0;
+var coord_y = 10;
 var coord_z = 0;
 
 Physijs.scripts.worker = "./build/Physijs-master/physijs_worker.js";
@@ -319,11 +319,12 @@ function showGame(){
 	if(boxLoaded && boxLoaded2 && spearLoaded2 && cupLoaded && brickLoaded2 && torchLoaded && brickLoaded){
 		setTimeout(function () {
 			// console.log("ok1");
-			clearInterval(timeint);
+			// clearInterval(timeint);
 			document.getElementById("cont_load").innerHTML = "";
 			document.getElementById("start").classList = "visible container";
 		}, 5000);
 		console.log("ok1");
+		clearInterval(timeint);
 	}
 	else{
 		console.log("ok");
