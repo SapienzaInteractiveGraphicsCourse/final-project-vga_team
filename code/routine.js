@@ -31,8 +31,8 @@ function gameRoutine(){
 		// vel.z = 0;
 		vt = -5;
 	}
-	// charBox.setLinearVelocity(new THREE.Vector3( 0, charBox.getLinearVelocity().y+vel.y, vt));
-	charBox.applyCentralImpulse(new THREE.Vector3( 0, charBox.getLinearVelocity().y+vel.y, vt));
+	charBox.setLinearVelocity(new THREE.Vector3( 0, charBox.getLinearVelocity().y+vel.y, vt));
+	// charBox.applyCentralImpulse(new THREE.Vector3( 0, charBox.getLinearVelocity().y+vel.y, vt));
 
 	if(charBox._physijs.touches.length == 0) flagair = true;
 
