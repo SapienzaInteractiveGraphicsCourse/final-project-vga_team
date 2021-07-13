@@ -214,7 +214,7 @@ const animate = function () {
 	document.getElementById("text").innerHTML = charBox.getLinearVelocity().x.toFixed(3)+" , "+charBox.getLinearVelocity().y.toFixed(3)+" , "+charBox.getLinearVelocity().z.toFixed(3);
 	// document.getElementById("text").innerHTML = charBox.position.x.toFixed(3)+" , "+charBox.position.y.toFixed(3)+" , "+charBox.position.z.toFixed(3);
 	// document.getElementById("text0").innerHTML = speed;
-	// document.getElementById("text1").innerHTML = flagair;
+	document.getElementById("text1").innerHTML = flagair;
 	// document.getElementById("butn").innerHTML = charBox._physijs.touches.length;
 
 	scene.simulate();
@@ -234,7 +234,7 @@ function createBgSky() {
 	  flatShading : THREE.FlatShading,
 	});
 	var bg = new THREE.Mesh(bgSky, bgSkyMaterial);
-	bg.position.set(35, 85, 0);
+	bg.position.set(35, 85, 500);
 	bg.rotation.y = (-90 * Math.PI) / 180;
 	scene.add(bg);
 }
@@ -279,6 +279,7 @@ var landscapeFunction = function () {
 	];
 	var bg = new THREE.Mesh(geometry, material);
 	bg.position.y = -24;
+	bg.position.z = 500;
 	scene.add(bg);
 }
 

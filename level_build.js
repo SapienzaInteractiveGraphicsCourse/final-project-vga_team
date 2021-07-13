@@ -271,7 +271,7 @@ export function createSpear(){
       spear.position.set(19,12.5,40+129); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
       spearClone = spear.clone();
       scene.add(spearClone);
-      setSpearHB(spearClone.position.x, spearClone.position.y, spearClone.position.z);
+      setSpearHHB(spearClone.position.x, spearClone.position.y, spearClone.position.z);
 
       // Third spear
 
@@ -601,7 +601,7 @@ export function createSpear2(){
       spear.position.set(19,12.5,40+129+600); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
       spearClone = spear.clone();
       scene.add(spearClone);
-      setSpearHB(spearClone.position.x, spearClone.position.y, spearClone.position.z);
+      setSpearHHB(spearClone.position.x, spearClone.position.y, spearClone.position.z);
 
       // Third spear
 

@@ -21,7 +21,7 @@ function setConstraint(mesh) {
 
 function setGround(){
 	//hitbox of the ground
-	var ground_geometry = new THREE.BoxGeometry(200, 20, 1500);
+	var ground_geometry = new THREE.BoxGeometry(200, 20, 3000);
 	var ground_material = Physijs.createMaterial(
 		new THREE.MeshBasicMaterial({ 
 			color: 0x0000ff,
@@ -134,7 +134,7 @@ function setBoxHB(x, y, z){
 	var ground_material = Physijs.createMaterial(
 		new THREE.MeshBasicMaterial({
 			color: 0x0000ff,
-			opacity: 0,
+			opacity: 0.5,
 			transparent: true
 		}),
 		0.9,
@@ -156,7 +156,7 @@ function setSpearHB(x, y, z){
 	var ground_material = Physijs.createMaterial(
 		new THREE.MeshBasicMaterial({
 			color: 0xff0000,
-			opacity: 0,
+			opacity: 0.5,
 			transparent: true
 		}),
 		1,
@@ -170,5 +170,29 @@ function setSpearHB(x, y, z){
 		0 // mass
 	);
 	grnd.position.set(x, y+4.2, z);
+	scene.add( grnd );
+}
+
+function setSpearHHB(x, y, z){
+	//spear's hitbox
+	var ground_material = Physijs.createMaterial(
+		new THREE.MeshBasicMaterial({
+			color: 0xff0000,
+			opacity: 0.5,
+			transparent: true
+		}),
+		1,
+		0.0
+	);
+	var grnd_geometry = new THREE.BoxGeometry( 9, 12, 9);
+
+	var grnd = new Physijs.BoxMesh(
+		grnd_geometry,
+		ground_material,
+		0 // mass
+	);
+	grnd.position.set(x, y, z+4.2);
+	grnd.rotation.x = (90*Math.PI)/180;
+	grnd.__dirtyRotation = true;
 	scene.add( grnd );
 }
