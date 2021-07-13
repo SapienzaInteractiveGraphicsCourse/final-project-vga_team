@@ -1,6 +1,6 @@
-import {
-  setBrickGeometry,setGroupGeometry
-} from "./bricks.js";
+// import {
+//   setBrickGeometry,setGroupGeometry
+// } from "./bricks.js";
 
 export function createGroup1() { // creazione del primo gruppo di mattoncini
   
