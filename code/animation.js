@@ -45,7 +45,6 @@ export var flags_1 = {
 	not_jump : true,
 	jump_flag : false,
 	hit_flag : false,
-	total_body : false,
 	rest : false,
 }
 
@@ -217,6 +216,7 @@ export function jump(){
 			*/
 		}
 		if(time < 30){
+			paladin.position.y+=1;
 			bones[knight_s.knight_bones.leftArm].rotation.x += init_jump_positions.leftarmx/30; //leftarm
 			bones[knight_s.knight_bones.rightArm].rotation.x += init_jump_positions.rightarmx/30; // rightarm
 			bones[knight_s.knight_bones.leftLeg].rotation.x += init_jump_positions.leftupperlegx/30;//leftupperleg
@@ -236,13 +236,15 @@ export function jump(){
 				time +=1;
 			}
 			else{
-				flags_1.total_body = true;
+				flags_1.rest = true;
 				starting_pos();
 				flags_1.jump_flag = false;
 				flags_1.not_jump = true;
 				time = 0;
 			}
+			
 		}
+		
 	}
 }
 

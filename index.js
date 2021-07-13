@@ -135,13 +135,11 @@ document.addEventListener('keyup',Event=>{
 	switch (Event.key.toLowerCase()){
 		case 'd':
 			animation.flags_1.walk_flag = false;
-			animation.flags_1.total_body = true;
 			animation.flags_1.rest = true;
 			walk_flag = false;
 			break;
 		case 'a':
 			animation.flags_1.walk_flag = false;
-			animation.flags_1.total_body = true;
 			animation.flags_1.rest = true;
 			walk_flag = false;
 			break;
