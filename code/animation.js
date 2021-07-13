@@ -246,6 +246,9 @@ export function jump(){
 		}
 		
 	}
+	else{
+		flags_1.not_jump = true;
+	}
 }
 
 export function loadPaladin(gltfLoader){
