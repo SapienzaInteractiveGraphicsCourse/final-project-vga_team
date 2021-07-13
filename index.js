@@ -225,7 +225,7 @@ const animate = function () {
 
 function createBgSky() {
 	var bgSky = new THREE.PlaneGeometry(3000, 200);
-	var skyTexture = THREE.ImageUtils.loadTexture("bg.png");
+	var skyTexture = new THREE.TextureLoader().load("bg.png");
 	skyTexture.wrapS = THREE.RepeatWrapping;
 	skyTexture.wrapT = THREE.RepeatWrapping;
 	skyTexture.repeat.set(56, 8);
@@ -242,12 +242,12 @@ function createBgSky() {
 
 var landscapeFunction = function () {
 	var geometry = new THREE.BoxGeometry(200, 20, 3000);
-	var texture = THREE.ImageUtils.loadTexture("brick_ground.jpg");
+	var texture = new THREE.TextureLoader().load("brick_ground.jpg");
 	texture.wrapS = THREE.RepeatWrapping;
 	texture.wrapT = THREE.RepeatWrapping;
 	texture.repeat.set(6.25, window.innerWidth / 8);
   
-	var terrainTexture = THREE.ImageUtils.loadTexture("brick_ground.jpg");
+	var terrainTexture = new THREE.TextureLoader().load("brick_ground.jpg");
 	terrainTexture.wrapS = THREE.RepeatWrapping;
 	terrainTexture.wrapT = THREE.RepeatWrapping;
 	terrainTexture.repeat.set(window.innerWidth / 10, 2);
@@ -293,6 +293,9 @@ document.getElementById("btnstart").onclick = function () {
 	document.getElementById("start").classList = "invisible container";
 	document.getElementById("game").classList = "visible";
 }
+
+	
+
 
 document.getElementById("btnend").onclick = function () {
 	location.reload();

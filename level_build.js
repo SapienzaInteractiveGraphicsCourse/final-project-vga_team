@@ -425,7 +425,7 @@ brick = new THREE.Scene();
     });
   brick.castShadow = true;
     brick.receiveShadow = true;
-    brickLoaded = true;
+    brickLoaded2 = true;
     
     
   });
@@ -485,7 +485,7 @@ torch = new THREE.Scene();
       scene.add(torchClone);
 
     }
-      torchLoaded = true;
+      torchLoaded2 = true;
       
       
     };
@@ -570,7 +570,7 @@ box = new THREE.Scene();
       });
       box.castShadow = true;
       box.receiveShadow = true;
-      boxLoaded = true;
+      boxLoaded2 = true;
       
       
     });
@@ -646,7 +646,7 @@ export function createSpear2(){
         });
         spear.castShadow = true;
         spear.receiveShadow = true;
-        spearLoaded = true;
+        spearLoaded2 = true;
         
         
       });
