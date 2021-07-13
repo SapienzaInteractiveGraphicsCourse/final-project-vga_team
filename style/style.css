@@ -1,5 +1,6 @@
 .info{
 	padding-right: 10px;
+	align-self: center;
 }
 
 .hidebar{
@@ -24,4 +25,15 @@
 
 .invisible{
 	display: none;
+}
+
+.image{
+	height: 21px;
+	width: 21px;
+}
+
+.cntrl{
+	align-self: center;
+	margin-left: auto;
+	padding-right: 1%;
 }

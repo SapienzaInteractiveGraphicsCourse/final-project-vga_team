@@ -66,14 +66,17 @@ function charJump() {
 
 function charHit(){
 	//player getting hit
-	lifes -= 1;
-	if(lifes < 0){
+	lives -= 1;
+	if(lives == 0){
+		document.getElementById("text2").innerHTML = "<img src='./style/heart.png' class='image'>";
+	}
+	else if(lives == 1){
+		document.getElementById("text2").innerHTML = "<img src='./style/heart.png' class='image'><img src='./style/heart.png' class='image'>";
+	}
+	else{
 		//end of the game
 		document.getElementById("text2").innerHTML = "Game Over";
 		document.getElementById("game").classList = "invisible";
 		document.getElementById("end").classList = "visible container";
-	}
-	else{
-		document.getElementById("text2").innerHTML = "lifes: "+lifes;
 	}
 }
