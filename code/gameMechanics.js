@@ -91,7 +91,7 @@ function reset(){
 	setTimeout(() => {
 		charBox.position.set(charpos[0], charpos[1], charpos[2]);
 		charBox.__dirtyPosition = true;
-		for (let i = 0; i < enNum; i++) {
+		for (let i = 0; i < enNum-1; i++) {
 			if(enemyBox[i] != null){
 				scene.remove(enemyBox[i]);
 				enemyBox[i] = null;
@@ -100,6 +100,13 @@ function reset(){
 			enemyBox[i] = enemyGeometry(i, ex[i], ey[i], ez[i]);
 			setConstraint(enemyBox[i]);
 		}
+		if(enemyBox[enNum-1] != null){
+			scene.remove(enemyBox[enNum-1]);
+			enemyBox[enNum-1] = null;
+		}
+		enemyBox[enNum-1] = bossGeometry(ex[enNum-1], ey[enNum-1], ez[enNum-1]);
+		setConstraint(enemyBox[enNum-1]);
+		enemyLives[enNum-1] = 5;
 		lives = 2;
 		document.getElementById("text2").innerHTML = "<img src='./style/heart.png' class='image'><img src='./style/heart.png' class='image'><img src='./style/heart.png' class='image'>";
 		document.getElementById("cont_load").classList = "invisible"

@@ -105,6 +105,35 @@ function enemyGeometry(i, x, y, z){
 	return eBox;
 }
 
+function bossGeometry(x, y, z){
+	//hitbox of the enemy
+	var chr = new THREE.BoxGeometry(5, 18, 10);
+	boxMaterial = Physijs.createMaterial(
+		new THREE.MeshBasicMaterial({
+			color: 0xff0000,
+			opacity: 0.7,
+			transparent: true
+		}),
+		1.0,		//friction
+		0.01	//return
+	);
+	var eBox = new Physijs.BoxMesh(chr, boxMaterial, 50);
+	eBox.name = "enemy";
+	eBox.position.set(x, y, z);
+	eBox.setCcdMotionThreshold(1);
+	eBox.setCcdSweptSphereRadius(0.2);
+	eBox.setAngularFactor(new THREE.Vector3(0,0,0));
+	scene.add(eBox);
+	eBox.addEventListener("collision", function (collided_with, linearVelocity, angularVelocity, contactNormal) {
+		if(collided_with.material.r == null);
+		else if(collided_with.material.color.g == 1){
+			collChar(enNum);
+		}
+	});
+	eBox.__dirtyPosition = true;
+	return eBox;
+}
+
 function setPlateHB(x, y, z){
 	//hitbox of the plates for mid air ground
 	var ground_material = Physijs.createMaterial(

@@ -69,9 +69,10 @@ function init(){
 	createBgSky();
 	createLevel();
 	setConstraint(charBox);
-	for (let index = 0; index < enNum; index++) {
+	for (let index = 0; index < enNum-1; index++) {
 		enemyBox[index] = enemyGeometry(index, ex[index], ey[index], ez[index]);
 	}
+	enemyBox[enNum-1] = bossGeometry(ex[enNum-1], ey[enNum-1], ez[enNum-1]);
 	for (let index = 0; index < enNum; index++) {
 		setConstraint(enemyBox[index]);
 	}
