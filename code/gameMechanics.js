@@ -83,8 +83,11 @@ function charHit(){
 }
 
 function reset(){
+	lives = 2;
 	document.getElementById("end").classList = "invisible container";
-	document.getElementById("cont_load").classList = "visible"
+	document.getElementById("cont_load").classList = "visible";
+	charBox.position.set(charpos[0], charpos[1], charpos[2]);
+	charBox.__dirtyPosition = true;
 	setTimeout(() => {
 		charBox.position.set(charpos[0], charpos[1], charpos[2]);
 		charBox.__dirtyPosition = true;
