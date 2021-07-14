@@ -15,22 +15,22 @@ gltfLoader = new GLTFLoader();
 
 container = document.getElementById("game");
 
-const camera = new THREE.PerspectiveCamera( 20, window.innerWidth / window.innerHeight, 0.1, 1000 );
+const camera = new THREE.PerspectiveCamera( 20, window.innerWidth / (window.innerHeight-20), 0.1, 1000 );
 camera.position.set(coord_x, coord_y, coord_z);
 camera.lookAt(10, 1, 0);
 camera.updateProjectionMatrix();
 
 const renderer = new THREE.WebGLRenderer();
-renderer.setSize( window.innerWidth, window.innerHeight );
+renderer.setSize( window.innerWidth, (window.innerHeight-20) );
 renderer.outputEncoding = THREE.sRGBEncoding;
 
 function init(){
 	window.addEventListener(
 		"resize",
 		function () {
-			camera.aspect = window.innerWidth / window.innerHeight;
+			camera.aspect = window.innerWidth / (window.innerHeight-20);
 			camera.updateProjectionMatrix();
-			renderer.setSize(window.innerWidth, window.innerHeight);
+			renderer.setSize(window.innerWidth, (window.innerHeight-20));
 		},
 		false
 	);
@@ -70,12 +70,12 @@ function init(){
 	createLevel();
 	setConstraint(charBox);
 	for (let index = 0; index < enNum; index++) {
-		enemyBox[index] = enemyGeometry(index, ex[index], ey[index], ez[index]);;
+		enemyBox[index] = enemyGeometry(index, ex[index], ey[index], ez[index]);
 	}
 	for (let index = 0; index < enNum; index++) {
 		setConstraint(enemyBox[index]);
 	}
-	setTimeout(function () {animate();}, 500);
+	setTimeout(function () {animate();}, 1500);
 }
 
 // var flagAnim = [true, true];
@@ -309,8 +309,9 @@ document.getElementById("btnstart").onclick = function () {
 }
 
 document.getElementById("btnend").onclick = function () {
-	location.reload();
-	return false;
+	// location.reload();
+	// return false;
+	reset();
 }
 
 var timeint = window.setInterval(showGame, 1500);
@@ -320,14 +321,15 @@ function showGame(){
 		setTimeout(function () {
 			// console.log("ok1");
 			// clearInterval(timeint);
-			document.getElementById("cont_load").innerHTML = "";
+			// document.getElementById("cont_load").innerHTML = "";
+			document.getElementById("cont_load").classList = "invisible";
 			document.getElementById("start").classList = "visible container";
 		}, 5000);
-		console.log("ok1");
+		// console.log("ok1");
 		clearInterval(timeint);
 	}
 	else{
-		console.log("ok");
+		// console.log("ok");
 	}
 }
 

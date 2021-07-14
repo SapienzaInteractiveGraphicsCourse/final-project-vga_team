@@ -9,8 +9,8 @@ function attack() {
 					if(enemyBox[j].position.z - charBox.position.z > 0){
 						enemyBox[j].position.z += 5;
 						enemyBox[j].__dirtyPosition = true;
-						enemyLifes[j] -= 1;
-						if(enemyLifes[j] <= 0){
+						enemyLives[j] -= 1;
+						if(enemyLives[j] <= 0){
 							//dispose enemy
 							scene.remove(enemyBox[j]);
 							enemyBox[j] = null;
@@ -21,8 +21,8 @@ function attack() {
 					if(enemyBox[j].position.z - charBox.position.z < 0){
 						enemyBox[j].position.z -= 5;
 						enemyBox[j].__dirtyPosition = true;
-						enemyLifes[j] -= 1;
-						if(enemyLifes[j] <= 0){
+						enemyLives[j] -= 1;
+						if(enemyLives[j] <= 0){
 							//dispose enemy
 							scene.remove(enemyBox[j]);
 							enemyBox[j] = null;
@@ -78,5 +78,28 @@ function charHit(){
 		document.getElementById("text2").innerHTML = "Game Over";
 		document.getElementById("game").classList = "invisible";
 		document.getElementById("end").classList = "visible container";
+		// rmKeyListener();
 	}
+}
+
+function reset(){
+	document.getElementById("end").classList = "invisible container";
+	document.getElementById("cont_load").classList = "visible"
+	setTimeout(() => {
+		charBox.position.set(charpos[0], charpos[1], charpos[2]);
+		charBox.__dirtyPosition = true;
+		for (let i = 0; i < enNum; i++) {
+			if(enemyBox[i] != null){
+				scene.remove(enemyBox[i]);
+				enemyBox[i] = null;
+			}
+			enemyLives[i] = 2;
+			enemyBox[i] = enemyGeometry(i, ex[i], ey[i], ez[i]);
+			setConstraint(enemyBox[i]);
+		}
+		lives = 2;
+		document.getElementById("text2").innerHTML = "<img src='./style/heart.png' class='image'><img src='./style/heart.png' class='image'><img src='./style/heart.png' class='image'>";
+		document.getElementById("cont_load").classList = "invisible"
+		document.getElementById("game").classList = "visible";
+	}, 3000);
 }

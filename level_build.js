@@ -125,15 +125,15 @@ export function createTorch(){
 
     for(var i=0;i<40;i++){ // numero di torce da inserire
       if (i<4){
-        console.log("primo set")
+        // console.log("primo set")
       torch.rotation.set(0,4.75,0); // rotation of the torch
       torch.position.set(25,20,i*15-6); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
       torchClone = torch.clone();
       scene.add(torchClone);
       }
       else if (i<8){
-        console.log("secondo set")
-        console.log(i)
+        // console.log("secondo set")
+        // console.log(i)
         torch.rotation.set(0,4.75,0); // rotation of the torch
         torch.position.set(25,30,i*15); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
         torchClone = torch.clone();
@@ -141,7 +141,7 @@ export function createTorch(){
       }
       else if (i<11){
 
-        console.log("terzo set")
+        // console.log("terzo set")
         torch.rotation.set(0,4.75,0); // rotation of the torch
         torch.position.set(25,20,i*15+5); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
         torchClone = torch.clone();
@@ -149,7 +149,7 @@ export function createTorch(){
       }
 
       else if (i<14){
-        console.log("quarto set")
+        // console.log("quarto set")
         torch.rotation.set(0,4.75,0); // rotation of the torch
         torch.position.set(25,10,i*15+20); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
         torchClone = torch.clone();
@@ -202,7 +202,7 @@ export function createBox(){
       box = gltf.scene;
       box.name = "box";
       box.scale.set(0.07, 0.07, 0.07);
-      console.log(box);
+      // console.log(box);
       box.traverse(function (child) {
         // if (child instanceof THREE.Mesh) {
           child.castShadow = true;
@@ -445,15 +445,15 @@ torch = new THREE.Scene();
 
   for(var i=0;i<40;i++){ // numero di torce da inserire
     if (i<4){
-      console.log("primo set")
+      // console.log("primo set")
     torch.rotation.set(0,4.75,0); // rotation of the torch
     torch.position.set(25,20,i*15-6+600); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
     torchClone = torch.clone();
     scene.add(torchClone);
     }
     else if (i<8){
-      console.log("secondo set")
-      console.log(i)
+      // console.log("secondo set")
+      // console.log(i)
       torch.rotation.set(0,4.75,0); // rotation of the torch
       torch.position.set(25,30,i*15+600); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
       torchClone = torch.clone();
@@ -461,7 +461,7 @@ torch = new THREE.Scene();
     }
     else if (i<18){
 
-      console.log("terzo set")
+      // console.log("terzo set")
       torch.rotation.set(0,4.75,0); // rotation of the torch
       torch.position.set(25,25,i*15+5+600); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
       torchClone = torch.clone();
@@ -627,7 +627,7 @@ export function createSpear2(){
       spear.position.set(16.2,39,455+600); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
       spearClone = spear.clone();
       scene.add(spearClone);
-      setSpearHB(spearClone.position.x, spearClone.position.y, spearClone.position.z);
+      setSpearHHHB(spearClone.position.x, spearClone.position.y, spearClone.position.z);
       
       // SIXTH SPEAR
       spear.rotation.set(0,0,0); // rotation of the spear

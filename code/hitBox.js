@@ -10,9 +10,9 @@ function setConstraint(mesh) {
 		new THREE.Vector3( 10, -9, 120 )
 	);
 	scene.addConstraint( constraint );
-	constraint.setLinearLowerLimit( new THREE.Vector3( 5, -mesh.position.y+2, -mesh.position.z-20 ) );
+	constraint.setLinearLowerLimit( new THREE.Vector3( 5, -mesh.position.y+2, -mesh.position.z-25 ) );
 	// sets the lower end of the linear movement along the x, y, and z axes.
-	constraint.setLinearUpperLimit( new THREE.Vector3( 5, -mesh.position.y-25, -mesh.position.z+1500 ) );
+	constraint.setLinearUpperLimit( new THREE.Vector3( 5, -mesh.position.y-25, -mesh.position.z+1450) );
 	// sets the upper end of the linear movement along the x, y, and z axes.
 	constraint.setAngularLowerLimit( new THREE.Vector3( 0, 0, 0 ) );
 	// sets the lower end of the angular movement, in radians, along the x, y, and z axes.
@@ -193,6 +193,30 @@ function setSpearHHB(x, y, z){
 	);
 	grnd.position.set(x, y, z+4.2);
 	grnd.rotation.x = (90*Math.PI)/180;
+	grnd.__dirtyRotation = true;
+	scene.add( grnd );
+}
+
+function setSpearHHHB(x, y, z){
+	//spear's hitbox
+	var ground_material = Physijs.createMaterial(
+		new THREE.MeshBasicMaterial({
+			color: 0xff0000,
+			opacity: 0.5,
+			transparent: true
+		}),
+		1,
+		0.0
+	);
+	var grnd_geometry = new THREE.BoxGeometry( 9, 12, 9);
+
+	var grnd = new Physijs.BoxMesh(
+		grnd_geometry,
+		ground_material,
+		0 // mass
+	);
+	grnd.position.set(x, y, z-4.2);
+	grnd.rotation.x = (-90*Math.PI)/180;
 	grnd.__dirtyRotation = true;
 	scene.add( grnd );
 }
