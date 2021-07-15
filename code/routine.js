@@ -56,5 +56,5 @@ function gameRoutine(){
 	for (let j = 0; j < enNum-1; j++) {
 		if(sk1[j]) sk1[j].position.set(enemyBox[j].position.x, enemyBox[j].position.y-4.4, enemyBox[j].position.z);
 	}
-	if(sk1[enNum-1]) sk1[enNum-1].position.set(enemyBox[enNum-1].position.x, enemyBox[enNum-1].position.y-10.4, enemyBox[enNum-1].position.z);
+	if(sk1[enNum-1]) sk1[enNum-1].position.set(enemyBox[enNum-1].position.x, enemyBox[enNum-1].position.y-11, enemyBox[enNum-1].position.z);
 }

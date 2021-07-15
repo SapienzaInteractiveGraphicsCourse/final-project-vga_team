@@ -172,13 +172,12 @@ const animate = function () {
 	// console.log(loading)
 	
 	if (GameLoaded==false){
-		console.log("dentro if GameLoaded = false")
-	
-	if (loading == 225){
-		
-		showGame();
-		console.log("dentro if loading = 255")
-	}}
+		// console.log("dentro if GameLoaded = false");
+		if (loading == 225){
+			showGame();
+			// console.log("dentro if loading = 255");
+		}
+	}
 	gameRoutine();
 
 	charBox.rotation.set(0,0,0);
@@ -194,7 +193,7 @@ const animate = function () {
 	animation.starting_pos();
 
 	// document.getElementById("text").innerHTML = charBox.getLinearVelocity().x.toFixed(3)+" , "+charBox.getLinearVelocity().y.toFixed(3)+" , "+charBox.getLinearVelocity().z.toFixed(3);
-	document.getElementById("text").innerHTML = charBox.position.x.toFixed(3)+" , "+charBox.position.y.toFixed(3)+" , "+charBox.position.z.toFixed(3);
+	// document.getElementById("text").innerHTML = charBox.position.x.toFixed(3)+" , "+charBox.position.y.toFixed(3)+" , "+charBox.position.z.toFixed(3);
 	// document.getElementById("text0").innerHTML = speed;
 	// document.getElementById("text1").innerHTML = flagair;
 	// document.getElementById("butn").innerHTML = charBox._physijs.touches.length;

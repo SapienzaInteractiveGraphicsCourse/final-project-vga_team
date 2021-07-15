@@ -82,7 +82,7 @@ function enemyGeometry(i, x, y, z){
 	boxMaterial = Physijs.createMaterial(
 		new THREE.MeshBasicMaterial({
 			color: 0xff0000,
-			opacity: 0.7,
+			opacity: 0,
 			transparent: true
 		}),
 		1.0,		//friction
@@ -107,11 +107,11 @@ function enemyGeometry(i, x, y, z){
 
 function bossGeometry(x, y, z){
 	//hitbox of the enemy
-	var chr = new THREE.BoxGeometry(5, 20, 8);
+	var chr = new THREE.BoxGeometry(5, 21, 8);
 	boxMaterial = Physijs.createMaterial(
 		new THREE.MeshBasicMaterial({
 			color: 0xff0000,
-			opacity: 0.7,
+			opacity: 0,
 			transparent: true
 		}),
 		1.0,		//friction
