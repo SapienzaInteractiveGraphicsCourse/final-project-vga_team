@@ -305,8 +305,7 @@ function showGame(){
 		//Set enemy position
 		setEnemyPosition();
 		GameLoaded = true;
-		console.log("GameLoaded")
-		console.log(GameLoaded)
+		
 		
 		
 	}
