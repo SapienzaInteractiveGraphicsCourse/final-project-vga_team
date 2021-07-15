@@ -73,32 +73,6 @@ function init(){
 	setTimeout(function () {animate();}, 1500);
 }
 
-// var flagAnim = [true, true];
-// var forward=0;
-// function anim(){
-// 	document.getElementById("coord_x").onclick = function(){coord_x = 8+coord_x;};
-// 	document.getElementById("coord_y").onclick = function(){coord_y = 8+coord_y;};
-// 	document.getElementById("coord_z").onclick = function(){coord_z = 8+coord_z;};
-
-// 	document.getElementById("coord_x_m").onclick = function(){coord_x = coord_x-8;};
-// 	document.getElementById("coord_y_m").onclick = function(){coord_y = coord_y-8;};
-// 	document.getElementById("coord_z_m").onclick = function(){coord_z = coord_z-8;};
-	
-// 	document.getElementById("forward").onclick = function(){forward = forward+4; coord_z = coord_z+4;};
-// 	document.getElementById("back").onclick = function(){forward = forward-4; coord_z = coord_z-4};
-// 	var cameraX = 0 + coord_x;
-// 	var cameraY = 0 + coord_y;
-// 	var cameraZ = 0 + coord_z;
-// 	//console.log(coord_x)
-// 	//console.log(coord_y)
-// 	//console.log(coord_z)
-// 	camera.lookAt(10, 1, 1+forward);
-  
-// 	camera.position.set(cameraX, cameraY, cameraZ);
-// 	camera.updateProjectionMatrix();
-// 	var id;
-// }
-
 function createLevel() {
 	build.createGroup1();
 	build.createTorch();
@@ -195,8 +169,6 @@ function addKeysListener(){
 			case 's':
 				break;
 		}
-		
-
 
 	});
 	document.addEventListener('keyup', Event => {
@@ -306,6 +278,7 @@ document.getElementById("btnstart").onclick = function () {
 document.getElementById("btnend").onclick = function () {
 	// location.reload();
 	// return false;
+	gameover = false;
 	reset();
 }
 

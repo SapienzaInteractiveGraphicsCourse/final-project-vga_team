@@ -23,3 +23,4 @@ var speed = 0.04;
 var enNum = 11;
 
 var win = false;
+var gameover = false;

@@ -14,7 +14,7 @@ function attack() {
 							//dispose enemy
 							scene.remove(enemyBox[j]);
 							enemyBox[j] = null;
-							if(j == enNum-1){
+							if(j == enNum-1 && gameover == false){
 								//boss killed
 								document.getElementById("game").classList = "invisible";
 								document.getElementById("win").classList = "visible container";
@@ -32,7 +32,7 @@ function attack() {
 							//dispose enemy
 							scene.remove(enemyBox[j]);
 							enemyBox[j] = null;
-							if(j == enNum-1){
+							if(j == enNum-1 && gameover == false){
 								//boss killed
 								document.getElementById("game").classList = "invisible";
 								document.getElementById("win").classList = "visible container";
@@ -87,6 +87,7 @@ function charHit(){
 	}
 	else if(win != true){
 		//end of the game
+		gameover = true;
 		document.getElementById("text2").innerHTML = "Game Over";
 		document.getElementById("game").classList = "invisible";
 		document.getElementById("end").classList = "visible container";
