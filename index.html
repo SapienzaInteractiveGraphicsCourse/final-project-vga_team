@@ -6,7 +6,7 @@
 		<style>
 			body { margin: 0; }
 		</style>
-	
+		<link rel="icon" href="./style/hlmt.png">
 		<script type="text/javascript" src="./variables.js"></script>
 		<script type="text/javascript" src="build/three.js-master/build/three.js"></script>
 		<script type="text/javascript" src="build/Physijs-master/physi.js"></script>
@@ -28,14 +28,14 @@
 	<body class="hidebar">
 		<div class="flex">
 			<div style="min-width: 250px;"><a id="text">prova</a></div>
-			<a id="text0" class="info">prova</a>
+			<!-- <a id="text0" class="info">prova</a>
 			<a id="text1" class="info">prova</a>
-			<a id="butn" class="info">charBox</a>
+			<a id="butn" class="info">charBox</a> -->
 			<a class="info">Lives: </a>
 			<div id="text2">
 				<img src='./style/heart.png' class='image'><img src='./style/heart.png' class='image'><img src='./style/heart.png' class='image'>
 			</div>
-			<a id="cntrl" class="cntrl">Move: A D    Jump: Space    Attack: K    Run: Shift</a>
+			<a id="cntrl" class="cntrl">Move: A D | Jump: Space | Attack: K | Run: Shift</a>
 		</div>
 		<div class="visible" id="cont_load">
 			<div class="loading"  id = "loading">
@@ -95,7 +95,16 @@
 		<div id='end' class="invisible container">
 			<section>
 				<div class="center vertaligh">
-					<a id="btnend" class="btn btn-default">Game Over</a>
+					<p class="wnnr">Game Over</p>
+					<a id="btnend" class="btn btn-default">Retry</a>
+				</div>
+			</section>
+		</div>
+		<div id='win' class="invisible container">
+			<section>
+				<div class="center vertaligh">
+					<p class="wnnr">Winner</p>
+					<a id="btnwin" class="btn btn-default">Retry</a>
 				</div>
 			</section>
 		</div>

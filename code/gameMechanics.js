@@ -14,6 +14,12 @@ function attack() {
 							//dispose enemy
 							scene.remove(enemyBox[j]);
 							enemyBox[j] = null;
+							if(j == enNum-1){
+								//boss killed
+								document.getElementById("game").classList = "invisible";
+								document.getElementById("win").classList = "visible container";
+								win = true;
+							}
 						}
 					}
 				}
@@ -26,6 +32,12 @@ function attack() {
 							//dispose enemy
 							scene.remove(enemyBox[j]);
 							enemyBox[j] = null;
+							if(j == enNum-1){
+								//boss killed
+								document.getElementById("game").classList = "invisible";
+								document.getElementById("win").classList = "visible container";
+								win = true;
+							}
 						}
 					}
 				}
@@ -73,18 +85,18 @@ function charHit(){
 	else if(lives == 1){
 		document.getElementById("text2").innerHTML = "<img src='./style/heart.png' class='image'><img src='./style/heart.png' class='image'>";
 	}
-	else{
+	else if(win != true){
 		//end of the game
 		document.getElementById("text2").innerHTML = "Game Over";
 		document.getElementById("game").classList = "invisible";
 		document.getElementById("end").classList = "visible container";
-		// rmKeyListener();
 	}
 }
 
 function reset(){
 	lives = 2;
 	document.getElementById("end").classList = "invisible container";
+	document.getElementById("win").classList = "invisible container";
 	document.getElementById("cont_load").classList = "visible";
 	charBox.position.set(charpos[0], charpos[1], charpos[2]);
 	charBox.__dirtyPosition = true;

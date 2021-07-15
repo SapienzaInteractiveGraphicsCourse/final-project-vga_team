@@ -249,3 +249,9 @@ function setSpearHHHB(x, y, z){
 	grnd.__dirtyRotation = true;
 	scene.add( grnd );
 }
+
+function setEnemyPosition(){
+	for (let i = 0; i < enNum; i++) {
+		enemyBox[i].position.set(ex[i], ey[i], ez[i]);
+	}
+}
