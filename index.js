@@ -54,12 +54,6 @@ function init(){
 	light1.position.set(-3,1,1);
 	scene.add(light1);
 	
-	let skeleton;
-	let bones = [];
-	let lifeE=0;
-	
-	// let loadingManager = new THREE.LoadingManager();
-	// let loade = new GLTFLoader(loadingManager);
 	paladin = new THREE.Scene();
 	animation.loadPaladin(gltfLoader);
 	
@@ -325,8 +319,6 @@ var timeint = window.setInterval(showGame, 1500);
 function showGame(){
 	if(boxLoaded && boxLoaded2 && spearLoaded2 && cupLoaded && brickLoaded2 && torchLoaded && brickLoaded){
 		setTimeout(function () {
-			// console.log("ok1");
-			// clearInterval(timeint);
 			// document.getElementById("cont_load").innerHTML = "";
 			document.getElementById("cont_load").classList = "invisible";
 			document.getElementById("start").classList = "visible container";

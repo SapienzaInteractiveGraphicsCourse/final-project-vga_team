@@ -47,7 +47,7 @@ function charGeometry(x, y, z){
 	boxMaterial = Physijs.createMaterial(
 		new THREE.MeshBasicMaterial({ 
 			color: 0x00ff00,
-			opacity: 0.3,
+			opacity: 0,
 			transparent: true
 		}),
 		1.0,		//friction
@@ -107,7 +107,7 @@ function enemyGeometry(i, x, y, z){
 
 function bossGeometry(x, y, z){
 	//hitbox of the enemy
-	var chr = new THREE.BoxGeometry(5, 18, 10);
+	var chr = new THREE.BoxGeometry(5, 20, 8);
 	boxMaterial = Physijs.createMaterial(
 		new THREE.MeshBasicMaterial({
 			color: 0xff0000,
@@ -185,7 +185,7 @@ function setSpearHB(x, y, z){
 	var ground_material = Physijs.createMaterial(
 		new THREE.MeshBasicMaterial({
 			color: 0xff0000,
-			opacity: 0.5,
+			opacity: 0,
 			transparent: true
 		}),
 		1,
@@ -207,7 +207,7 @@ function setSpearHHB(x, y, z){
 	var ground_material = Physijs.createMaterial(
 		new THREE.MeshBasicMaterial({
 			color: 0xff0000,
-			opacity: 0.5,
+			opacity: 0,
 			transparent: true
 		}),
 		1,
@@ -231,7 +231,7 @@ function setSpearHHHB(x, y, z){
 	var ground_material = Physijs.createMaterial(
 		new THREE.MeshBasicMaterial({
 			color: 0xff0000,
-			opacity: 0.5,
+			opacity: 0,
 			transparent: true
 		}),
 		1,
