@@ -212,7 +212,7 @@ scene.addEventListener( 'update', function() {
 	
 
 function createBgSky() {
-	var bgSky = new THREE.PlaneGeometry(3000, 200);
+	var bgSky = new THREE.PlaneGeometry(1700, 200);
 	var skyTexture = new THREE.TextureLoader().load("bg.png");
 	skyTexture.wrapS = THREE.RepeatWrapping;
 	skyTexture.wrapT = THREE.RepeatWrapping;
@@ -229,7 +229,7 @@ function createBgSky() {
 }
 
 function landscapeFunction() {
-	var geometry = new THREE.BoxGeometry(90, 20, 3000);
+	var geometry = new THREE.BoxGeometry(90, 20, 1700);
 	var texture = new THREE.TextureLoader().load("brick_ground.jpg");
 	texture.wrapS = THREE.RepeatWrapping;
 	texture.wrapT = THREE.RepeatWrapping;
