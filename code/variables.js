@@ -1,6 +1,6 @@
 var camera, container, renderer, container, scene, dirLight, charBox, ambientLight, boxMaterial, ground, grnd;
 var flagair = false;
-let keysPressed = {'d':false,'a':false,'Shift':false,'w':false,'s':false};
+let keysPressed = {'d':false,'a':false,'shift':false,'k':false,' ':false};
 var walk_flag = false, torso_dir = false, jump_flag = false, flagatt = false;
 var vel;
 

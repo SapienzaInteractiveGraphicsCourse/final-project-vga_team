@@ -126,53 +126,49 @@ function addKeysListener(){
 		keysPressed[Event.key.toLowerCase()] = true;
 	});
 
-	document.addEventListener('keydown',Event=>{
-		switch (Event.key.toLowerCase()) {
-			case 'k' : 
-				animation.flags_1.hit_flag = true;
-				flagatt = true;
-				break;
-			case ' '  :
-				animation.flags_1.jump_flag = true;
-				animation.flags_1.not_jump = false;
-				jump_flag = true;
-				break;
-
-			case keysPressed['d'] && 'shift' :
-				animation.flags_1.walk_flag = true;
-				animation.flags_1.torso_dir = true;
-				speed = 0.08;
-				walk_flag = true;
-				torso_dir = true;
-				break;
-
-			case keysPressed['a'] && 'shift' :
-				animation.flags_1.walk_flag = true;
-				animation.flags_1.torso_dir = false;
-				speed = 0.08;
-				walk_flag = true;
-				torso_dir = false;
-				break;
-
-			case 'd':
-				animation.flags_1.walk_flag = true;
-				animation.flags_1.torso_dir = true;
-				walk_flag = true;
-				torso_dir = true;
-				break;
-			
-			case 'a':
-				animation.flags_1.walk_flag = true;
-				animation.flags_1.torso_dir = false;
-				walk_flag = true;
-				torso_dir = false;
-				break;		
+	if(keysPressed['k']){
+		animation.flags_1.hit_flag = true;
+		flagatt = true;
+	} 
 		
-			case 's':
-				break;
-		}
+	else if(keysPressed[' ']){
+		animation.flags_1.jump_flag = true;
+		animation.flags_1.not_jump = false;
+		jump_flag = true;
+	}
 
-	});
+	else if(keysPressed['d'] && keysPressed['shift']){
+		animation.flags_1.walk_flag = true;
+		animation.flags_1.torso_dir = true;
+		speed = 0.08;
+		walk_flag = true;
+		torso_dir = true;
+	}
+
+	else if(keysPressed['a'] && keysPressed['shift']){
+		animation.flags_1.walk_flag = true;
+		animation.flags_1.torso_dir = false;
+		speed = 0.08;
+		walk_flag = true;
+		torso_dir = false;
+	}
+
+	else if(keysPressed['d']){
+		animation.flags_1.walk_flag = true;
+		animation.flags_1.torso_dir = true;
+		walk_flag = true;
+		torso_dir = true;
+	}
+
+	else if(keysPressed['a']){
+		animation.flags_1.walk_flag = true;
+		animation.flags_1.torso_dir = false;
+		walk_flag = true;
+		torso_dir = false;
+	}
+
+
+
 	document.addEventListener('keyup', Event => {
 			keysPressed[(Event.key).toLowerCase()]=false;
 
