@@ -35,3 +35,8 @@ var ok_array = [];
 for (let u = 0; u < enNum; u++) {
 	ok_array[u] = [0,0,0,0];
 }
+
+var flagAnim = [];
+for (let u = 0; u < enNum; u++) {
+	flagAnim[u] = [false, false];
+}

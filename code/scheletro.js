@@ -2,7 +2,7 @@
 
 // let lifeE=0;
 // let loade = new GLTFLoader(loadingManager);
-let flagAnim = [true,true];
+
 var flags_1 = {
 	walk_flag : false,
 	torso_dir : false,
@@ -122,10 +122,10 @@ function skeleton_walk(indx){
     var id;
 	id = 0;
 	
-	if(sk_bones[indx][44].rotation.x > (245*Math.PI)/180 && flagAnim[id] == true){ flagAnim[id] = false;}
-	else if(sk_bones[indx][44].rotation.x < (150*Math.PI)/180 && flagAnim[id] == false) flagAnim[id] = true;
+	if(sk_bones[indx][44].rotation.x > (245*Math.PI)/180 && flagAnim[indx][id] == true){ flagAnim[indx][id] = false;}
+	else if(sk_bones[indx][44].rotation.x < (150*Math.PI)/180 && flagAnim[indx][id] == false) flagAnim[indx][id] = true;
 		
-	if(flagAnim[id]){
+	if(flagAnim[indx][id]){
 		sk_bones[indx][44].rotation.x += speed_sk;
 		
 		if(sk_bones[indx][45].rotation.z>0){
@@ -152,10 +152,10 @@ function skeleton_walk(indx){
 	
 	
 	id = 1;
-	if(sk_bones[indx][48].rotation.x > ((-114*Math.PI)/180) && flagAnim[id] == false) flagAnim[id] = true;
-	else if(sk_bones[indx][48].rotation.x < ((-209*Math.PI)/180) && flagAnim[id] == true) flagAnim[id] = false;
+	if(sk_bones[indx][48].rotation.x > ((-114*Math.PI)/180) && flagAnim[indx][id] == false) flagAnim[indx][id] = true;
+	else if(sk_bones[indx][48].rotation.x < ((-209*Math.PI)/180) && flagAnim[indx][id] == true) flagAnim[indx][id] = false;
 
-	if(flagAnim[id]){
+	if(flagAnim[indx][id]){
 		sk_bones[indx][48].rotation.x -= speed_sk;
 		if(sk_bones[indx][48].rotation.x > (-164*Math.PI)/180){
 			sk_bones[indx][49].rotation.z -=speed_sk*(3/2);
@@ -251,7 +251,7 @@ function skeleton_start(indx){
 		sk_bones[indx][i].rotation.x =  (0*Math.PI)/180;
 		sk_bones[indx][i].rotation.x =  sk_bones[indx][i+21].rotation.x;
 	}
-
+	flagAnim[indx] = [true,true];
 }
 
 function turn_sk(indx){
