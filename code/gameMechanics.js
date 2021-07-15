@@ -14,6 +14,8 @@ function attack() {
 							//dispose enemy
 							scene.remove(enemyBox[j]);
 							enemyBox[j] = null;
+							scene.remove(sk1[j]);
+							sk1[j] = null;
 							if(j == enNum-1 && gameover == false){
 								//boss killed
 								document.getElementById("game").classList = "invisible";
@@ -32,6 +34,8 @@ function attack() {
 							//dispose enemy
 							scene.remove(enemyBox[j]);
 							enemyBox[j] = null;
+							scene.remove(sk1[j]);
+							sk1[j] = null;
 							if(j == enNum-1 && gameover == false){
 								//boss killed
 								document.getElementById("game").classList = "invisible";
@@ -54,12 +58,23 @@ function enemyAI() {
 				if(enemyBox[j].position.z < charBox.position.z){
 					enemyBox[j].position.set(enemyBox[j].position.x, enemyBox[j].position.y, enemyBox[j].position.z+0.1);
 					enemyBox[j].__dirtyPosition = true;
+					sk_dir[j] = true;
+					sk_fg[j] = true;
+					hands_up(j);
 				}
 				else{
 					enemyBox[j].position.set(enemyBox[j].position.x, enemyBox[j].position.y, enemyBox[j].position.z-0.1);
 					enemyBox[j].__dirtyPosition = true;
+					sk_dir[j] = false;
+					sk_fg[j] = true;
+					hands_up(j);
 				}
 			}
+			else{
+				sk_fg[j] = false;
+				if(sk_bones[j]) skeleton_start(j);
+			}
+			if(sk_bones[j]) turn_sk(j);
 		}
 	}
 }
@@ -101,28 +116,46 @@ function reset(){
 	document.getElementById("cont_load").classList = "visible";
 	charBox.position.set(charpos[0], charpos[1], charpos[2]);
 	charBox.__dirtyPosition = true;
-	setTimeout(() => {
-		charBox.position.set(charpos[0], charpos[1], charpos[2]);
-		charBox.__dirtyPosition = true;
-		for (let i = 0; i < enNum-1; i++) {
-			if(enemyBox[i] != null){
-				scene.remove(enemyBox[i]);
-				enemyBox[i] = null;
-			}
-			enemyLives[i] = 2;
+	
+	charBox.position.set(charpos[0], charpos[1], charpos[2]);
+	charBox.__dirtyPosition = true;
+	for (let i = 0; i < enNum-1; i++) {
+		enemyLives[i] = 2;
+		if(enemyBox[i] == null){
 			enemyBox[i] = enemyGeometry(i, ex[i], ey[i], ez[i]);
 			setConstraint(enemyBox[i]);
 		}
-		if(enemyBox[enNum-1] != null){
-			scene.remove(enemyBox[enNum-1]);
-			enemyBox[enNum-1] = null;
+		if(sk1[i] == null){
+			sk1[i] = loadSkeleton(gltfLoader, i);
 		}
+		enemyBox[i].position.set(ex[i], ey[i], ez[i]);
+		enemyBox[i].__dirtyPosition = true;
+	}
+	if(enemyBox[enNum-1] == null){
 		enemyBox[enNum-1] = bossGeometry(ex[enNum-1], ey[enNum-1], ez[enNum-1]);
 		setConstraint(enemyBox[enNum-1]);
-		enemyLives[enNum-1] = 5;
-		lives = 2;
+		loadBoss(gltfLoader);
+	}
+	enemyBox[enNum-1].position.set(ex[enNum-1], ey[enNum-1], ez[enNum-1]);
+	enemyBox[enNum-1].__dirtyPosition = true;
+	enemyLives[enNum-1] = 5;
+	lives = 2;
+	setTimeout(() => {
 		document.getElementById("text2").innerHTML = "<img src='./style/heart.png' class='image'><img src='./style/heart.png' class='image'><img src='./style/heart.png' class='image'>";
 		document.getElementById("cont_load").classList = "invisible"
 		document.getElementById("game").classList = "visible";
-	}, 3000);
+	}, 4000);
+}
+
+function sk_walk(){
+	for(var i = 0; i < sk1.length; i++){
+		if(sk_fg[i]){
+			if(sk_dir[i]){
+				skeleton_walk(i);
+			}
+			else{
+				skeleton_walk(i);
+			}
+		}
+	}
 }

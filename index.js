@@ -65,12 +65,14 @@ function init(){
 	setConstraint(charBox);
 	for (let index = 0; index < enNum-1; index++) {
 		enemyBox[index] = enemyGeometry(index, ex[index], ey[index], ez[index]);
+		loadSkeleton(gltfLoader, index);
 	}
+	loadBoss(gltfLoader);
 	enemyBox[enNum-1] = bossGeometry(ex[enNum-1], ey[enNum-1], ez[enNum-1]);
 	for (let index = 0; index < enNum; index++) {
 		setConstraint(enemyBox[index]);
 	}
-	setTimeout(function () {animate();}, 1500);
+	setTimeout(function () {animate();}, 2000);
 }
 
 function createLevel() {
@@ -167,7 +169,7 @@ function addKeysListener(){
 
 
 const animate = function () {
-	console.log(loading)
+	// console.log(loading)
 	
 	if (GameLoaded==false){
 		console.log("dentro if GameLoaded = false")
@@ -198,7 +200,7 @@ const animate = function () {
 	// document.getElementById("butn").innerHTML = charBox._physijs.touches.length;
 
 	scene.simulate();
-	renderer.render( scene, camera );
+	// renderer.render( scene, camera );
 	//requestAnimationFrame( animate );
 };
 
@@ -207,6 +209,7 @@ init();
 
 scene.addEventListener( 'update', function() {
 	// the scene's physics have finished updating
+	renderer.render( scene, camera );
 	requestAnimationFrame( animate );
 });
 	
@@ -298,16 +301,14 @@ document.getElementById("btnwin").onclick = function () {
 //var timeint = window.setInterval(showGame, 1500);
 
 function showGame(){
-	
-			document.getElementById("cont_load").classList = "invisible";
-			document.getElementById("start").classList = "visible container";
+	GameLoaded = true;
+	setTimeout(function(){
+		document.getElementById("cont_load").classList = "invisible";
+		document.getElementById("start").classList = "visible container";
 		
 		//Set enemy position
 		setEnemyPosition();
-		GameLoaded = true;
-		
-		
-		
+	}, 4000);
 	}
 	
 

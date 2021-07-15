@@ -42,7 +42,8 @@ function gameRoutine(){
 	// }
 	
 	enemyAI();
-	for (let j = 0; j < enemyBox.length; j++) {
+	sk_walk();
+	for (let j = 0; j < enNum; j++) {
 		if(enemyBox[j] != null){
 			enemyBox[j].setLinearVelocity(new THREE.Vector3(0, enemyBox[j].getLinearVelocity().y, 0));
 			enemyBox[j].rotation.set(0,0,0);
@@ -51,4 +52,9 @@ function gameRoutine(){
 	}
 
 	paladin.position.set(charBox.position.x, charBox.position.y-4.5, charBox.position.z);
+
+	for (let j = 0; j < enNum-1; j++) {
+		if(sk1[j]) sk1[j].position.set(enemyBox[j].position.x, enemyBox[j].position.y-4.4, enemyBox[j].position.z);
+	}
+	if(sk1[enNum-1]) sk1[enNum-1].position.set(enemyBox[enNum-1].position.x, enemyBox[enNum-1].position.y-10.4, enemyBox[enNum-1].position.z);
 }
