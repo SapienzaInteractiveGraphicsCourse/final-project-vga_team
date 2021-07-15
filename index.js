@@ -87,7 +87,16 @@ function createLevel() {
 }
 
 const animate = function () {
+	console.log(loading)
 	
+	if (GameLoaded==false){
+		console.log("dentro if GameLoaded = false")
+	
+	if (loading == 225){
+		
+		showGame();
+		console.log("dentro if loading = 255")
+	}}
 	gameRoutine();
 
 	charBox.rotation.set(0,0,0);
@@ -219,7 +228,7 @@ function createBgSky() {
 }
 
 function landscapeFunction() {
-	var geometry = new THREE.BoxGeometry(200, 20, 3000);
+	var geometry = new THREE.BoxGeometry(90, 20, 3000);
 	var texture = new THREE.TextureLoader().load("brick_ground.jpg");
 	texture.wrapS = THREE.RepeatWrapping;
 	texture.wrapT = THREE.RepeatWrapping;
@@ -285,21 +294,20 @@ document.getElementById("btnwin").onclick = function () {
 	win = false;
 }
 
-var timeint = window.setInterval(showGame, 1500);
+//var timeint = window.setInterval(showGame, 1500);
 
 function showGame(){
-	if(boxLoaded && boxLoaded2 && spearLoaded2 && cupLoaded && brickLoaded2 && torchLoaded && brickLoaded){
-		setTimeout(function () {
-			// document.getElementById("cont_load").innerHTML = "";
+	
 			document.getElementById("cont_load").classList = "invisible";
 			document.getElementById("start").classList = "visible container";
-		}, 5000);
+		
 		//Set enemy position
 		setEnemyPosition();
-		clearInterval(timeint);
+		GameLoaded = true;
+		console.log("GameLoaded")
+		console.log(GameLoaded)
+		
+		
 	}
-	else{
-		// console.log("ok");
-	}
-}
+	
 

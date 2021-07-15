@@ -24,6 +24,7 @@ export function createGroup1() { // creazione del primo gruppo di mattoncini
         brickClone = brick.clone();
         scene.add(brickClone);
         setPlateHB(brickClone.position.x, brickClone.position.y, brickClone.position.z);
+        loading += 1 ;
       }
       // SECONDO SET DI MATTONCINI sopra il primo
       for(var i=0;i<10;i++){ // numero di mattoncini
@@ -31,6 +32,7 @@ export function createGroup1() { // creazione del primo gruppo di mattoncini
         brickClone = brick.clone();
         scene.add(brickClone);
         setPlateHB(brickClone.position.x, brickClone.position.y, brickClone.position.z);
+        loading += 1 ;
       }
       
         // TERZO SET DI MATTONCINI sopra il secondo
@@ -39,6 +41,7 @@ export function createGroup1() { // creazione del primo gruppo di mattoncini
         brickClone = brick.clone();
         scene.add(brickClone);
         setPlateHB(brickClone.position.x, brickClone.position.y, brickClone.position.z);
+        loading += 1 ;
       }
 
         // QUARTO MINI SET DI MATTONCINI sopra il secondo
@@ -47,6 +50,7 @@ export function createGroup1() { // creazione del primo gruppo di mattoncini
         brickClone = brick.clone();
         scene.add(brickClone);
         setPlateHB(brickClone.position.x, brickClone.position.y, brickClone.position.z);
+        loading += 1 ;
       }
 
         // QUINTO SET DI MATTONCINI DOPO SALTO
@@ -56,6 +60,7 @@ export function createGroup1() { // creazione del primo gruppo di mattoncini
         brickClone = brick.clone();
         scene.add(brickClone);
         setPlateHB(brickClone.position.x, brickClone.position.y, brickClone.position.z);
+        loading += 1 ;
       }
 
       for(var i=0;i<10;i++){ // numero di mattoncini
@@ -63,13 +68,16 @@ export function createGroup1() { // creazione del primo gruppo di mattoncini
         brickClone = brick.clone();
         scene.add(brickClone);
         setPlateHB(brickClone.position.x, brickClone.position.y, brickClone.position.z);
+        loading += 1 ;
       }
+      
 
       for(var i=0;i<10;i++){ // numero di mattoncini
         brick.position.set(10,30,i*6+380) // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
         brickClone = brick.clone();
         scene.add(brickClone);
         setPlateHB(brickClone.position.x, brickClone.position.y, brickClone.position.z);
+        loading += 1 ;
       }
       
       
@@ -79,6 +87,7 @@ export function createGroup1() { // creazione del primo gruppo di mattoncini
       brickClone = brick.clone();
       scene.add(brickClone);
       setPlateHB(brickClone.position.x, brickClone.position.y, brickClone.position.z);
+      loading += 1 ;
       }
 
 
@@ -87,6 +96,7 @@ export function createGroup1() { // creazione del primo gruppo di mattoncini
         brickClone = brick.clone();
         scene.add(brickClone);
         setPlateHB(brickClone.position.x, brickClone.position.y, brickClone.position.z);
+        loading += 1 ;
         }
       
     
@@ -96,6 +106,7 @@ export function createGroup1() { // creazione del primo gruppo di mattoncini
       brickClone = brick.clone();
       scene.add(brickClone);
       setPlateHB(brickClone.position.x, brickClone.position.y, brickClone.position.z);
+      loading += 1 ;
       }
   
       brick.traverse(function (child) {
@@ -130,6 +141,7 @@ export function createTorch(){
       torch.position.set(25,20,i*25-1); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
       torchClone = torch.clone();
       scene.add(torchClone);
+      loading += 1 ;
       }
       else if (i<4){
         // console.log("secondo set")
@@ -138,6 +150,7 @@ export function createTorch(){
         torch.position.set(25,30,i*25+15); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
         torchClone = torch.clone();
         scene.add(torchClone);
+        loading += 1 ;
       }
       else if (i<6){
 
@@ -146,6 +159,7 @@ export function createTorch(){
         torch.position.set(25,20,i*25+20); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
         torchClone = torch.clone();
         scene.add(torchClone);
+        loading += 1 ;
       }
 
       else if (i<8){
@@ -154,6 +168,7 @@ export function createTorch(){
         torch.position.set(25,10,i*25+40); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
         torchClone = torch.clone();
         scene.add(torchClone);
+        loading += 1 ;
 
       }
 
@@ -162,6 +177,7 @@ export function createTorch(){
         torch.position.set(25,20,i*25+40); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
         torchClone = torch.clone();
         scene.add(torchClone);
+        loading += 1 ;
 
       }
     
@@ -170,6 +186,7 @@ export function createTorch(){
         torch.position.set(25,50,i*25+55); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
         torchClone = torch.clone();
         scene.add(torchClone);
+        loading += 1 ;
 
       }
 
@@ -211,6 +228,7 @@ export function createBox(){
         boxClone = box.clone();
         scene.add(boxClone);
         setBoxHB(boxClone.position.x, boxClone.position.y, boxClone.position.z);
+        loading += 1 ;
       }
         //       SCATOLA SINGOLA TERZA
       box.rotation.set(0,4.75,0); // rotation of the torch
@@ -218,6 +236,7 @@ export function createBox(){
       boxClone = box.clone();
       scene.add(boxClone);
       setBoxHB(boxClone.position.x, boxClone.position.y, boxClone.position.z);
+      loading += 1 ;
 
         //SCATOLA SINGOLA QUARTA
       box.rotation.set(0,4.75,0); // rotation of the torch
@@ -225,6 +244,7 @@ export function createBox(){
       boxClone = box.clone();
       scene.add(boxClone);
       setBoxHB(boxClone.position.x, boxClone.position.y, boxClone.position.z);
+      loading += 1 ;
       
       //SCATOLA QUINTA
       box.rotation.set(0,4.75,0); // rotation of the torch
@@ -232,6 +252,7 @@ export function createBox(){
       boxClone = box.clone();
       scene.add(boxClone);
       setBoxHB(boxClone.position.x, boxClone.position.y, boxClone.position.z);
+      loading += 1 ;
       
 
       
@@ -258,7 +279,7 @@ export function createSpear(){
       spearClone = spear.clone();
       scene.add(spearClone);
       setSpearHB(spearClone.position.x, spearClone.position.y, spearClone.position.z);
-
+      loading += 1 ;
         // Second spear
 
       spear.rotation.set(1.6,0,0); // rotation of the spear
@@ -266,6 +287,7 @@ export function createSpear(){
       spearClone = spear.clone();
       scene.add(spearClone);
       setSpearHHB(spearClone.position.x, spearClone.position.y, spearClone.position.z);
+      loading += 1 ;
 
       // Third spear
 
@@ -274,6 +296,7 @@ export function createSpear(){
       spearClone = spear.clone();
       scene.add(spearClone);
       setSpearHB(spearClone.position.x, spearClone.position.y, spearClone.position.z);//da ruotare
+      loading += 1 ;
       
       // Fourth spear
 
@@ -282,6 +305,7 @@ export function createSpear(){
       spearClone = spear.clone();
       scene.add(spearClone);
       setSpearHB(spearClone.position.x, spearClone.position.y, spearClone.position.z);//da ruotare
+      loading += 1 ;
     
       
 
@@ -330,6 +354,7 @@ brick = new THREE.Scene();
   brickClone = brick.clone();
   scene.add(brickClone)
   setPlateHB(brickClone.position.x, brickClone.position.y, brickClone.position.z);
+  loading += 1 ;
   }
   // SECONDO SET DI MATTONCINI sopra il primo
   for(var i=0;i<10;i++){ // numero di mattoncini
@@ -337,6 +362,7 @@ brick = new THREE.Scene();
     brickClone = brick.clone();
     scene.add(brickClone)
     setPlateHB(brickClone.position.x, brickClone.position.y, brickClone.position.z);
+    loading += 1 ;
     }
   
     // TERZO SET DI MATTONCINI sopra il secondo
@@ -345,6 +371,7 @@ brick = new THREE.Scene();
     brickClone = brick.clone();
     scene.add(brickClone)
     setPlateHB(brickClone.position.x, brickClone.position.y, brickClone.position.z);
+    loading += 1 ;
     }
 
     // QUARTO MINI SET DI MATTONCINI 
@@ -353,6 +380,7 @@ brick = new THREE.Scene();
     brickClone = brick.clone();
     scene.add(brickClone)
     setPlateHB(brickClone.position.x, brickClone.position.y, brickClone.position.z);
+    loading += 1 ;
     }
   
     for(var i=0;i<1;i++){ // numero di mattoncini
@@ -360,6 +388,7 @@ brick = new THREE.Scene();
       brickClone = brick.clone();
       scene.add(brickClone)
       setPlateHB(brickClone.position.x, brickClone.position.y, brickClone.position.z);
+      loading += 1 ;
       }
 
     // QUINTO SET DI MATTONI IN SALITA SCALETTA
@@ -369,6 +398,7 @@ brick = new THREE.Scene();
       brickClone = brick.clone();
       scene.add(brickClone);
       setPlateHB(brickClone.position.x, brickClone.position.y, brickClone.position.z);
+      loading += 1 ;
       }
 
       for(var i=0;i<10;i++){ // numero di mattoncini
@@ -376,6 +406,7 @@ brick = new THREE.Scene();
         brickClone = brick.clone();
         scene.add(brickClone);
         setPlateHB(brickClone.position.x, brickClone.position.y, brickClone.position.z);
+        loading += 1 ;
         }
 
         for(var i=0;i<10;i++){ // numero di mattoncini
@@ -383,6 +414,7 @@ brick = new THREE.Scene();
           brickClone = brick.clone();
           scene.add(brickClone);
           setPlateHB(brickClone.position.x, brickClone.position.y, brickClone.position.z);
+          loading += 1 ;
           }
 
     // SESTO MINI SET DI MATTONCINI per il salto
@@ -391,6 +423,7 @@ brick = new THREE.Scene();
     brickClone = brick.clone();
     scene.add(brickClone)
     setPlateHB(brickClone.position.x, brickClone.position.y, brickClone.position.z);
+    loading += 1 ;
     }
 
 
@@ -399,6 +432,7 @@ brick = new THREE.Scene();
       brickClone = brick.clone();
       scene.add(brickClone)
       setPlateHB(brickClone.position.x, brickClone.position.y, brickClone.position.z);
+      loading += 1 ;
       }
 
       for(var i=0;i<10;i++){ // numero di mattoncini
@@ -406,6 +440,7 @@ brick = new THREE.Scene();
         brickClone = brick.clone();
         scene.add(brickClone)
         setPlateHB(brickClone.position.x, brickClone.position.y, brickClone.position.z);
+        loading += 1 ;
         }
       
 
@@ -444,6 +479,7 @@ torch = new THREE.Scene();
         torch.position.set(25,20,i*25-1+600); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
         torchClone = torch.clone();
         scene.add(torchClone);
+        loading += 1 ;
         }
         else if (i<4){
           // console.log("secondo set")
@@ -452,6 +488,7 @@ torch = new THREE.Scene();
           torch.position.set(25,30,i*25+15+600); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
           torchClone = torch.clone();
           scene.add(torchClone);
+          loading += 1 ;
         }
         else if (i<6){
   
@@ -460,6 +497,7 @@ torch = new THREE.Scene();
           torch.position.set(25,20,i*25+20+600); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
           torchClone = torch.clone();
           scene.add(torchClone);
+          loading += 1 ;
         }
   
         else if (i<8){
@@ -468,7 +506,7 @@ torch = new THREE.Scene();
           torch.position.set(25,10,i*25+40+600); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
           torchClone = torch.clone();
           scene.add(torchClone);
-  
+          loading += 1 ;
         }
   
         else if (i<10){
@@ -476,6 +514,7 @@ torch = new THREE.Scene();
           torch.position.set(25,20,i*25+40+600); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
           torchClone = torch.clone();
           scene.add(torchClone);
+          loading += 1 ;
   
         }
       
@@ -484,6 +523,7 @@ torch = new THREE.Scene();
           torch.position.set(25,50,i*25+55+600); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
           torchClone = torch.clone();
           scene.add(torchClone);
+          loading += 1 ;
   
         
       }
@@ -524,6 +564,7 @@ box = new THREE.Scene();
       boxClone = box.clone();
       scene.add(boxClone);
       setBoxHB(boxClone.position.x, boxClone.position.y, boxClone.position.z);
+      loading += 1 ;
   }
 //       SCATOLA SINGOLA TERZA
   box.rotation.set(0,4.75,0); // rotation of the torch
@@ -531,6 +572,7 @@ box = new THREE.Scene();
       boxClone = box.clone();
       scene.add(boxClone);
       setBoxHB(boxClone.position.x, boxClone.position.y, boxClone.position.z);
+      loading += 1 ;
 
     //SCATOLA SINGOLA QUARTA
   box.rotation.set(0,4.75,0); // rotation of the torch
@@ -538,6 +580,7 @@ box = new THREE.Scene();
   boxClone = box.clone();
   scene.add(boxClone);
   setBoxHB(boxClone.position.x, boxClone.position.y, boxClone.position.z);
+  loading += 1 ;
   
   
   // SCATOLA SINGOLA QUINTA
@@ -546,6 +589,7 @@ box = new THREE.Scene();
   boxClone = box.clone();
   scene.add(boxClone);
   setBoxHB(boxClone.position.x, boxClone.position.y, boxClone.position.z);
+  loading += 1 ;
   
   // SCATOLA SINGOLA SESTA
   box.rotation.set(0,4.75,0); // rotation of the torch
@@ -553,6 +597,7 @@ box = new THREE.Scene();
   boxClone = box.clone();
   setBoxHB(boxClone.position.x, boxClone.position.y, boxClone.position.z);
   scene.add(boxClone);
+  loading += 1 ;
 
   // SCATOLA SINGOLA SETTTIMA a terra
   box.rotation.set(0,4.75,0); // rotation of the torch
@@ -560,6 +605,7 @@ box = new THREE.Scene();
   boxClone = box.clone();
   setBoxHB(boxClone.position.x, boxClone.position.y, boxClone.position.z);
   scene.add(boxClone);
+  loading += 1 ;
   
   
   
@@ -602,6 +648,7 @@ export function createSpear2(){
       spearClone = spear.clone();
       scene.add(spearClone);
       setSpearHB(spearClone.position.x, spearClone.position.y, spearClone.position.z);
+      loading += 1 ;
 
        // Second spear
 
@@ -610,6 +657,7 @@ export function createSpear2(){
       spearClone = spear.clone();
       scene.add(spearClone);
       setSpearHHB(spearClone.position.x, spearClone.position.y, spearClone.position.z);
+      loading += 1 ;
 
       // Third spear
 
@@ -618,6 +666,7 @@ export function createSpear2(){
       spearClone = spear.clone();
       scene.add(spearClone);
       setSpearHB(spearClone.position.x, spearClone.position.y, spearClone.position.z);
+      loading += 1 ;
     
     // fOURTH SPEAR
       spear.rotation.set(0,0,0); // rotation of the spear
@@ -625,6 +674,7 @@ export function createSpear2(){
       spearClone = spear.clone();
       scene.add(spearClone);
       setSpearHB(spearClone.position.x, spearClone.position.y, spearClone.position.z);
+      loading += 1 ;
       
       // FIFTH SPEAR
       spear.rotation.set(-1.5,0,0); // rotation of the spear
@@ -632,6 +682,7 @@ export function createSpear2(){
       spearClone = spear.clone();
       scene.add(spearClone);
       setSpearHHHB(spearClone.position.x, spearClone.position.y, spearClone.position.z);
+      loading += 1 ;
       
       // SIXTH SPEAR
       spear.rotation.set(0,0,0); // rotation of the spear
@@ -639,6 +690,7 @@ export function createSpear2(){
       spearClone = spear.clone();
       scene.add(spearClone);
       setSpearHB(spearClone.position.x, spearClone.position.y, spearClone.position.z);
+      loading += 1 ;
     
     spear.traverse(function (child) {
           if (child instanceof THREE.Mesh) {
