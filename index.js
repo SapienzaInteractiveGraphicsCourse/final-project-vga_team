@@ -137,7 +137,7 @@ const animate = function () {
 	// document.getElementById("text").innerHTML = charBox.getLinearVelocity().x.toFixed(3)+" , "+charBox.getLinearVelocity().y.toFixed(3)+" , "+charBox.getLinearVelocity().z.toFixed(3);
 	document.getElementById("text").innerHTML = charBox.position.x.toFixed(3)+" , "+charBox.position.y.toFixed(3)+" , "+charBox.position.z.toFixed(3);
 	// document.getElementById("text0").innerHTML = speed;
-	document.getElementById("text1").innerHTML = flagair;
+	// document.getElementById("text1").innerHTML = flagair;
 	// document.getElementById("butn").innerHTML = charBox._physijs.touches.length;
 
 	scene.simulate();
@@ -315,6 +315,11 @@ document.getElementById("btnend").onclick = function () {
 	reset();
 }
 
+document.getElementById("btnwin").onclick = function () {
+	reset();
+	win = false;
+}
+
 var timeint = window.setInterval(showGame, 1500);
 
 function showGame(){
@@ -326,7 +331,8 @@ function showGame(){
 			document.getElementById("cont_load").classList = "invisible";
 			document.getElementById("start").classList = "visible container";
 		}, 5000);
-		// console.log("ok1");
+		//Set enemy position
+		setEnemyPosition();
 		clearInterval(timeint);
 	}
 	else{
