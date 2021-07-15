@@ -139,6 +139,7 @@ function addKeysListener(){
 				break;
 
 			case keysPressed['d'] && 'shift' :
+				animation.flags_1.walk_flag = true;
 				animation.flags_1.torso_dir = true;
 				speed = 0.08;
 				walk_flag = true;
@@ -146,6 +147,7 @@ function addKeysListener(){
 				break;
 
 			case keysPressed['a'] && 'shift' :
+				animation.flags_1.walk_flag = true;
 				animation.flags_1.torso_dir = false;
 				speed = 0.08;
 				walk_flag = true;
