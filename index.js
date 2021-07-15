@@ -85,50 +85,6 @@ function createLevel() {
 	build.createSpear2();
 	build.createCup();
 }
-
-const animate = function () {
-	console.log(loading)
-	
-	if (GameLoaded==false){
-		console.log("dentro if GameLoaded = false")
-	
-	if (loading == 225){
-		
-		showGame();
-		console.log("dentro if loading = 255")
-	}}
-	gameRoutine();
-
-	charBox.rotation.set(0,0,0);
-	charBox.__dirtyRotation = true;
-
-	camera.position.set(coord_x, coord_y + charBox.position.y, coord_z + charBox.position.z);
-	camera.lookAt(charBox.position.x, charBox.position.y, charBox.position.z);
-	camera.updateProjectionMatrix();
-
-	animation.jump();
-	animation.walk();
-	animation.hit();
-	animation.starting_pos();
-
-	// document.getElementById("text").innerHTML = charBox.getLinearVelocity().x.toFixed(3)+" , "+charBox.getLinearVelocity().y.toFixed(3)+" , "+charBox.getLinearVelocity().z.toFixed(3);
-	document.getElementById("text").innerHTML = charBox.position.x.toFixed(3)+" , "+charBox.position.y.toFixed(3)+" , "+charBox.position.z.toFixed(3);
-	// document.getElementById("text0").innerHTML = speed;
-	// document.getElementById("text1").innerHTML = flagair;
-	// document.getElementById("butn").innerHTML = charBox._physijs.touches.length;
-
-	scene.simulate();
-	renderer.render( scene, camera );
-	//requestAnimationFrame( animate );
-};
-
-
-init();
-
-scene.addEventListener( 'update', function() {
-	// the scene's physics have finished updating
-	requestAnimationFrame( animate );
-});
 function addKeysListener(){
 	document.addEventListener('keydown',Event=>{
 		
@@ -208,6 +164,51 @@ function addKeysListener(){
 		}
 	});
 }
+
+
+const animate = function () {
+	console.log(loading)
+	
+	if (GameLoaded==false){
+		console.log("dentro if GameLoaded = false")
+	
+	if (loading == 225){
+		
+		showGame();
+		console.log("dentro if loading = 255")
+	}}
+	gameRoutine();
+
+	charBox.rotation.set(0,0,0);
+	charBox.__dirtyRotation = true;
+
+	camera.position.set(coord_x, coord_y + charBox.position.y, coord_z + charBox.position.z);
+	camera.lookAt(charBox.position.x, charBox.position.y, charBox.position.z);
+	camera.updateProjectionMatrix();
+	addKeysListener();
+	animation.jump();
+	animation.walk();
+	animation.hit();
+	animation.starting_pos();
+
+	// document.getElementById("text").innerHTML = charBox.getLinearVelocity().x.toFixed(3)+" , "+charBox.getLinearVelocity().y.toFixed(3)+" , "+charBox.getLinearVelocity().z.toFixed(3);
+	document.getElementById("text").innerHTML = charBox.position.x.toFixed(3)+" , "+charBox.position.y.toFixed(3)+" , "+charBox.position.z.toFixed(3);
+	// document.getElementById("text0").innerHTML = speed;
+	// document.getElementById("text1").innerHTML = flagair;
+	// document.getElementById("butn").innerHTML = charBox._physijs.touches.length;
+
+	scene.simulate();
+	renderer.render( scene, camera );
+	//requestAnimationFrame( animate );
+};
+
+
+init();
+
+scene.addEventListener( 'update', function() {
+	// the scene's physics have finished updating
+	requestAnimationFrame( animate );
+});
 	
 
 function createBgSky() {
