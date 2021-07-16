@@ -32,5 +32,5 @@ var cup;
 var cupClone;
 var spearLoaded2 = false;
 var boxLoaded2 = false;
-var loading = 0;
+var loading = 40;
 var GameLoaded = false;

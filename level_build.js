@@ -8,14 +8,14 @@ export function createGroup1() { // creazione del primo gruppo di mattoncini
       brick = gltf.scene;
       brick.name = "brick";
       brick.scale.set(0.1, 0.009, 0.03);
-      brick.castShadow = true;
-      brick.traverse(function (child) {
-        // if (child instanceof THREE.Mesh) {
-        //   child.castShadow = true;
-        //   child.receiveShadow = true;
-        // }
-        child.castShadow = true;
-      });
+      // brick.castShadow = true;
+      // brick.traverse(function (child) {
+      //   // if (child instanceof THREE.Mesh) {
+      //   //   child.castShadow = true;
+      //   //   child.receiveShadow = true;
+      //   // }
+      //   child.castShadow = true;
+      // });
 
 
       // PRIMO SET DI MATTONCINI
@@ -109,16 +109,16 @@ export function createGroup1() { // creazione del primo gruppo di mattoncini
       loading += 1 ;
       }
   
-      brick.traverse(function (child) {
-        if (child instanceof THREE.Mesh) {
-          child.castShadow = true;
-          child.receiveShadow = true;
+      // brick.traverse(function (child) {
+      //   if (child instanceof THREE.Mesh) {
+      //     child.castShadow = true;
+      //     child.receiveShadow = true;
       
-        }
-        if (child.material) child.material.metalness = 0;
-      });
-      brick.castShadow = true;
-      brick.receiveShadow = true;
+      //   }
+      //   if (child.material) child.material.metalness = 0;
+      // });
+      // brick.castShadow = true;
+      // brick.receiveShadow = true;
       brickLoaded = true;
     });
   }
@@ -214,13 +214,13 @@ export function createBox(){
       box.name = "box";
       box.scale.set(0.07, 0.07, 0.07);
       // console.log(box);
-      box.traverse(function (child) {
-        // if (child instanceof THREE.Mesh) {
-          child.castShadow = true;
-        //   child.receiveShadow = true;
-        // }
-        if (child.material) child.material.metalness = 0;
-      });
+      // box.traverse(function (child) {
+      //   // if (child instanceof THREE.Mesh) {
+      //     child.castShadow = true;
+      //   //   child.receiveShadow = true;
+      //   // }
+      //   if (child.material) child.material.metalness = 0;
+      // });
 
       for(var i=0;i<2;i++){ // numero di mattoncini
         box.rotation.set(0,4.75,0); // rotation of the torch
@@ -256,8 +256,8 @@ export function createBox(){
       
 
       
-      box.castShadow = true;
-      box.receiveShadow = true;
+      // box.castShadow = true;
+      // box.receiveShadow = true;
       boxLoaded = true;
     });
   }
@@ -310,16 +310,16 @@ export function createSpear(){
       
 
     
-    spear.traverse(function (child) {
-          if (child instanceof THREE.Mesh) {
-            child.castShadow = true;
-            child.receiveShadow = true;
+    // spear.traverse(function (child) {
+    //       if (child instanceof THREE.Mesh) {
+    //         child.castShadow = true;
+    //         child.receiveShadow = true;
         
-          }
-          if (child.material) child.material.metalness = 0;
-        });
-        box.castShadow = true;
-        box.receiveShadow = true;
+    //       }
+    //       if (child.material) child.material.metalness = 0;
+    //     });
+    //     box.castShadow = true;
+    //     box.receiveShadow = true;
         boxLoaded = true;
         
         
@@ -339,14 +339,14 @@ brick = new THREE.Scene();
   brick = gltf.scene;
     brick.name = "brick";
     brick.scale.set(0.1, 0.009, 0.03);
-    brick.castShadow = true;
-      brick.traverse(function (child) {
-        // if (child instanceof THREE.Mesh) {
-        //   child.castShadow = true;
-        //   child.receiveShadow = true;
-        // }
-        child.castShadow = true;
-      });
+    // brick.castShadow = true;
+    //   brick.traverse(function (child) {
+    //     // if (child instanceof THREE.Mesh) {
+    //     //   child.castShadow = true;
+    //     //   child.receiveShadow = true;
+    //     // }
+    //     child.castShadow = true;
+    //   });
 
   // PRIMO SET DI MATTONCINI
   for(var i=0;i<10;i++){ // numero di mattoncini
@@ -444,16 +444,16 @@ brick = new THREE.Scene();
         }
       
 
-    brick.traverse(function (child) {
-      if (child instanceof THREE.Mesh) {
-        child.castShadow = true;
-        child.receiveShadow = true;
+  //   brick.traverse(function (child) {
+  //     if (child instanceof THREE.Mesh) {
+  //       child.castShadow = true;
+  //       child.receiveShadow = true;
     
-      }
-      if (child.material) child.material.metalness = 0;
-    });
-  brick.castShadow = true;
-    brick.receiveShadow = true;
+  //     }
+  //     if (child.material) child.material.metalness = 0;
+  //   });
+  // brick.castShadow = true;
+  //   brick.receiveShadow = true;
     brickLoaded2 = true;
     
     
@@ -551,13 +551,13 @@ box = new THREE.Scene();
       box = gltf.scene;
       box.name = "box";
       box.scale.set(0.07, 0.07,0.07);
-      box.traverse(function (child) {
-        // if (child instanceof THREE.Mesh) {
-          child.castShadow = true;
-        //   child.receiveShadow = true;
-        // }
-        if (child.material) child.material.metalness = 0;
-      });
+      // box.traverse(function (child) {
+      //   // if (child instanceof THREE.Mesh) {
+      //     child.castShadow = true;
+      //   //   child.receiveShadow = true;
+      //   // }
+      //   if (child.material) child.material.metalness = 0;
+      // });
   for(var i=0;i<2;i++){ // numero di mattoncini
       box.rotation.set(0,4.75,0); // rotation of the torch
       box.position.set(16.5,-7,i*40+42+600); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
@@ -610,16 +610,16 @@ box = new THREE.Scene();
   
   
   
-      box.traverse(function (child) {
-        if (child instanceof THREE.Mesh) {
-          child.castShadow = true;
-          child.receiveShadow = true;
+      // box.traverse(function (child) {
+      //   if (child instanceof THREE.Mesh) {
+      //     child.castShadow = true;
+      //     child.receiveShadow = true;
       
-        }
-        if (child.material) child.material.metalness = 0;
-      });
-      box.castShadow = true;
-      box.receiveShadow = true;
+      //   }
+      //   if (child.material) child.material.metalness = 0;
+      // });
+      // box.castShadow = true;
+      // box.receiveShadow = true;
       boxLoaded2 = true;
       
       
@@ -692,16 +692,16 @@ export function createSpear2(){
       setSpearHB(spearClone.position.x, spearClone.position.y, spearClone.position.z);
       loading += 1 ;
     
-    spear.traverse(function (child) {
-          if (child instanceof THREE.Mesh) {
-            child.castShadow = true;
-            child.receiveShadow = true;
+    // spear.traverse(function (child) {
+    //       if (child instanceof THREE.Mesh) {
+    //         child.castShadow = true;
+    //         child.receiveShadow = true;
         
-          }
-          if (child.material) child.material.metalness = 0;
-        });
-        spear.castShadow = true;
-        spear.receiveShadow = true;
+    //       }
+    //       if (child.material) child.material.metalness = 0;
+    //     });
+    //     spear.castShadow = true;
+    //     spear.receiveShadow = true;
         spearLoaded2 = true;
         
         
@@ -724,16 +724,16 @@ export function createSpear2(){
             cupClone = cup.clone();
             scene.add(cupClone);
                
-            cup.traverse(function (child) {
-              if (child instanceof THREE.Mesh) {
-                child.castShadow = true;
-                child.receiveShadow = true;
+            // cup.traverse(function (child) {
+            //   if (child instanceof THREE.Mesh) {
+            //     child.castShadow = true;
+            //     child.receiveShadow = true;
             
-              }
-              if (child.material) child.material.metalness = 0;
-            });
-            cup.castShadow = true;
-            cup.receiveShadow = true;
+            //   }
+            //   if (child.material) child.material.metalness = 0;
+            // });
+            // cup.castShadow = true;
+            // cup.receiveShadow = true;
             cupLoaded = true;
             
             

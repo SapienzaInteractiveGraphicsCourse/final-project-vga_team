@@ -77,12 +77,12 @@ function init(){
 
 function createLevel() {
 	build.createGroup1();
-	build.createTorch();
+	// build.createTorch();
 	build.createBox();
 	build.createSpear();
 	
 	build.createGroup2();
-	build.createTorch2();
+	// build.createTorch2();
 	build.createBox2();
 	build.createSpear2();
 	build.createCup();
@@ -307,7 +307,8 @@ function showGame(){
 		
 		//Set enemy position
 		setEnemyPosition();
+		// console.log(scene);
 	}, 4000);
-	}
+}
 	
 
