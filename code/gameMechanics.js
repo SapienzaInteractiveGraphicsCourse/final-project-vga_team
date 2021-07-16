@@ -12,7 +12,7 @@ function fadelight(){
 
 function flashingredlight(){
 	var turn = true;
-	var timer = setInterval(function(){
+	setInterval(function(){
 		if (light4.intensity == 0.0) turn = false;
 		if(light4.intensity == 20.0) turn = true;
 		if(turn){
@@ -121,6 +121,7 @@ function charHit(){
 	light4.intensity = 20.0;
 	fadelight();
 	if(lives == 0){
+		light4.intensity = 20.0;
 		flashingredlight();
 		document.getElementById("text2").innerHTML = "<img src='./style/heart.png' class='image'>";
 	}
