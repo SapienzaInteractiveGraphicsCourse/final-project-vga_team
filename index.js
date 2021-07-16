@@ -98,13 +98,13 @@ function addKeysListener(){
 		flagatt = true;
 	} 
 		
-	else if(keysPressed[' ']){
+	if(keysPressed[' ']){
 		animation.flags_1.jump_flag = true;
 		animation.flags_1.not_jump = false;
 		jump_flag = true;
 	}
 
-	else if(keysPressed['d'] && keysPressed['shift']){
+	if(keysPressed['d'] && keysPressed['shift']){
 		animation.flags_1.walk_flag = true;
 		animation.flags_1.torso_dir = true;
 		speed = 0.08;

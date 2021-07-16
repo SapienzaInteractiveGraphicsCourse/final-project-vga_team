@@ -84,8 +84,7 @@ export function hit(){
 					bones[knight_s.knight_bones.rightArm].rotation.x += 0.4;
 			}
 			else{
-					flags_1.rest = true;
-					starting_pos();
+					upper_starting_pos();
 					flags_1.hit_flag = false;
 					fase1 = [true,false]
 			}
@@ -184,6 +183,15 @@ export function walk(){
 
 }
 var complete = 0
+export function upper_starting_pos (){
+	bones[knight_s.knight_bones.leftArm].rotation.x = startingpositions.leftarmx;
+	bones[knight_s.knight_bones.upperSpine].rotation.y = startingpositions.upperSpine;
+	bones[knight_s.knight_bones.leftForeArm].rotation.z = startingpositions.leftforearmz;
+	bones[knight_s.knight_bones.leftForeArm].rotation.y = startingpositions.leftforearmy;
+	bones[knight_s.knight_bones.rightArm].rotation.x = startingpositions.rightarmx;
+	bones[knight_s.knight_bones.rightForeArm].rotation.z = startingpositions.rightforearmz;
+	bones[knight_s.knight_bones.rightForeArm].rotation.y = startingpositions.rightforearmy;
+}
 export function starting_pos(){
 	if(flags_1.rest && !flags_1.jump_flag){
 			bones[knight_s.knight_bones.leftArm].rotation.x = startingpositions.leftarmx;
