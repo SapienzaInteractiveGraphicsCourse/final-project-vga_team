@@ -72,7 +72,13 @@ function init(){
 	for (let index = 0; index < enNum; index++) {
 		setConstraint(enemyBox[index]);
 	}
-	setTimeout(function () {animate();}, 2000);
+	// setTimeout(function () {animate();}, 2000);
+	var timer = setInterval(function () {
+		if((sk1.length - enNum == 0)){
+			clearInterval(timer);
+			setTimeout(function () {animate();}, 1500);
+		}
+	},1000);
 }
 
 function createLevel() {
@@ -304,7 +310,8 @@ document.getElementById("btnwin").onclick = function () {
 function showGame(){
 	GameLoaded = true;
 	setTimeout(function(){
-		document.getElementById("cont_load").classList = "invisible";
+		// document.getElementById("cont_load").classList = "invisible";
+		document.getElementById("cont_load").innerHTML = "";
 		document.getElementById("start").classList = "visible container";
 		
 		//Set enemy position
