@@ -226,7 +226,7 @@ scene.addEventListener( 'update', function() {
 	
 
 function createBgSky() {
-	var bgSky = new THREE.PlaneGeometry(1700, 200);
+	var bgSky = new THREE.PlaneGeometry(1500, 200);
 	var skyTexture = new THREE.TextureLoader().load("bg.png");
 	skyTexture.wrapS = THREE.RepeatWrapping;
 	skyTexture.wrapT = THREE.RepeatWrapping;
@@ -237,13 +237,13 @@ function createBgSky() {
 	  flatShading : THREE.FlatShading,
 	});
 	var bg = new THREE.Mesh(bgSky, bgSkyMaterial);
-	bg.position.set(35, 85, 500);
+	bg.position.set(35, 85, 630);
 	bg.rotation.y = (-90 * Math.PI) / 180;
 	scene.add(bg);
 }
 
 function landscapeFunction() {
-	var geometry = new THREE.BoxGeometry(90, 20, 1700);
+	var geometry = new THREE.BoxGeometry(90, 20, 1500);
 	var texture = new THREE.TextureLoader().load("brick_ground.jpg");
 	texture.wrapS = THREE.RepeatWrapping;
 	texture.wrapT = THREE.RepeatWrapping;
@@ -282,7 +282,7 @@ function landscapeFunction() {
 	];
 	var bg = new THREE.Mesh(geometry, material);
 	bg.position.y = -24;
-	bg.position.z = 500;
+	bg.position.z = 630;
 	scene.add(bg);
 }
 
