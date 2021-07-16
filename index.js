@@ -169,11 +169,11 @@ function addKeysListener(){
 
 
 const animate = function () {
-	// console.log(loading)
+	//console.log(loading)
 	
 	if (GameLoaded==false){
 		// console.log("dentro if GameLoaded = false");
-		if (loading == 225){
+		if (loading >= 236){
 			showGame();
 			// console.log("dentro if loading = 255");
 		}

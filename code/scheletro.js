@@ -34,6 +34,7 @@ function loadSkeleton(loade, indx){
 			skeleton_bones[indx] = new THREE.SkeletonHelper(sk1[indx]);
 			skeleton_bones[indx].visible = false;
 			scene.add(sk1[indx]);
+			loading += 1;
 			sk_bones[indx] = skeleton_bones[indx].bones;
 			sk_bones[indx][0].rotation.y =  (-90*Math.PI)/180;
 			sk_bones[indx][8].rotation.y =  (0*Math.PI)/180; //mano destra 
@@ -82,6 +83,7 @@ function loadBoss(loade){
 			skeleton_bones[indx] = new THREE.SkeletonHelper(sk1[indx]);
 			skeleton_bones[indx].visible = false;
 			scene.add(sk1[indx]);
+			loading += 1;
 			sk_bones[indx] = skeleton_bones[indx].bones;
 			sk_bones[indx][0].rotation.y =  (-90*Math.PI)/180;
 			sk_bones[indx][8].rotation.y =  (0*Math.PI)/180; //mano destra 
