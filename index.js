@@ -286,15 +286,17 @@ document.getElementById("btnstart").onclick = function () {
 }
 
 document.getElementById("btnend").onclick = function () {
-	// location.reload();
-	// return false;
-	gameover = false;
-	reset();
+	location.reload();
+	return false;
+	// gameover = false;
+	// reset();
 }
 
 document.getElementById("btnwin").onclick = function () {
-	reset();
-	win = false;
+	location.reload();
+	return false;
+	// reset();
+	// win = false;
 }
 
 //var timeint = window.setInterval(showGame, 1500);
