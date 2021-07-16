@@ -3,6 +3,8 @@ var flagair = false;
 let keysPressed = {'d':false,'a':false,'shift':false,'k':false,' ':false};
 var walk_flag = false, torso_dir = false, jump_flag = false, flagatt = false;
 var vel;
+const light4 = new THREE.AmbientLight(0x8B0000);
+light4.intensity = 0.0;
 
 var enemyBox = [];
 var ex = [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10];
@@ -40,3 +42,4 @@ var flagAnim = [];
 for (let u = 0; u < enNum; u++) {
 	flagAnim[u] = [false, false];
 }
+

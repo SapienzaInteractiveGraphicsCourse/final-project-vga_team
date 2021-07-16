@@ -19,12 +19,13 @@ const camera = new THREE.PerspectiveCamera( 20, window.innerWidth / (window.inne
 camera.position.set(coord_x, coord_y, coord_z);
 camera.lookAt(10, 1, 0);
 camera.updateProjectionMatrix();
-const light3 = new THREE.DirectionalLight(0xFFFFFF);
+const light3 = new THREE.AmbientLight(0xFFFFFF);
 
 const renderer = new THREE.WebGLRenderer();
 
 renderer.setSize( window.innerWidth, (window.innerHeight-20) );
 renderer.outputEncoding = THREE.sRGBEncoding;
+
 
 function init(){
 	window.addEventListener(
@@ -59,6 +60,9 @@ function init(){
 	light3.position.set(coord_x, coord_y, coord_z);
 	scene.add(light3);
 	
+	light4.position.set(coord_x, coord_y, coord_z);
+	scene.add(light4);
+
 	paladin = new THREE.Scene();
 	animation.loadPaladin(gltfLoader);
 	

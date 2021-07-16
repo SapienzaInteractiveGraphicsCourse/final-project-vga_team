@@ -1,4 +1,28 @@
+function fadelight(){
+	var timer = setInterval(function(){
+		if(light4.intensity>0.0){
+			light4.intensity-=2;
+		}
+		else{
+			clearInterval(timer);
+		}
+	},50);
 
+}
+
+function flashingredlight(){
+	var turn = true;
+	var timer = setInterval(function(){
+		if (light4.intensity == 0.0) turn = false;
+		if(light4.intensity == 20.0) turn = true;
+		if(turn){
+			light4.intensity-=2.0;
+		}
+		else{
+			light4.intensity+=2.0;
+		}
+	},50);
+}
 function attack() {
 	//attack routine
 	for (let j = 0; j < enemyBox.length; j++) {
@@ -94,7 +118,10 @@ function charJump() {
 function charHit(){
 	//player getting hit
 	lives -= 1;
+	light4.intensity = 20.0;
+	fadelight();
 	if(lives == 0){
+		flashingredlight();
 		document.getElementById("text2").innerHTML = "<img src='./style/heart.png' class='image'>";
 	}
 	else if(lives == 1){
