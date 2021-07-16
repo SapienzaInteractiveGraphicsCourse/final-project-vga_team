@@ -9,7 +9,9 @@ function fadelight(){
 	},50);
 
 }
-
+var gameover_audio = new Audio('./GameOver.mp3');
+var onelife_audio = new Audio('./OneLife.mp3');
+onelife_audio.loop = true;
 function flashingredlight(){
 	var turn = true;
 	setInterval(function(){
@@ -119,18 +121,23 @@ function charHit(){
 	//player getting hit
 	lives -= 1;
 	light4.intensity = 20.0;
-	fadelight();
 	if(lives == 0){
-		light4.intensity = 20.0;
+		back_sound.volume = 0.3;
+		onelife_audio.play();
 		flashingredlight();
 		document.getElementById("text2").innerHTML = "<img src='./style/heart.png' class='image'>";
 	}
 	else if(lives == 1){
+
+		fadelight();
 		document.getElementById("text2").innerHTML = "<img src='./style/heart.png' class='image'><img src='./style/heart.png' class='image'>";
 	}
 	else if(win != true){
 		//end of the game
 		gameover = true;
+		onelife_audio.pause();
+		back_sound.pause();
+		gameover_audio.play();
 		document.getElementById("text2").innerHTML = "Game Over";
 		document.getElementById("game").classList = "invisible";
 		document.getElementById("end").classList = "visible container";

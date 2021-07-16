@@ -26,6 +26,9 @@ var enNum = 11;
 
 var win = false;
 var gameover = false;
+var audio = new Audio('./Start.mp3');
+var back_sound = new Audio('./backsound.mp3');
+back_sound.loop = true;
 
 var sk1 = [];
 let skeleton_bones = [];

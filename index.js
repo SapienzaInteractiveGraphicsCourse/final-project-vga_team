@@ -296,6 +296,8 @@ function createLandscape() {
 }
 
 document.getElementById("btnstart").onclick = function () {
+	audio.play();
+	back_sound.play();
 	document.getElementById("start").classList = "invisible container";
 	document.getElementById("game").classList = "visible";
 	addKeysListener();
