@@ -42,25 +42,23 @@ function attack() {
 							enemyBox[j] = null;
 							scene.remove(sk1[j]);
 							sk1[j] = null;
-							if(j == enNum-1 && gameover == false){
-								//boss killed
-								document.getElementById("game").classList = "invisible";
-								document.getElementById("win").classList = "visible container";
-								win = true;
-								onelife_audio.muted = true;
-								damage_received.muted = true;
-								back_sound.muted = true;
-								if(playflag){
-									if(lives==2){
-										flawless_victory.play();
-									}
-									else{
-										victory_sound.play();
-									}
-									
-								}
-								
-							}
+							// if(j == enNum-1 && gameover == false){
+							// 	//boss killed
+							// 	document.getElementById("game").classList = "invisible";
+							// 	document.getElementById("win").classList = "visible container";
+							// 	win = true;
+							// 	onelife_audio.muted = true;
+							// 	damage_received.muted = true;
+							// 	back_sound.muted = true;
+							// 	if(playflag){
+							// 		if(lives==2){
+							// 			flawless_victory.play();
+							// 		}
+							// 		else{
+							// 			victory_sound.play();
+							// 		}
+							// 	}
+							// }
 						}
 					}
 				}
