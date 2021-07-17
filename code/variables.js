@@ -23,11 +23,14 @@ var paladin;
 var speed = 0.04;
 
 var enNum = 11;
-
+var mute = false;
 var win = false;
 var gameover = false;
 var audio = new Audio('./Start.mp3');
 var back_sound = new Audio('./backsound.mp3');
+var gameover_audio = new Audio('./GameOver.mp3');
+var onelife_audio = new Audio('./OneLife.mp3');
+onelife_audio.loop = true;
 back_sound.loop = true;
 
 var sk1 = [];

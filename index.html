@@ -7,6 +7,7 @@
 			body { margin: 0; }
 		</style>
 		<link rel="icon" href="./style/hlmt.png">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<script type="text/javascript" src="./variables.js"></script>
 		<script type="text/javascript" src="build/three.js-master/build/three.js"></script>
 		<script type="text/javascript" src="build/Physijs-master/physi.js"></script>
@@ -36,6 +37,9 @@
 			<div id="text2">
 				<img src='./style/heart.png' class='image'><img src='./style/heart.png' class='image'><img src='./style/heart.png' class='image'>
 			</div>
+			&emsp;&emsp;
+			<a hidden id='volumeOff' onclick='changevol(false)'><i class="fa fa-volume-off" style='font-size:24px'></i></a>
+			<a id='volumeOn' onclick='changevol(true)'><i class="fa fa-volume-up" style='font-size:24px'></i></a>
 			<a id="cntrl" class="cntrl">Move: A D | Jump: Space | Attack: K | Run: Shift</a>
 		</div>
 		<div class="visible" id="cont_load">
@@ -74,6 +78,7 @@
 							<th>D</th>
 							<td>Walk right</td>
 						</tr>
+					
 						<tr>
 							<th>Space</th>
 							<td>Jump</td>
@@ -112,4 +117,26 @@
 		<div id='game' class="invisible"></div>
 		
 	</body>
+<script>
+	function changevol(s){
+	if(s){
+		document.getElementById('volumeOff').style.display = 'block';
+		document.getElementById('volumeOn').style.display = 'none';
+	}
+	else{
+		document.getElementById('volumeOff').style.display = 'none';
+		document.getElementById('volumeOn').style.display = 'block';
+	}
+	muteall();
+}
+
+function muteall(){
+	mute = !mute;
+	audio.muted = mute;
+	back_sound.muted = mute;
+	gameover_audio.muted =mute;
+	onelife_audio.muted = mute;
+}
+
+</script>
 </html>
