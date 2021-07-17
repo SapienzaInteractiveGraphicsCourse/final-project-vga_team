@@ -47,6 +47,7 @@ function attack() {
 								win = true;
 								onelife_audio.pause();
 								back_sound.pause();
+								damage_received.pause();
 								if(playflag){
 									if(lives==2){
 										flawless_victory.play();
@@ -79,6 +80,7 @@ function attack() {
 								win = true;
 								onelife_audio.pause();
 								back_sound.pause();
+								damage_received.pause();
 								if(playflag){
 									if(lives==2){
 										flawless_victory.play();
@@ -160,6 +162,7 @@ function charHit(){
 		gameover = true;
 		onelife_audio.pause();
 		back_sound.pause();
+		damage_received.pause();
 		if(playflag){
 			gameover_audio.play();
 			playflag = false;
