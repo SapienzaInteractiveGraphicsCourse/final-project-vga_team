@@ -16,10 +16,10 @@ function flashingredlight(){
 		if (light4.intensity == 0.0) turn = false;
 		if(light4.intensity == 20.0) turn = true;
 		if(turn){
-			light4.intensity-=2.0;
+			light4.intensity-=1.0;
 		}
 		else{
-			light4.intensity+=2.0;
+			light4.intensity+=1.0;
 		}
 	},50);
 }
