@@ -45,6 +45,12 @@ function attack() {
 								document.getElementById("game").classList = "invisible";
 								document.getElementById("win").classList = "visible container";
 								win = true;
+								onelife_audio.pause();
+								back_sound.pause();
+								if(playflag){
+									victory_sound.play();
+								}
+								
 							}
 						}
 					}
@@ -65,6 +71,11 @@ function attack() {
 								document.getElementById("game").classList = "invisible";
 								document.getElementById("win").classList = "visible container";
 								win = true;
+								onelife_audio.pause();
+								back_sound.pause();
+								if(playflag){
+									victory_sound.play();
+								}
 							}
 						}
 					}
@@ -114,7 +125,7 @@ function charJump() {
 		}
 	}
 }
-var playflag = true;
+
 function charHit(){
 	//player getting hit
 	lives -= 1;

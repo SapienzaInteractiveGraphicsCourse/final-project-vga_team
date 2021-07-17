@@ -26,7 +26,6 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, (window.innerHeight-20) );
 renderer.outputEncoding = THREE.sRGBEncoding;
 
-
 function init(){
 	window.addEventListener(
 		"resize",
