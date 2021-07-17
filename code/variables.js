@@ -32,6 +32,9 @@ var back_sound = new Audio('./backsound4.mp3');
 var gameover_audio = new Audio('./GameOver.mp3');
 var onelife_audio = new Audio('./OneLife.mp3');
 var victory_sound = new Audio('./victory.mp3');
+var flawless_victory = new Audio('./flawless_victory.mp3');
+var damage_received =  new Audio('./damage.mp3');
+
 onelife_audio.loop = true;
 back_sound.loop = true;
 

@@ -48,7 +48,13 @@ function attack() {
 								onelife_audio.pause();
 								back_sound.pause();
 								if(playflag){
-									victory_sound.play();
+									if(lives==2){
+										flawless_victory.play();
+									}
+									else{
+										victory_sound.play();
+									}
+									
 								}
 								
 							}
@@ -74,7 +80,13 @@ function attack() {
 								onelife_audio.pause();
 								back_sound.pause();
 								if(playflag){
-									victory_sound.play();
+									if(lives==2){
+										flawless_victory.play();
+									}
+									else{
+										victory_sound.play();
+									}
+									
 								}
 							}
 						}
@@ -130,6 +142,7 @@ function charHit(){
 	//player getting hit
 	lives -= 1;
 	light4.intensity = 20.0;
+	damage_received.play();
 	if(lives == 0){
 
 		back_sound.volume = 0.3;
