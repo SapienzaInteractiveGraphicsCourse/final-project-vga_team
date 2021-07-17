@@ -76,24 +76,23 @@ function attack() {
 							enemyBox[j] = null;
 							scene.remove(sk1[j]);
 							sk1[j] = null;
-							if(j == enNum-1 && gameover == false){
-								//boss killed
-								document.getElementById("game").classList = "invisible";
-								document.getElementById("win").classList = "visible container";
-								win = true;
-								onelife_audio.muted = true;
-								damage_received.muted = true;
-								back_sound.muted = true;
-								if(playflag){
-									if(lives==2){
-										flawless_victory.play();
-									}
-									else{
-										victory_sound.play();
-									}
-									
-								}
-							}
+							// if(j == enNum-1 && gameover == false){
+							// 	//boss killed
+							// 	document.getElementById("game").classList = "invisible";
+							// 	document.getElementById("win").classList = "visible container";
+							// 	win = true;
+							// 	onelife_audio.muted = true;
+							// 	damage_received.muted = true;
+							// 	back_sound.muted = true;
+							// 	if(playflag){
+							// 		if(lives==2){
+							// 			flawless_victory.play();
+							// 		}
+							// 		else{
+							// 			victory_sound.play();
+							// 		}
+							// 	}
+							// }
 						}
 					}
 				}
@@ -171,7 +170,8 @@ function charHit(){
 			gameover_audio.play();
 			playflag = false;
 		}
-		
+		charBox.position.set(charpos[0], charpos[1], charpos[2]);
+		charBox.__dirtyPosition = true;
 		document.getElementById("text2").innerHTML = "Game Over";
 		document.getElementById("game").classList = "invisible";
 		document.getElementById("end").classList = "visible container";
@@ -230,6 +230,8 @@ function reset(){
 	enemyBox[enNum-1].__dirtyPosition = true;
 	enemyLives[enNum-1] = 5;
 	lives = 2;
+	win = false;
+	gameover = false;
 	setTimeout(() => {
 		document.getElementById("text2").innerHTML = "<img src='./style/heart.png' class='image'><img src='./style/heart.png' class='image'><img src='./style/heart.png' class='image'>";
 		document.getElementById("cont_load").classList = "invisible"
