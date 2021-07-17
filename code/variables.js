@@ -45,7 +45,7 @@ damage_received.volume = 1.0;
 sword_hit.volume = 1.0;
 onelife_audio.loop = true;
 back_sound.loop = true;
-
+var flash;
 var sk1 = [];
 let skeleton_bones = [];
 let sk_bones = [];

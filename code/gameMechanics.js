@@ -12,7 +12,7 @@ function fadelight(){
 
 function flashingredlight(){
 	var turn = true;
-	setInterval(function(){
+	flash = setInterval(function(){
 		if (light4.intensity == 0.0) turn = false;
 		if(light4.intensity == 20.0) turn = true;
 		if(turn){
@@ -23,6 +23,7 @@ function flashingredlight(){
 		}
 	},50);
 }
+
 function attack() {
 	//attack routine
 	for (let j = 0; j < enemyBox.length; j++) {
@@ -56,7 +57,9 @@ function attack() {
 									else{
 										victory_sound.play();
 									}
+									
 								}
+								
 							}
 						}
 					}
@@ -73,23 +76,24 @@ function attack() {
 							enemyBox[j] = null;
 							scene.remove(sk1[j]);
 							sk1[j] = null;
-							// if(j == enNum-1 && gameover == false){
-							// 	boss killed
-							// 	document.getElementById("game").classList = "invisible";
-							// 	document.getElementById("win").classList = "visible container";
-							// 	win = true;
-							// 	onelife_audio.muted = true;
-							// 	damage_received.muted = true;
-							// 	back_sound.muted = true;
-							// 	if(playflag){
-							// 		if(lives==2){
-							// 			flawless_victory.play();
-							// 		}
-							// 		else{
-							// 			victory_sound.play();
-							// 		}
-							// 	}
-							// }
+							if(j == enNum-1 && gameover == false){
+								//boss killed
+								document.getElementById("game").classList = "invisible";
+								document.getElementById("win").classList = "visible container";
+								win = true;
+								onelife_audio.muted = true;
+								damage_received.muted = true;
+								back_sound.muted = true;
+								if(playflag){
+									if(lives==2){
+										flawless_victory.play();
+									}
+									else{
+										victory_sound.play();
+									}
+									
+								}
+							}
 						}
 					}
 				}
@@ -148,7 +152,7 @@ function charHit(){
 
 		back_sound.volume = 0.3;
 		onelife_audio.play();
-		flashingredlight();
+		flashingredlight(false);
 		document.getElementById("text2").innerHTML = "<img src='./style/heart.png' class='image'>";
 	}
 	else if(lives == 1){
@@ -174,6 +178,27 @@ function charHit(){
 	}
 }
 
+
+
+function set_audio_and_flash(){
+	audio.muted = false;
+	audio.pause();
+	onelife_audio.muted = false;
+	onelife_audio.pause();
+	damage_received.muted = false;
+	back_sound.muted = false;
+	back_sound.pause();
+	gameover_audio.muted = false;
+	victory_sound.muted = false;
+	flawless_victory.muted = false;
+	sword_hit.muted = false;
+
+	playflag = true;
+	clearInterval(flash);
+	light4.intensity = 0.0;
+
+}
+
 function reset(){
 	lives = 2;
 	document.getElementById("end").classList = "invisible container";
@@ -181,7 +206,7 @@ function reset(){
 	document.getElementById("cont_load").classList = "visible";
 	charBox.position.set(charpos[0], charpos[1], charpos[2]);
 	charBox.__dirtyPosition = true;
-	
+	set_audio_and_flash();
 	charBox.position.set(charpos[0], charpos[1], charpos[2]);
 	charBox.__dirtyPosition = true;
 	for (let i = 0; i < enNum-1; i++) {
@@ -209,6 +234,8 @@ function reset(){
 		document.getElementById("text2").innerHTML = "<img src='./style/heart.png' class='image'><img src='./style/heart.png' class='image'><img src='./style/heart.png' class='image'>";
 		document.getElementById("cont_load").classList = "invisible"
 		document.getElementById("game").classList = "visible";
+		audio.play();
+		back_sound.play();
 	}, 4000);
 }
 
