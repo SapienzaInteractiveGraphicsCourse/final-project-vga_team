@@ -82,7 +82,7 @@ function init(){
 	}
 	// setTimeout(function () {animate();}, 2000);
 	var timer = setInterval(function () {
-		if((sk1.length - enNum == 0 && loading >= 276)){
+		if((sk1.length - enNum == 0 && loading >= 276 && charBox && paladin)){
 			clearInterval(timer);
 			setTimeout(function () {animate();}, 1500);
 		}
@@ -302,17 +302,17 @@ document.getElementById("btnstart").onclick = function () {
 }
 
 document.getElementById("btnend").onclick = function () {
-	// location.reload();
-	// return false;
-	gameover = false;
-	reset();
+	location.reload();
+	return false;
+	// gameover = false;
+	// reset();
 }
 
 document.getElementById("btnwin").onclick = function () {
-	// location.reload();
-	// return false;
-	reset();
-	win = false;
+	location.reload();
+	return false;
+	// reset();
+	// win = false;
 }
 
 //var timeint = window.setInterval(showGame, 1500);
