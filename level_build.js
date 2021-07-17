@@ -138,7 +138,7 @@ export function createTorch(){
       if (i<2){
         // console.log("primo set")
       torch.rotation.set(0,4.75,0); // rotation of the torch
-      torch.position.set(25,20,i*25-1); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
+      torch.position.set(35,20,i*25-1); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
       torchClone = torch.clone();
       scene.add(torchClone);
       loading += 1 ;
@@ -147,7 +147,7 @@ export function createTorch(){
         // console.log("secondo set")
         // console.log(i)
         torch.rotation.set(0,4.75,0); // rotation of the torch
-        torch.position.set(25,30,i*25+15); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
+        torch.position.set(35,30,i*25+15); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
         torchClone = torch.clone();
         scene.add(torchClone);
         loading += 1 ;
@@ -156,7 +156,7 @@ export function createTorch(){
 
         // console.log("terzo set")
         torch.rotation.set(0,4.75,0); // rotation of the torch
-        torch.position.set(25,20,i*25+20); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
+        torch.position.set(35,20,i*25+20); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
         torchClone = torch.clone();
         scene.add(torchClone);
         loading += 1 ;
@@ -165,7 +165,7 @@ export function createTorch(){
       else if (i<8){
         // console.log("quarto set")
         torch.rotation.set(0,4.75,0); // rotation of the torch
-        torch.position.set(25,10,i*25+40); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
+        torch.position.set(35,10,i*25+40); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
         torchClone = torch.clone();
         scene.add(torchClone);
         loading += 1 ;
@@ -174,7 +174,7 @@ export function createTorch(){
 
       else if (i<10){
         torch.rotation.set(0,4.75,0); // rotation of the torch
-        torch.position.set(25,20,i*25+40); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
+        torch.position.set(35,20,i*25+40); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
         torchClone = torch.clone();
         scene.add(torchClone);
         loading += 1 ;
@@ -183,7 +183,7 @@ export function createTorch(){
     
       else if (i<20){
         torch.rotation.set(0,4.75,0); // rotation of the torch
-        torch.position.set(25,50,i*25+55); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
+        torch.position.set(35,50,i*25+55); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
         torchClone = torch.clone();
         scene.add(torchClone);
         loading += 1 ;
@@ -476,7 +476,7 @@ torch = new THREE.Scene();
         if (i<2){
           // console.log("primo set")
         torch.rotation.set(0,4.75,0); // rotation of the torch
-        torch.position.set(25,20,i*25-1+600); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
+        torch.position.set(35,20,i*25-1+600); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
         torchClone = torch.clone();
         scene.add(torchClone);
         loading += 1 ;
@@ -485,7 +485,7 @@ torch = new THREE.Scene();
           // console.log("secondo set")
           // console.log(i)
           torch.rotation.set(0,4.75,0); // rotation of the torch
-          torch.position.set(25,30,i*25+15+600); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
+          torch.position.set(35,30,i*25+15+600); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
           torchClone = torch.clone();
           scene.add(torchClone);
           loading += 1 ;
@@ -494,7 +494,7 @@ torch = new THREE.Scene();
   
           // console.log("terzo set")
           torch.rotation.set(0,4.75,0); // rotation of the torch
-          torch.position.set(25,20,i*25+20+600); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
+          torch.position.set(35,20,i*25+20+600); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
           torchClone = torch.clone();
           scene.add(torchClone);
           loading += 1 ;
@@ -503,7 +503,7 @@ torch = new THREE.Scene();
         else if (i<8){
           // console.log("quarto set")
           torch.rotation.set(0,4.75,0); // rotation of the torch
-          torch.position.set(25,10,i*25+40+600); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
+          torch.position.set(35,10,i*25+40+600); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
           torchClone = torch.clone();
           scene.add(torchClone);
           loading += 1 ;
@@ -511,7 +511,7 @@ torch = new THREE.Scene();
   
         else if (i<10){
           torch.rotation.set(0,4.75,0); // rotation of the torch
-          torch.position.set(25,20,i*25+40+600); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
+          torch.position.set(35,20,i*25+40+600); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
           torchClone = torch.clone();
           scene.add(torchClone);
           loading += 1 ;
@@ -520,7 +520,7 @@ torch = new THREE.Scene();
       
         else if (i<20){
           torch.rotation.set(0,4.75,0); // rotation of the torch
-          torch.position.set(25,50,i*25+55+600); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
+          torch.position.set(35,50,i*25+55+600); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
           torchClone = torch.clone();
           scene.add(torchClone);
           loading += 1 ;
