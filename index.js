@@ -9,7 +9,7 @@ var coord_y = 10;
 var coord_z = 0;
 
 Physijs.scripts.worker = "./build/Physijs-master/physijs_worker.js";
-Physijs.scripts.ammo = "./examples/js/ammo.js";
+Physijs.scripts.ammo = "./ammo.js";
 
 gltfLoader = new GLTFLoader();
 
@@ -82,7 +82,7 @@ function init(){
 	}
 	// setTimeout(function () {animate();}, 2000);
 	var timer = setInterval(function () {
-		if((sk1.length - enNum == 0)){
+		if((sk1.length - enNum == 0 && loading >= 236)){
 			clearInterval(timer);
 			setTimeout(function () {animate();}, 1500);
 		}
@@ -183,7 +183,6 @@ function addKeysListener(){
 
 
 const animate = function () {
-	//console.log(loading)
 	
 	if (GameLoaded==false){
 		// console.log("dentro if GameLoaded = false");
@@ -215,7 +214,7 @@ const animate = function () {
 
 	scene.simulate();
 	// renderer.render( scene, camera );
-	//requestAnimationFrame( animate );
+	// requestAnimationFrame( animate );
 };
 
 
@@ -250,12 +249,12 @@ function landscapeFunction() {
 	var texture = new THREE.TextureLoader().load("brick_ground.jpg");
 	texture.wrapS = THREE.RepeatWrapping;
 	texture.wrapT = THREE.RepeatWrapping;
-	texture.repeat.set(6.25, window.innerWidth / 8);
+	texture.repeat.set(5, window.innerWidth / 15);
   
 	var terrainTexture = new THREE.TextureLoader().load("brick_ground.jpg");
 	terrainTexture.wrapS = THREE.RepeatWrapping;
 	terrainTexture.wrapT = THREE.RepeatWrapping;
-	terrainTexture.repeat.set(window.innerWidth / 10, 2);
+	terrainTexture.repeat.set(window.innerWidth / 12, 2);
   
 	var material = [
 	  new THREE.MeshPhongMaterial({
