@@ -181,17 +181,18 @@ function charHit(){
 
 
 function set_audio_and_flash(){
-	audio.muted = false;
+
+	audio.muted = mute;
 	audio.pause();
-	onelife_audio.muted = false;
+	onelife_audio.muted = mute;
 	onelife_audio.pause();
-	damage_received.muted = false;
-	back_sound.muted = false;
+	damage_received.muted = mute;
+	back_sound.muted = mute;
 	back_sound.pause();
-	gameover_audio.muted = false;
-	victory_sound.muted = false;
-	flawless_victory.muted = false;
-	sword_hit.muted = false;
+	gameover_audio.muted = mute;
+	victory_sound.muted = mute;
+	flawless_victory.muted = mute;
+	sword_hit.muted = mute;
 
 	playflag = true;
 	clearInterval(flash);
