@@ -12,7 +12,7 @@ function setConstraint(mesh) {
 	scene.addConstraint( constraint );
 	constraint.setLinearLowerLimit( new THREE.Vector3( 5, -mesh.position.y+2, -mesh.position.z-25 ) );
 	// sets the lower end of the linear movement along the x, y, and z axes.
-	constraint.setLinearUpperLimit( new THREE.Vector3( 5, -mesh.position.y-25, -mesh.position.z+1250) );
+	constraint.setLinearUpperLimit( new THREE.Vector3( 5, -mesh.position.y-25, -mesh.position.z+1260) );
 	// sets the upper end of the linear movement along the x, y, and z axes.
 	constraint.setAngularLowerLimit( new THREE.Vector3( 0, 0, 0 ) );
 	// sets the lower end of the angular movement, in radians, along the x, y, and z axes.

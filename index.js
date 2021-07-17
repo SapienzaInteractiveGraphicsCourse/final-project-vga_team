@@ -9,7 +9,7 @@ var coord_y = 10;
 var coord_z = 0;
 
 Physijs.scripts.worker = "./build/Physijs-master/physijs_worker.js";
-Physijs.scripts.ammo = "./ammo.js";
+Physijs.scripts.ammo = "ammo.js";
 
 gltfLoader = new GLTFLoader();
 
@@ -82,7 +82,7 @@ function init(){
 	}
 	// setTimeout(function () {animate();}, 2000);
 	var timer = setInterval(function () {
-		if((sk1.length - enNum == 0 && loading >= 236)){
+		if((sk1.length - enNum == 0 && loading >= 276)){
 			clearInterval(timer);
 			setTimeout(function () {animate();}, 1500);
 		}
@@ -91,12 +91,12 @@ function init(){
 
 function createLevel() {
 	build.createGroup1();
-	// build.createTorch();
+	build.createTorch();
 	build.createBox();
 	build.createSpear();
 	
 	build.createGroup2();
-	// build.createTorch2();
+	build.createTorch2();
 	build.createBox2();
 	build.createSpear2();
 	build.createCup();
@@ -183,7 +183,6 @@ function addKeysListener(){
 
 
 const animate = function () {
-	
 	if (GameLoaded==false){
 		// console.log("dentro if GameLoaded = false");
 		if (loading >= 236){
@@ -294,6 +293,7 @@ function createLandscape() {
 }
 
 document.getElementById("btnstart").onclick = function () {
+	setEnemyPosition();
 	audio.play();
 	back_sound.play();
 	document.getElementById("start").classList = "invisible container";
@@ -302,17 +302,17 @@ document.getElementById("btnstart").onclick = function () {
 }
 
 document.getElementById("btnend").onclick = function () {
-	location.reload();
-	return false;
-	// gameover = false;
-	// reset();
+	// location.reload();
+	// return false;
+	gameover = false;
+	reset();
 }
 
 document.getElementById("btnwin").onclick = function () {
-	location.reload();
-	return false;
-	// reset();
-	// win = false;
+	// location.reload();
+	// return false;
+	reset();
+	win = false;
 }
 
 //var timeint = window.setInterval(showGame, 1500);
@@ -320,13 +320,12 @@ document.getElementById("btnwin").onclick = function () {
 function showGame(){
 	GameLoaded = true;
 	setTimeout(function(){
-		// document.getElementById("cont_load").classList = "invisible";
-		document.getElementById("cont_load").innerHTML = "";
+		document.getElementById("cont_load").classList = "invisible";
+		// document.getElementById("cont_load").innerHTML = "";
 		document.getElementById("start").classList = "visible container";
 		
 		//Set enemy position
-		setEnemyPosition();
-		// console.log(scene);
+		// setEnemyPosition();
 	}, 4000);
 }
 	

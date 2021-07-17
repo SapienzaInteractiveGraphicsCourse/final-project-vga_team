@@ -57,4 +57,20 @@ function gameRoutine(){
 		if(sk1[j]) sk1[j].position.set(enemyBox[j].position.x, enemyBox[j].position.y-4.4, enemyBox[j].position.z);
 	}
 	if(sk1[enNum-1]) sk1[enNum-1].position.set(enemyBox[enNum-1].position.x, enemyBox[enNum-1].position.y-11, enemyBox[enNum-1].position.z);
+	if(enemyBox[enNum-1] == null && charBox.position.z >= 1248 && gameover == false){
+		document.getElementById("game").classList = "invisible";
+		document.getElementById("win").classList = "visible container";
+		win = true;
+		onelife_audio.muted = true;
+		damage_received.muted = true;
+		back_sound.muted = true;
+		if(playflag){
+			if(lives==2){
+				flawless_victory.play();
+			}
+			else{
+				victory_sound.play();
+			}
+		}
+	}
 }
