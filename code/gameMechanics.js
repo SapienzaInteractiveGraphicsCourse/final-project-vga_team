@@ -147,7 +147,7 @@ function charHit(){
 	damage_received.play();
 	if(lives == 0){
 
-		back_sound.volume = 0.3;
+		back_sound.volume = 0.2;
 		onelife_audio.play();
 		flashingredlight(false);
 		document.getElementById("text2").innerHTML = "<img src='./style/heart.png' class='image'>";

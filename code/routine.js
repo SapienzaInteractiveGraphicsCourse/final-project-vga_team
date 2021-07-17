@@ -65,6 +65,7 @@ function gameRoutine(){
 		damage_received.muted = true;
 		back_sound.muted = true;
 		if(playflag){
+			playflag = false;
 			if(lives==2){
 				flawless_victory.play();
 			}
