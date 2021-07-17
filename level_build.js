@@ -720,7 +720,7 @@ export function createSpear2(){
             cup.name = "cup";
             cup.scale.set(2,2,2);
             cup.rotation.set(0,0,0); // rotation of the torch
-            cup.position.set(25,-14,1200); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
+            cup.position.set(25,-14,1249); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
             cupClone = cup.clone();
             scene.add(cupClone);
                
