@@ -34,6 +34,7 @@ function attack() {
 						enemyBox[j].position.z += 5;
 						enemyBox[j].__dirtyPosition = true;
 						enemyLives[j] -= 1;
+						sword_hit.play();
 						if(enemyLives[j] <= 0){
 							//dispose enemy
 							scene.remove(enemyBox[j]);
@@ -66,6 +67,7 @@ function attack() {
 					if(enemyBox[j].position.z - charBox.position.z < 0){
 						enemyBox[j].position.z -= 5;
 						enemyBox[j].__dirtyPosition = true;
+						sword_hit.play();
 						enemyLives[j] -= 1;
 						if(enemyLives[j] <= 0){
 							//dispose enemy
