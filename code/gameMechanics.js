@@ -46,9 +46,9 @@ function attack() {
 								document.getElementById("game").classList = "invisible";
 								document.getElementById("win").classList = "visible container";
 								win = true;
-								onelife_audio.pause();
-								back_sound.pause();
-								damage_received.pause();
+								onelife_audio.muted = true;
+								damage_received.muted = true;
+								back_sound.muted = true;
 								if(playflag){
 									if(lives==2){
 										flawless_victory.play();
@@ -80,9 +80,9 @@ function attack() {
 								document.getElementById("game").classList = "invisible";
 								document.getElementById("win").classList = "visible container";
 								win = true;
-								onelife_audio.pause();
-								back_sound.pause();
-								damage_received.pause();
+								onelife_audio.muted = true;
+								damage_received.muted = true;
+								back_sound.muted = true;
 								if(playflag){
 									if(lives==2){
 										flawless_victory.play();
@@ -162,9 +162,10 @@ function charHit(){
 	else if(win != true){
 		//end of the game
 		gameover = true;
-		onelife_audio.pause();
-		back_sound.pause();
-		damage_received.pause();
+		onelife_audio.muted = true;
+		damage_received.muted = true;
+		back_sound.muted = true;
+		
 		if(playflag){
 			gameover_audio.play();
 			playflag = false;
