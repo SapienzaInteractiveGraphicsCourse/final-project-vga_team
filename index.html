@@ -38,8 +38,9 @@
 				<img src='./style/heart.png' class='image'><img src='./style/heart.png' class='image'><img src='./style/heart.png' class='image'>
 			</div>
 			&emsp;&emsp;
-			<a hidden id='volumeOff' onclick='changevol(false)'><i class="fa fa-volume-off" style='font-size:24px'></i></a>
-			<a id='volumeOn' onclick='changevol(true)'><i class="fa fa-volume-up" style='font-size:24px'></i></a>
+			
+			<a hidden id='volumeOff' ><i class="fa fa-volume-off" style='font-size:24px'></i></a>
+			<a id='volumeOn' ><i class="fa fa-volume-up" style='font-size:24px'></i></a>
 			<a id="cntrl" class="cntrl">Move: A D | Jump: Space | Attack: K | Run: Shift</a>
 		</div>
 		<div class="visible" id="cont_load">
@@ -117,30 +118,4 @@
 		<div id='game' class="invisible"></div>
 		
 	</body>
-<script>
-	function changevol(s){
-	if(s){
-		document.getElementById('volumeOff').style.display = 'block';
-		document.getElementById('volumeOn').style.display = 'none';
-	}
-	else{
-		document.getElementById('volumeOff').style.display = 'none';
-		document.getElementById('volumeOn').style.display = 'block';
-	}
-	muteall();
-}
-
-function muteall(){
-	mute = !mute;
-	audio.muted = mute;
-	back_sound.muted = mute;
-	gameover_audio.muted =mute;
-	onelife_audio.muted = mute;
-	victory_sound.muted = mute;
-	damage_received.muted = mute;
-	flawless_victory.muted = mute;
-	sword_hit.muted = mute;
-}
-
-</script>
 </html>
