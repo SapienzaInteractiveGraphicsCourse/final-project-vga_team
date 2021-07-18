@@ -119,7 +119,7 @@ function init(){
 	}
 	// setTimeout(function () {animate();}, 2000);
 	var timer = setInterval(function () {
-		if((sk1.length - enNum == 0 && loading >= 276 && charBox && paladin)){
+		if(((sk1.length - enNum == 0) && (loading >= 276) && charBox && paladin)){
 			clearInterval(timer);
 			setTimeout(function () {
 				scene.simulate();
