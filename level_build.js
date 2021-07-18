@@ -1,5 +1,5 @@
 
-export function createGroup1() { // creazione del primo gruppo di mattoncini
+export function createBrick() { // creazione del primo gruppo di mattoncini
   
   brick = new THREE.Scene();
   {
@@ -8,14 +8,7 @@ export function createGroup1() { // creazione del primo gruppo di mattoncini
       brick = gltf.scene;
       brick.name = "brick";
       brick.scale.set(0.1, 0.009, 0.03);
-      // brick.castShadow = true;
-      // brick.traverse(function (child) {
-      //   // if (child instanceof THREE.Mesh) {
-      //   //   child.castShadow = true;
-      //   //   child.receiveShadow = true;
-      //   // }
-      //   child.castShadow = true;
-      // });
+      
 
 
       // PRIMO SET DI MATTONCINI
