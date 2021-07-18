@@ -109,6 +109,7 @@ function init(){
 	setConstraint(charBox);
 	for (let index = 0; index < enNum-1; index++) {
 		enemyBox[index] = enemyGeometry(index, ex[index], ey[index], ez[index]);
+		sk1[index] = new THREE.Scene();
 		loadSkeleton(gltfLoader, index);
 	}
 	loadBoss(gltfLoader);
@@ -262,19 +263,19 @@ const animate = function () {
 	scene.simulate();
 
 	
-	renderer.render( scene, camera );
-	requestAnimationFrame( animate );
+	//renderer.render( scene, camera );
+	//requestAnimationFrame( animate );
 };
 
 
 init();
-/*
+
 scene.addEventListener( 'update', function() {
 	// the scene's physics have finished updating
 	renderer.render( scene, camera );
 	requestAnimationFrame( animate );
 });
-*/	
+	
 
 function createBgSky() {
 	var bgSky = new THREE.PlaneGeometry(1500, 200);
