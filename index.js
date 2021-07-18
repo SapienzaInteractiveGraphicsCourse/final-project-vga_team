@@ -124,7 +124,8 @@ function init(){
 	console.log(loading);
 	// setTimeout(function () {animate();}, 2000);
 	var timer = setInterval(function () {
-		if((sk1.length - enNum == 0 && loading >= 276 && charBox && paladin)){
+		if((sk1.length - enNum == 0 && loading >=276 && charBox && paladin)){
+			console.log(loading);
 			clearInterval(timer);
 			setTimeout(function () {animate();}, 1500);
 		}
