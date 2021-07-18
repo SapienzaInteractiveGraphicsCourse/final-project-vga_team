@@ -211,7 +211,13 @@ const animate = function () {
 	// document.getElementById("text1").innerHTML = flagair;
 	// document.getElementById("butn").innerHTML = charBox._physijs.touches.length;
 
-	scene.simulate();
+	while(1){
+		try{
+			scene.simulate();
+		}
+		finally{break;}
+	}
+	
 	// renderer.render( scene, camera );
 	// requestAnimationFrame( animate );
 };
