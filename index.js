@@ -213,9 +213,10 @@ const animate = function () {
 
 	while(1){
 		try{
+			console.log("try");
 			scene.simulate();
 		}
-		finally{break;}
+		finally{console.log("finally");break;}
 	}
 	
 	// renderer.render( scene, camera );
