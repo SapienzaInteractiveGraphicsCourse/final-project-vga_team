@@ -273,9 +273,9 @@ const animate = function () {
 	}
 	
 
-	
-	// renderer.render( scene, camera );
-	// requestAnimationFrame( animate );
+	console.log("fine");
+	//renderer.render( scene, camera );
+	//requestAnimationFrame( animate );
 };
 
 
