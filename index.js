@@ -90,13 +90,18 @@ function init(){
 }
 
 function createLevel() {
+<<<<<<< Updated upstream
+	build.createGroup1();
+	build.createTorch();
+=======
 	build.createBrick();
-	//build.createTorch();
+	// build.createTorch();
+>>>>>>> Stashed changes
 	build.createBox();
 	build.createSpear();
 	
 	build.createGroup2();
-	//build.createTorch2();
+	build.createTorch2();
 	build.createBox2();
 	build.createSpear2();
 	build.createCup();
