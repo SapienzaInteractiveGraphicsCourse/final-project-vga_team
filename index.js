@@ -61,6 +61,7 @@ function muteall(){
 }
 
 function init(){
+	console.log("init");
 	window.addEventListener(
 		"resize",
 		function () {
@@ -75,7 +76,7 @@ function init(){
 	var boolean_s = localStorage.getItem("muteval", mute);
 	if(boolean_s == null) boolean_s = mute;
 	changevol(boolean_s);
-	
+	console.log("carico scena init");
 	scene = new Physijs.Scene();
 
 	container.appendChild(renderer.domElement);
@@ -100,7 +101,7 @@ function init(){
 	
 	light4.position.set(coord_x, coord_y, coord_z);
 	scene.add(light4);
-
+	console.log("carico paladino init");
 	paladin = new THREE.Scene();
 	animation.loadPaladin(gltfLoader);
 	
@@ -109,6 +110,7 @@ function init(){
 	createLandscape();
 	createBgSky();
 	createLevel();
+	console.log("creato livello init");
 	setConstraint(charBox);
 	for (let index = 0; index < enNum-1; index++) {
 		enemyBox[index] = enemyGeometry(index, ex[index], ey[index], ez[index]);
@@ -119,6 +121,7 @@ function init(){
 	for (let index = 0; index < enNum; index++) {
 		setConstraint(enemyBox[index]);
 	}
+	console.log(loading);
 	// setTimeout(function () {animate();}, 2000);
 	var timer = setInterval(function () {
 		if((sk1.length - enNum == 0 && loading >= 276 && charBox && paladin)){
