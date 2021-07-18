@@ -61,7 +61,6 @@ function muteall(){
 }
 
 function init(){
-	console.log("init");
 	window.addEventListener(
 		"resize",
 		function () {
@@ -76,7 +75,7 @@ function init(){
 	var boolean_s = localStorage.getItem("muteval", mute);
 	if(boolean_s == null) boolean_s = mute;
 	changevol(boolean_s);
-	console.log("carico scena init");
+	
 	scene = new Physijs.Scene();
 
 	container.appendChild(renderer.domElement);
@@ -101,7 +100,7 @@ function init(){
 	
 	light4.position.set(coord_x, coord_y, coord_z);
 	scene.add(light4);
-	console.log("carico paladino init");
+
 	paladin = new THREE.Scene();
 	animation.loadPaladin(gltfLoader);
 	
@@ -110,7 +109,6 @@ function init(){
 	createLandscape();
 	createBgSky();
 	createLevel();
-	console.log("creato livello init");
 	setConstraint(charBox);
 	for (let index = 0; index < enNum-1; index++) {
 		enemyBox[index] = enemyGeometry(index, ex[index], ey[index], ez[index]);
@@ -121,11 +119,9 @@ function init(){
 	for (let index = 0; index < enNum; index++) {
 		setConstraint(enemyBox[index]);
 	}
-	console.log(loading);
 	// setTimeout(function () {animate();}, 2000);
 	var timer = setInterval(function () {
-		if((sk1.length - enNum == 0 && loading >=276 && charBox && paladin)){
-			console.log(loading);
+		if((sk1.length - enNum == 0 && loading >= 276 && charBox && paladin)){
 			clearInterval(timer);
 			setTimeout(function () {animate();}, 1500);
 		}
@@ -226,10 +222,9 @@ function addKeysListener(){
 
 
 const animate = function () {
-	console.log("inizio");
 	if (GameLoaded==false){
 		// console.log("dentro if GameLoaded = false");
-		if (loading >= 276){
+		if (loading >= 236){
 			showGame();
 			// console.log("dentro if loading = 255");
 		}
@@ -256,30 +251,19 @@ const animate = function () {
 	animation.walk();
 	animation.hit();
 	animation.starting_pos();
-	console.log("fine animation");
+
 	// document.getElementById("text").innerHTML = charBox.getLinearVelocity().x.toFixed(3)+" , "+charBox.getLinearVelocity().y.toFixed(3)+" , "+charBox.getLinearVelocity().z.toFixed(3);
 	// document.getElementById("text").innerHTML = charBox.position.x.toFixed(3)+" , "+charBox.position.y.toFixed(3)+" , "+charBox.position.z.toFixed(3);
 	// document.getElementById("text0").innerHTML = speed;
 	// document.getElementById("text1").innerHTML = flagair;
 	// document.getElementById("butn").innerHTML = charBox._physijs.touches.length;
-	console.log("while");
-	while(1){
-		
-		try{
-			scene.simulate();
-		}
-		catch{
-			console.log("catch");
-		}
-		finally{
-			break;
-		}
-	}
-	
 
-	console.log("fine");
-	//renderer.render( scene, camera );
-	//requestAnimationFrame( animate );
+
+	scene.simulate();
+
+	
+	// renderer.render( scene, camera );
+	// requestAnimationFrame( animate );
 };
 
 
