@@ -257,7 +257,7 @@ const animate = function () {
 		try{
 			scene.simulate();
 		}
-		catch{}
+		catch{console.log("catch")}
 		finally{break;}
 	}
 	
