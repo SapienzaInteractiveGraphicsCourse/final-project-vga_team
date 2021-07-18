@@ -26,6 +26,38 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, (window.innerHeight-20) );
 renderer.outputEncoding = THREE.sRGBEncoding;
 
+function changevol(s){
+	if(s=='false')s=false;
+	else if(s=='true')s=true;
+	if(s){
+
+		document.getElementById('volumeOff').style.display = 'block';
+		document.getElementById('volumeOn').style.display = 'none';
+		mute = true;
+		localStorage.setItem("muteval", mute);
+	}
+	else{
+		document.getElementById('volumeOff').style.display = 'none';
+		document.getElementById('volumeOn').style.display = 'block';
+		mute = false;
+		localStorage.setItem("muteval", mute);
+	}
+
+	muteall();
+}
+
+function muteall(){
+
+	audio.muted = mute;
+	back_sound.muted = mute;
+	gameover_audio.muted =mute;
+	onelife_audio.muted = mute;
+	victory_sound.muted = mute;
+	damage_received.muted = mute;
+	flawless_victory.muted = mute;
+	sword_hit.muted = mute;
+}
+
 function init(){
 	window.addEventListener(
 		"resize",
@@ -36,6 +68,10 @@ function init(){
 		},
 		false
 	);
+	
+
+	var boolean_s = localStorage.getItem("muteval", mute);
+	changevol(boolean_s);
 	
 	scene = new Physijs.Scene();
 
@@ -194,6 +230,14 @@ const animate = function () {
 
 	charBox.rotation.set(0,0,0);
 	charBox.__dirtyRotation = true;
+
+	document.getElementById('volumeOn').onclick =function(){
+		changevol(true);
+	};
+
+	document.getElementById('volumeOff').onclick = function(){
+			changevol(false);
+	};
 
 	camera.position.set(coord_x, coord_y + charBox.position.y, coord_z + charBox.position.z);
 	light3.position.set(coord_x, coord_y + charBox.position.y, coord_z + charBox.position.z);
