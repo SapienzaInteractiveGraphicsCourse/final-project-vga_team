@@ -47,7 +47,6 @@ function changevol(s){
 }
 
 function muteall(){
-	console.log(loading);
 	audio.muted = mute;
 	back_sound.muted = mute;
 	gameover_audio.muted =mute;
@@ -263,19 +262,19 @@ const animate = function () {
 	scene.simulate();
 
 	
-	// renderer.render( scene, camera );
-	// requestAnimationFrame( animate );
+	renderer.render( scene, camera );
+	requestAnimationFrame( animate );
 };
 
 
 init();
-
+/*
 scene.addEventListener( 'update', function() {
 	// the scene's physics have finished updating
 	renderer.render( scene, camera );
 	requestAnimationFrame( animate );
 });
-	
+*/	
 
 function createBgSky() {
 	var bgSky = new THREE.PlaneGeometry(1500, 200);
