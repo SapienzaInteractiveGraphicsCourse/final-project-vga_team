@@ -71,8 +71,9 @@ function init(){
 		false
 	);
 	
-
+	
 	var boolean_s = localStorage.getItem("muteval", mute);
+	if(boolean_s == null) boolean_s = mute;
 	changevol(boolean_s);
 	
 	scene = new Physijs.Scene();
