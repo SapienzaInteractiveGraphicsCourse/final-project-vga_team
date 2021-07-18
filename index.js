@@ -27,8 +27,6 @@ renderer.setSize( window.innerWidth, (window.innerHeight-20) );
 renderer.outputEncoding = THREE.sRGBEncoding;
 
 function changevol(s){
-	console.log("chiamato con valore:");
-	console.log(s);
 	if(s=='false')s=false;
 	else if(s=='true')s=true;
 	if(s){
