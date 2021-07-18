@@ -222,6 +222,7 @@ function addKeysListener(){
 
 
 const animate = function () {
+	console.log("inizio");
 	if (GameLoaded==false){
 		// console.log("dentro if GameLoaded = false");
 		if (loading >= 236){
@@ -251,25 +252,22 @@ const animate = function () {
 	animation.walk();
 	animation.hit();
 	animation.starting_pos();
-
+	console.log("fine animation");
 	// document.getElementById("text").innerHTML = charBox.getLinearVelocity().x.toFixed(3)+" , "+charBox.getLinearVelocity().y.toFixed(3)+" , "+charBox.getLinearVelocity().z.toFixed(3);
 	// document.getElementById("text").innerHTML = charBox.position.x.toFixed(3)+" , "+charBox.position.y.toFixed(3)+" , "+charBox.position.z.toFixed(3);
 	// document.getElementById("text0").innerHTML = speed;
 	// document.getElementById("text1").innerHTML = flagair;
 	// document.getElementById("butn").innerHTML = charBox._physijs.touches.length;
-
+	console.log("while");
 	while(1){
-		console.log("while");
+		
 		try{
-			console.log("try");
 			scene.simulate();
-			
 		}
 		catch{
 			console.log("catch");
 		}
 		finally{
-			console.log("finally");
 			break;
 		}
 	}
