@@ -47,7 +47,7 @@ function changevol(s){
 }
 
 function muteall(){
-
+	console.log(loading);
 	audio.muted = mute;
 	back_sound.muted = mute;
 	gameover_audio.muted =mute;
