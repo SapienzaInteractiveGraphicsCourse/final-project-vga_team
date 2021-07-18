@@ -229,7 +229,7 @@ const animate = function () {
 	console.log("inizio");
 	if (GameLoaded==false){
 		// console.log("dentro if GameLoaded = false");
-		if (loading >= 236){
+		if (loading >= 276){
 			showGame();
 			// console.log("dentro if loading = 255");
 		}
