@@ -259,9 +259,11 @@ const animate = function () {
 	// document.getElementById("butn").innerHTML = charBox._physijs.touches.length;
 
 	while(1){
+		console.log("while");
 		try{
-			scene.simulate();
 			console.log("try");
+			scene.simulate();
+			
 		}
 		catch{
 			console.log("catch");
