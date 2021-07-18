@@ -121,7 +121,7 @@ function init(){
 	var timer = setInterval(function () {
 		if((sk1.length - enNum == 0 && loading >= 276 && charBox && paladin)){
 			clearInterval(timer);
-			setTimeout(function () {animate();}, 1500);
+			setTimeout(function () {animate();}, 2000);
 		}
 	},1000);
 }
