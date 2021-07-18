@@ -28106,15 +28106,7 @@ function uRa(a, d, e, f) {
     c[g] = a;
     c[g + 1] = f;
     a = c[a + 36 * Ie(bi(d)) + Ie(bi(e)) + 50];
-    while(1){
-        try{
-            d = v[c[c[a] + 2]](a, g, d, e);
-        }
-        finally{
-            break;
-        }
-    }
-    
+    d = v[c[c[a] + 2]](a, g, d, e);
     b = g;
     return d
 }
