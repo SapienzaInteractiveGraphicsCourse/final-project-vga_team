@@ -211,13 +211,13 @@ const animate = function () {
 	// document.getElementById("text1").innerHTML = flagair;
 	// document.getElementById("butn").innerHTML = charBox._physijs.touches.length;
 
-	while(1){
-		try{
-			console.log("try");
-			scene.simulate();
-		}
-		finally{console.log("finally");break;}
+	try{
+		scene.simulate();
 	}
+	catch{
+		console.log("BEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
+	}
+
 	
 	// renderer.render( scene, camera );
 	// requestAnimationFrame( animate );
