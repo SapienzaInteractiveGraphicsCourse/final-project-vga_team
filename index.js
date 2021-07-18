@@ -8,7 +8,7 @@ var coord_x = -200;
 var coord_y = 10;
 var coord_z = 0;
 
-Physijs.scripts.worker = "./build/Physijs-master/physijs_worker.js";
+Physijs.scripts.worker = "physijs_worker.js";
 Physijs.scripts.ammo = "ammo.js";
 
 gltfLoader = new GLTFLoader();
@@ -47,7 +47,6 @@ function changevol(s){
 }
 
 function muteall(){
-	console.log(loading);
 	audio.muted = mute;
 	back_sound.muted = mute;
 	gameover_audio.muted =mute;
@@ -221,7 +220,7 @@ function addKeysListener(){
 	});
 }
 
-
+var wait_time = 0;
 const animate = function () {
 	if (GameLoaded==false){
 		// console.log("dentro if GameLoaded = false");
@@ -258,7 +257,6 @@ const animate = function () {
 	// document.getElementById("text0").innerHTML = speed;
 	// document.getElementById("text1").innerHTML = flagair;
 	// document.getElementById("butn").innerHTML = charBox._physijs.touches.length;
-
 
 	scene.simulate();
 
