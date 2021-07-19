@@ -103,8 +103,8 @@ function init(){
 	
 	charGeometry(10, -8.5, -5);
 	
-	createLandscape();
-	createBgSky();
+	createTerrain();
+	createBackground();
 	createLevel();
 	setConstraint(charBox);
 	for (let index = 0; index < enNum-1; index++) {
@@ -277,7 +277,7 @@ scene.addEventListener( 'update', function() {
 });
 	
 
-function createBgSky() {
+function createBackground() {
 	var bgSky = new THREE.PlaneGeometry(1500, 200);
 	var skyTexture = new THREE.TextureLoader().load("bg.png");
 	skyTexture.wrapS = THREE.RepeatWrapping;
@@ -294,7 +294,7 @@ function createBgSky() {
 	scene.add(bg);
 }
 
-function landscapeFunction() {
+function setBackground() {
 	var geometry = new THREE.BoxGeometry(90, 20, 1500);
 	var texture = new THREE.TextureLoader().load("brick_ground.jpg");
 	texture.wrapS = THREE.RepeatWrapping;
@@ -309,27 +309,27 @@ function landscapeFunction() {
 	var material = [
 	  new THREE.MeshPhongMaterial({
 		map: terrainTexture,
-		color: 0xd2b48c,
+		color: 0xB28548,
 	  }),
 	  new THREE.MeshPhongMaterial({
 		map: terrainTexture,
-		color: 0xd2b48c,
+		color: 0xB28548,
 	  }),
 	  new THREE.MeshPhongMaterial({
 		map: texture,
-		color: 0xd2b48c,
+		color: 0xB28548,
 	  }),
 	  new THREE.MeshPhongMaterial({
 		map: terrainTexture,
-		color: 0xd2b48c,
+		color: 0xB28548,
 	  }),
 	  new THREE.MeshPhongMaterial({
 		map: terrainTexture,
-		color: 0xd2b48c,
+		color: 0xB28548,
 	  }),
 	  new THREE.MeshPhongMaterial({
 		map: terrainTexture,
-		color: 0xd2b48c,
+		color: 0xB28548,
 	  })
 	];
 	var bg = new THREE.Mesh(geometry, material);
@@ -338,8 +338,8 @@ function landscapeFunction() {
 	scene.add(bg);
 }
 
-function createLandscape() {
-	landscapeFunction();
+function createTerrain() {
+	setBackground();
 	setGround();
 }
 
