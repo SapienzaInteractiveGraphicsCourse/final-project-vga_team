@@ -121,7 +121,7 @@ function init(){
 		if(((sk1.length - enNum == 0) && (loading >= 276) && charBox && paladin)){
 			clearInterval(timer);
 			setTimeout(function () {
-				allready = true;
+				// allready = true;
 				scene.simulate();
 				animate();
 			}, 2000);
@@ -371,6 +371,7 @@ document.getElementById("btnwin").onclick = function () {
 function showGame(){
 	GameLoaded = true;
 	setTimeout(function(){
+		allready = true;
 		document.getElementById("cont_load").classList = "invisible";
 		// document.getElementById("cont_load").innerHTML = "";
 		document.getElementById("start").classList = "visible container";
