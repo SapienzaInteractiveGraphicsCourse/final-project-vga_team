@@ -272,11 +272,8 @@ init();
 
 scene.addEventListener( 'update', function() {
 	// the scene's physics have finished updating
-	setTimeout(function(){
-		renderer.render( scene, camera );
-		requestAnimationFrame( animate );
-	},1);
-
+	renderer.render( scene, camera );
+	requestAnimationFrame( animate );
 });
 	
 

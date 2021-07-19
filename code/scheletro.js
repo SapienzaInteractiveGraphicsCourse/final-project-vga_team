@@ -69,6 +69,7 @@ function loadBoss(loade){
 		'./skeleton_rig/scene.gltf',
 		function (gltf) {
 			var indx = enNum-1;
+			sk1[indx] = new Physijs.Scene();
 			sk1[indx] = gltf.scene;
 			sk1[indx].position.set(0, -4.5,-1);
 			sk1[indx].scale.x *= 3.4;
