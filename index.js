@@ -121,6 +121,7 @@ function init(){
 		if(((sk1.length - enNum == 0) && (loading >= 276) && charBox && paladin)){
 			clearInterval(timer);
 			setTimeout(function () {
+				allready = true;
 				scene.simulate();
 				animate();
 			}, 2000);
