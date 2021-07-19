@@ -352,14 +352,14 @@ document.getElementById("btnstart").onclick = function () {
 }
 
 document.getElementById("btnend").onclick = function () {
-	location.reload();
+	window.location.reload( true);
 	return false;
 	// gameover = false;
 	// reset();
 }
 
 document.getElementById("btnwin").onclick = function () {
-	location.reload();
+	window.location.reload(true);
 	return false;
 	// reset();
 	// win = false;

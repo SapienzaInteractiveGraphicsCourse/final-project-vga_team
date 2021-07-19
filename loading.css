@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Quattrocento+Sans);
+
  .loading {
 	 position: fixed;
 	 top: 0;
@@ -26,7 +26,7 @@
 	 width: 5%;
 	 color: #fff;
 	 font-size:50px;
-	 font-family: 'Quattrocento Sans', sans-serif;
+	 font-family: "Times New Roman", Times, serif;
 }
  .loading-text span:nth-child(1) {
 	 filter: blur(0px);
