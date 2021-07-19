@@ -98,7 +98,7 @@ function init(){
 	light4.position.set(coord_x, coord_y, coord_z);
 	scene.add(light4);
 
-	paladin = new Physijs.Scene();
+	paladin = new THREE.Scene();
 	animation.loadPaladin(gltfLoader);
 	
 	charGeometry(10, -8.5, -5);
@@ -109,7 +109,6 @@ function init(){
 	setConstraint(charBox);
 	for (let index = 0; index < enNum-1; index++) {
 		enemyBox[index] = enemyGeometry(index, ex[index], ey[index], ez[index]);
-		sk1[index] = new Physijs.Scene();
 		loadSkeleton(gltfLoader, index);
 	}
 	loadBoss(gltfLoader);
