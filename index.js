@@ -214,7 +214,7 @@ function addKeysListener(){
 			case 's':
 				break;
 			case 'shift':
-				speed = 0.04;
+				speed = 0.05;
 				break;
 		}
 	});

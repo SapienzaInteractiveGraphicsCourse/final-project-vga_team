@@ -20,7 +20,7 @@ var charpos = [10, -8, -5];
 var lives = 2;
 
 var paladin;
-var speed = 0.04;
+var speed = 0.05;
 
 var enNum = 11;
 var mute = false;
