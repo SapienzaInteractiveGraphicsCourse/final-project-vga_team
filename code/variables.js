@@ -61,5 +61,3 @@ var flagAnim = [];
 for (let u = 0; u < enNum; u++) {
 	flagAnim[u] = [false, false];
 }
-
-var allready = false;
