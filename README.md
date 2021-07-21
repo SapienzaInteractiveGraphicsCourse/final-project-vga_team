@@ -2,5 +2,5 @@
 
 The PDF file can be found inside the project as "report.pdf"
 
-Here is the link for the Github Pages
+Here is the link for the Github Pages\\
 Github Pages link : https://sapienzainteractivegraphicscourse.github.io/final-project-vga_team/
