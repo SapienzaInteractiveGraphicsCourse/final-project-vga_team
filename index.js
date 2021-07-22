@@ -4,7 +4,7 @@ import * as build from "./level_build.js";
 // import * as knight_s from "./code/knight.js";
 import * as animation from "./code/animation.js";
 
-// var ret = true;
+var keylis = false;
 var coord_x = -200;
 var coord_y = 10;
 var coord_z = 0;
@@ -248,7 +248,7 @@ const animate = function () {
 	light3.position.set(coord_x, coord_y + charBox.position.y, coord_z + charBox.position.z);
 	camera.lookAt(charBox.position.x, charBox.position.y, charBox.position.z);
 	camera.updateProjectionMatrix();
-	addKeysListener();
+	if(keylis==false) addKeysListener();
 	animation.jump();
 	animation.walk();
 	animation.hit();
@@ -264,21 +264,21 @@ const animate = function () {
 	// ret = scene.simulate();
 
 	
-	renderer.render( scene, camera );
-	requestAnimationFrame( animate );
+	// renderer.render( scene, camera );
+	// requestAnimationFrame( animate );
 	scene.simulate();
 };
 
 
 init();
 
-// scene.addEventListener( 'update', function() {
-// 	// the scene's physics have finished updating
-// 	// requestAnimationFrame( animate );
-// 	// renderer.render( scene, camera );
-// 	ret = scene.simulate();
+scene.addEventListener( 'update', function() {
+	// the scene's physics have finished updating
+	requestAnimationFrame( animate );
+	renderer.render( scene, camera );
+//  ret = scene.simulate();
 	
-// });
+});
 	
 
 function createBackground() {
