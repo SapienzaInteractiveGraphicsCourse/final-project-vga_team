@@ -4,6 +4,7 @@ import * as build from "./level_build.js";
 // import * as knight_s from "./code/knight.js";
 import * as animation from "./code/animation.js";
 
+// var ret = true;
 var coord_x = -200;
 var coord_y = 10;
 var coord_z = 0;
@@ -222,6 +223,7 @@ function addKeysListener(){
 
 
 const animate = function () {
+	// scene.simulate();
 	if (GameLoaded==false){
 		// console.log("dentro if GameLoaded = false");
 		if (loading >= 236){
@@ -259,21 +261,24 @@ const animate = function () {
 	// document.getElementById("butn").innerHTML = charBox._physijs.touches.length;
 
 
-	scene.simulate();
+	// ret = scene.simulate();
 
 	
-	//renderer.render( scene, camera );
-	//requestAnimationFrame( animate );
+	renderer.render( scene, camera );
+	requestAnimationFrame( animate );
+	scene.simulate();
 };
 
 
 init();
 
-scene.addEventListener( 'update', function() {
-	// the scene's physics have finished updating
-	renderer.render( scene, camera );
-	requestAnimationFrame( animate );
-});
+// scene.addEventListener( 'update', function() {
+// 	// the scene's physics have finished updating
+// 	// requestAnimationFrame( animate );
+// 	// renderer.render( scene, camera );
+// 	ret = scene.simulate();
+	
+// });
 	
 
 function createBackground() {
@@ -375,8 +380,10 @@ function showGame(){
 		document.getElementById("start").classList = "visible container";
 		
 		//Set enemy position
-		// setEnemyPosition();
+		setEnemyPosition();
 	}, 4000);
 }
-	
 
+// var timer = setTimeout(() => {
+// 	if(ret) ret = scene.simulate();
+// }, 1000);
