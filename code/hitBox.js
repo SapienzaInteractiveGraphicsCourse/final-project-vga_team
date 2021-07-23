@@ -7,7 +7,7 @@ function setConstraint(mesh) {
 		// physijs_mesh_b, // OPTIONAL second object - if omitted then physijs_mesh_1 
 				// will be constrained to the scene
 		// new THREE.Vector3( 0, -4, -45 ) // point in the scene to apply the constraint
-		new THREE.Vector3( 10, -9, 120 )
+		new THREE.Vector3( 14, -9, 120 )
 	);
 	scene.addConstraint( constraint );
 	constraint.setLinearLowerLimit( new THREE.Vector3( 5, -mesh.position.y+120, -mesh.position.z-25 ) );
@@ -153,8 +153,6 @@ function setPlateHB(x, y, z){
 		0 // mass
 	);
 	grnd.position.set(x+5.1, y+0.9, z-9.23);     //ref (10,1,0) => +5.1, +0.9, -9.23
-	// grnd.position.set(15.1, 1, -9.23); 
-	// grnd.position.set(15.1, 2.9, -15.23);
 	scene.add( grnd );
 }
 
@@ -191,7 +189,7 @@ function setSpearHB(x, y, z){
 		1,
 		0.0
 	);
-	var grnd_geometry = new THREE.BoxGeometry( 9, 12, 9);
+	var grnd_geometry = new THREE.BoxGeometry( 20, 12, 9);
 
 	var grnd = new Physijs.BoxMesh(
 		grnd_geometry,
@@ -213,7 +211,7 @@ function setSpearHHB(x, y, z){
 		1,
 		0.0
 	);
-	var grnd_geometry = new THREE.BoxGeometry( 9, 12, 9);
+	var grnd_geometry = new THREE.BoxGeometry( 20, 12, 9);
 
 	var grnd = new Physijs.BoxMesh(
 		grnd_geometry,
@@ -237,7 +235,7 @@ function setSpearHHHB(x, y, z){
 		1,
 		0.0
 	);
-	var grnd_geometry = new THREE.BoxGeometry( 9, 12, 9);
+	var grnd_geometry = new THREE.BoxGeometry( 20, 12, 9);
 
 	var grnd = new Physijs.BoxMesh(
 		grnd_geometry,

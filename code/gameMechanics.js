@@ -42,23 +42,6 @@ function attack() {
 							enemyBox[j] = null;
 							scene.remove(sk1[j]);
 							sk1[j] = null;
-							// if(j == enNum-1 && gameover == false){
-							// 	//boss killed
-							// 	document.getElementById("game").classList = "invisible";
-							// 	document.getElementById("win").classList = "visible container";
-							// 	win = true;
-							// 	onelife_audio.muted = true;
-							// 	damage_received.muted = true;
-							// 	back_sound.muted = true;
-							// 	if(playflag){
-							// 		if(lives==2){
-							// 			flawless_victory.play();
-							// 		}
-							// 		else{
-							// 			victory_sound.play();
-							// 		}
-							// 	}
-							// }
 						}
 					}
 				}
@@ -74,23 +57,6 @@ function attack() {
 							enemyBox[j] = null;
 							scene.remove(sk1[j]);
 							sk1[j] = null;
-							// if(j == enNum-1 && gameover == false){
-							// 	//boss killed
-							// 	document.getElementById("game").classList = "invisible";
-							// 	document.getElementById("win").classList = "visible container";
-							// 	win = true;
-							// 	onelife_audio.muted = true;
-							// 	damage_received.muted = true;
-							// 	back_sound.muted = true;
-							// 	if(playflag){
-							// 		if(lives==2){
-							// 			flawless_victory.play();
-							// 		}
-							// 		else{
-							// 			victory_sound.play();
-							// 		}
-							// 	}
-							// }
 						}
 					}
 				}
@@ -206,8 +172,7 @@ function reset(){
 	charBox.position.set(charpos[0], charpos[1], charpos[2]);
 	charBox.__dirtyPosition = true;
 	set_audio_and_flash();
-	charBox.position.set(charpos[0], charpos[1], charpos[2]);
-	charBox.__dirtyPosition = true;
+	
 	for (let i = 0; i < enNum-1; i++) {
 		enemyLives[i] = 2;
 		if(enemyBox[i] == null){
@@ -237,6 +202,9 @@ function reset(){
 		document.getElementById("game").classList = "visible";
 		audio.play();
 		back_sound.play();
+		charBox.position.set(charpos[0], charpos[1], charpos[2]);
+		charBox.__dirtyPosition = true;
+		lives = 2;
 	}, 4000);
 }
 

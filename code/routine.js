@@ -7,14 +7,10 @@ function gameRoutine(){
 		//walk displacement
 		if(torso_dir){
 			charBox.position.z += speed*3;
-			// var vel0 = new THREE.Vector3(0, charBox.getLinearVelocity().y, charBox.getLinearVelocity().z+0.3);
-			// charBox.setLinearVelocity(vel0);
 			vel.z += 0.3;
 		}
 		else{
 			charBox.position.z -= speed*3;
-			// var vel0 = new THREE.Vector3(0, charBox.getLinearVelocity().y, charBox.getLinearVelocity().z-0.3);
-			// charBox.setLinearVelocity(vel0);
 			vel.z -= 0.3;
 		}
 		charBox.__dirtyPosition = true;
@@ -32,14 +28,8 @@ function gameRoutine(){
 		vt = -5;
 	}
 	charBox.setLinearVelocity(new THREE.Vector3( 0, charBox.getLinearVelocity().y+vel.y, vt));
-	// charBox.applyCentralImpulse(new THREE.Vector3( 0, charBox.getLinearVelocity().y+vel.y, vt));
 
 	if(charBox._physijs.touches.length == 0) flagair = true;
-
-	// if(flagatt){
-	// 	flagatt = false;
-	// 	attack();
-	// }
 	
 	enemyAI();
 	sk_walk();

@@ -1,7 +1,6 @@
 import * as THREE from "./build/three.js-master/build/three.module.js";
 import { GLTFLoader } from "./build/three.js-master/examples/jsm/loaders/GLTFLoader.js";
 import * as build from "./level_build.js";
-// import * as knight_s from "./code/knight.js";
 import * as animation from "./code/animation.js";
 
 var keylis = false;
@@ -59,6 +58,7 @@ function muteall(){
 }
 
 function init(){
+// const init = function() {
 	window.addEventListener(
 		"resize",
 		function () {
@@ -68,7 +68,6 @@ function init(){
 		},
 		false
 	);
-	
 	
 	var boolean_s = localStorage.getItem("muteval", mute);
 	if(boolean_s == null) boolean_s = mute;
@@ -122,7 +121,7 @@ function init(){
 		if(((sk1.length - enNum == 0) && (loading >= 276) && charBox && paladin)){
 			clearInterval(timer);
 			setTimeout(function () {
-				scene.simulate();
+				scene.simulate( undefined, 1 );
 				animate();
 			}, 2000);
 		}
@@ -223,9 +222,7 @@ function addKeysListener(){
 
 
 const animate = function () {
-	// scene.simulate();
 	if (GameLoaded==false){
-		// console.log("dentro if GameLoaded = false");
 		if (loading >= 236){
 			showGame();
 		}
@@ -252,24 +249,22 @@ const animate = function () {
 	animation.walk();
 	animation.hit();
 	animation.starting_pos();
-
-	// ret = scene.simulate();
 	
 	// renderer.render( scene, camera );
 	// requestAnimationFrame( animate );
-	scene.simulate();
+	// scene.simulate();
+	scene.simulate( undefined, 1 );
 };
 
 
-init();
+// init();
+window.onload = init;
 
-scene.addEventListener( 'update', function() {
-	// the scene's physics have finished updating
-	requestAnimationFrame( animate );
-	renderer.render( scene, camera );
-//  ret = scene.simulate();
-	
-});
+// scene.addEventListener( 'update', function() {
+// // the scene's physics have finished updating
+// requestAnimationFrame( animate );
+// renderer.render( scene, camera );
+// });
 	
 
 function createBackground() {
@@ -357,8 +352,8 @@ document.getElementById("btnend").onclick = function () {
 document.getElementById("btnwin").onclick = function () {
 	// location.reload();
 	// return false;
-	reset();
 	win = false;
+	reset();
 }
 
 function showGame(){
@@ -372,3 +367,14 @@ function showGame(){
 		setEnemyPosition();
 	}, 4000);
 }
+
+var timer = setInterval(() => {
+if(scene) {
+	scene.addEventListener( 'update', function() {
+		// the scene's physics have finished updating
+		requestAnimationFrame( animate );
+		renderer.render( scene, camera );
+		});
+		clearInterval(timer);
+}
+}, 1000);
