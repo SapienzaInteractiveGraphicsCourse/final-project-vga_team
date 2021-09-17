@@ -105,7 +105,7 @@ function init() {
 
 	createTerrain();
 	createBackground();
-	createLevel();
+	// createLevel();
 	setConstraint(charBox);
 	for (let index = 0; index < enNum - 1; index++) {
 		enemyBox[index] = enemyGeometry(index, ex[index], ey[index], ez[index]);
@@ -118,7 +118,8 @@ function init() {
 	}
 	// setTimeout(function () {animate();}, 2000);
 	var timer = setInterval(function () {
-		if (((sk1.length - enNum == 0) && (loading >= 276) && charBox && paladin)) {
+		// if (((sk1.length - enNum == 0) && (loading >= 276) && charBox && paladin)) {
+			if (((sk1.length - enNum == 0) && charBox && paladin)) {
 			clearInterval(timer);
 			setTimeout(function () {
 				scene.simulate(undefined, 1);
@@ -223,9 +224,9 @@ function addKeysListener() {
 
 const animate = function () {
 	if (GameLoaded == false) {
-		if (loading >= 236) {
+		// if (loading >= 236) {
 			showGame();
-		}
+		// }
 	}
 	gameRoutine();
 
