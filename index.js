@@ -123,7 +123,7 @@ function init() {
 			setTimeout(function () {
 				scene.simulate(undefined, 1);
 				animate();
-			}, 2000);
+			}, 1500);
 		}
 	}, 1000);
 }
@@ -331,17 +331,17 @@ document.getElementById("btnstart").onclick = function () {
 }
 
 document.getElementById("btnend").onclick = function () {
-	// location.reload();
-	// return false;
-	gameover = false;
-	reset();
+	location.reload();
+	return false;
+	// gameover = false;
+	// reset();
 }
 
 document.getElementById("btnwin").onclick = function () {
-	// location.reload();
-	// return false;
-	win = false;
-	reset();
+	location.reload();
+	return false;
+	// win = false;
+	// reset();
 }
 
 function showGame() {
@@ -353,7 +353,7 @@ function showGame() {
 
 		//Set enemy position
 		setEnemyPosition();
-	}, 4000);
+	}, 2000);
 }
 
 var timer = setInterval(() => {
