@@ -1,6 +1,5 @@
 import * as THREE from "./build/three.js-master/build/three.module.js";
 import { GLTFLoader } from "./build/three.js-master/examples/jsm/loaders/GLTFLoader.js";
-import * as build from "./level_build.js";
 import * as animation from "./code/animation.js";
 
 var keylis = false;
@@ -105,7 +104,7 @@ function init() {
 
 	createTerrain();
 	createBackground();
-	// createLevel();
+	createLevel();
 	setConstraint(charBox);
 	for (let index = 0; index < enNum - 1; index++) {
 		enemyBox[index] = enemyGeometry(index, ex[index], ey[index], ez[index]);
@@ -130,16 +129,16 @@ function init() {
 }
 
 function createLevel() {
-	build.createGroup1();
-	build.createTorch();
-	build.createBox();
-	build.createSpear();
+	createGroup1();
+	createTorch();
+	createBox();
+	createSpear();
 
-	build.createGroup2();
-	build.createTorch2();
-	build.createBox2();
-	build.createSpear2();
-	build.createCup();
+	createGroup2();
+	createTorch2();
+	createBox2();
+	createSpear2();
+	createCup();
 }
 function addKeysListener() {
 	document.addEventListener('keydown', Event => {
@@ -251,22 +250,10 @@ const animate = function () {
 	animation.hit();
 	animation.starting_pos();
 
-	// renderer.render( scene, camera );
-	// requestAnimationFrame( animate );
-	// scene.simulate();
 	scene.simulate(undefined, 1);
 };
 
-
-// init();
 window.onload = init;
-
-// scene.addEventListener( 'update', function() {
-// // the scene's physics have finished updating
-// requestAnimationFrame( animate );
-// renderer.render( scene, camera );
-// });
-
 
 function createBackground() {
 	var bgSky = new THREE.PlaneGeometry(1500, 200);

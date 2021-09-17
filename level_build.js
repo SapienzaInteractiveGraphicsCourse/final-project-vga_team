@@ -1,7 +1,7 @@
 
-export function createGroup1() { // creazione del primo gruppo di mattoncini
+function createGroup1() { // creazione del primo gruppo di mattoncini
 
-  brick = new THREE.Scene();
+  var brick = new THREE.Scene();
   {
     const url_brick = "./brick_textures/single_brick.gltf";
     gltfLoader.load(url_brick, (gltf) => {
@@ -109,6 +109,8 @@ export function createGroup1() { // creazione del primo gruppo di mattoncini
         loading += 1;
       }
 
+      
+
       // brick.traverse(function (child) {
       //   if (child instanceof THREE.Mesh) {
       //     child.castShadow = true;
@@ -124,9 +126,9 @@ export function createGroup1() { // creazione del primo gruppo di mattoncini
   }
 }
 
-export function createTorch() {
+function createTorch() {
 
-  torch = new THREE.Scene();
+  var torch = new THREE.Scene();
   {
     const url_torch = "./torch/scene.gltf";
     gltfLoader.load(url_torch, (gltf) => {
@@ -169,7 +171,6 @@ export function createTorch() {
           torchClone = torch.clone();
           scene.add(torchClone);
           loading += 1;
-
         }
 
         else if (i < 10) {
@@ -178,7 +179,6 @@ export function createTorch() {
           torchClone = torch.clone();
           scene.add(torchClone);
           loading += 1;
-
         }
 
         else if (i < 20) {
@@ -189,24 +189,16 @@ export function createTorch() {
           loading += 1;
 
         }
-
-
         torchLoaded = true;
-
-
       };
     }
-
-
     );
-
-
   }
 }
 
-export function createBox() {
+function createBox() {
 
-  box = new THREE.Scene();
+  var box = new THREE.Scene();
   {
     const url_box = "./box_obstacle/scene.gltf";
     gltfLoader.load(url_box, (gltf) => {
@@ -254,8 +246,6 @@ export function createBox() {
       setBoxHB(boxClone.position.x, boxClone.position.y, boxClone.position.z);
       loading += 1;
 
-
-
       // box.castShadow = true;
       // box.receiveShadow = true;
       boxLoaded = true;
@@ -264,9 +254,9 @@ export function createBox() {
 }
 
 
-export function createSpear() {
+function createSpear() {
 
-  spear = new THREE.Scene();
+  var spear = new THREE.Scene();
   {
     const url_spear = "./spear/scene.gltf";
     gltfLoader.load(url_spear, (gltf) => {
@@ -307,9 +297,6 @@ export function createSpear() {
       setSpearHB(spearClone.position.x, spearClone.position.y, spearClone.position.z);//da ruotare
       loading += 1;
 
-
-
-
       // spear.traverse(function (child) {
       //       if (child instanceof THREE.Mesh) {
       //         child.castShadow = true;
@@ -330,9 +317,9 @@ export function createSpear() {
 
 // SECONDA PARTE DEL LIVELLO !!!
 
-export function createGroup2() { // creazione del primo gruppo di mattoncini
+function createGroup2() { // creazione del primo gruppo di mattoncini
 
-  brick = new THREE.Scene();
+  var brick = new THREE.Scene();
   {
     const url_brick = "./brick_textures/single_brick.gltf";
     gltfLoader.load(url_brick, (gltf) => {
@@ -417,32 +404,31 @@ export function createGroup2() { // creazione del primo gruppo di mattoncini
         loading += 1;
       }
 
-      // SESTO MINI SET DI MATTONCINI per il salto
-      for (var i = 0; i < 4; i++) { // numero di mattoncini
-        brick.position.set(10, 30, i * 6 + 458 + 600) // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
-        brickClone = brick.clone();
-        scene.add(brickClone)
-        setPlateHB(brickClone.position.x, brickClone.position.y, brickClone.position.z);
-        loading += 1;
-      }
+      // // SESTO MINI SET DI MATTONCINI per il salto
+      // for (var i = 0; i < 4; i++) { // numero di mattoncini
+      //   brick.position.set(10, 30, i * 6 + 458 + 600) // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
+      //   brickClone = brick.clone();
+      //   scene.add(brickClone)
+      //   setPlateHB(brickClone.position.x, brickClone.position.y, brickClone.position.z);
+      //   loading += 1;
+      // }
 
 
-      for (var i = 0; i < 10; i++) { // numero di mattoncini
-        brick.position.set(10, 30, i * 6 + 500 + 600) // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
-        brickClone = brick.clone();
-        scene.add(brickClone)
-        setPlateHB(brickClone.position.x, brickClone.position.y, brickClone.position.z);
-        loading += 1;
-      }
+      // for (var i = 0; i < 10; i++) { // numero di mattoncini
+      //   brick.position.set(10, 30, i * 6 + 500 + 600) // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
+      //   brickClone = brick.clone();
+      //   scene.add(brickClone)
+      //   setPlateHB(brickClone.position.x, brickClone.position.y, brickClone.position.z);
+      //   loading += 1;
+      // }
 
-      for (var i = 0; i < 10; i++) { // numero di mattoncini
-        brick.position.set(10, 12, i * 6 + 440 + 600) // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
-        brickClone = brick.clone();
-        scene.add(brickClone)
-        setPlateHB(brickClone.position.x, brickClone.position.y, brickClone.position.z);
-        loading += 1;
-      }
-
+      // for (var i = 0; i < 10; i++) { // numero di mattoncini
+      //   brick.position.set(10, 12, i * 6 + 440 + 600) // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
+      //   brickClone = brick.clone();
+      //   scene.add(brickClone)
+      //   setPlateHB(brickClone.position.x, brickClone.position.y, brickClone.position.z);
+      //   loading += 1;
+      // }
 
       //   brick.traverse(function (child) {
       //     if (child instanceof THREE.Mesh) {
@@ -462,9 +448,9 @@ export function createGroup2() { // creazione del primo gruppo di mattoncini
 
 }
 
-export function createTorch2() {
+function createTorch2() {
 
-  torch = new THREE.Scene();
+  var torch = new THREE.Scene();
   {
     const url_torch = "./torch/scene.gltf";
     gltfLoader.load(url_torch, (gltf) => {
@@ -515,7 +501,6 @@ export function createTorch2() {
           torchClone = torch.clone();
           scene.add(torchClone);
           loading += 1;
-
         }
 
         else if (i < 20) {
@@ -524,27 +509,16 @@ export function createTorch2() {
           torchClone = torch.clone();
           scene.add(torchClone);
           loading += 1;
-
-
         }
-
-
         torchLoaded2 = true;
-
-
       };
-    }
-
-
-    );
-
-
+    });
   }
 }
 
-export function createBox2() {
+function createBox2() {
 
-  box = new THREE.Scene();
+  var box = new THREE.Scene();
   {
     const url_box = "./box_obstacle/scene.gltf";
     gltfLoader.load(url_box, (gltf) => {
@@ -593,7 +567,7 @@ export function createBox2() {
 
       // SCATOLA SINGOLA SESTA
       box.rotation.set(0, 4.75, 0); // rotation of the torch
-      box.position.set(16.5, 39, 458 + 600); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
+      box.position.set(16.5, 39, 400 + 600); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
       boxClone = box.clone();
       setBoxHB(boxClone.position.x, boxClone.position.y, boxClone.position.z);
       scene.add(boxClone);
@@ -601,7 +575,7 @@ export function createBox2() {
 
       // SCATOLA SINGOLA SETTTIMA a terra
       box.rotation.set(0, 4.75, 0); // rotation of the torch
-      box.position.set(16.5, -7, 500 + 600); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
+      box.position.set(16.5, -7, 430 + 600); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
       boxClone = box.clone();
       setBoxHB(boxClone.position.x, boxClone.position.y, boxClone.position.z);
       scene.add(boxClone);
@@ -633,9 +607,9 @@ export function createBox2() {
 }
 
 
-export function createSpear2() {
+function createSpear2() {
 
-  spear = new THREE.Scene();
+  var spear = new THREE.Scene();
   {
     const url_spear = "./spear/scene.gltf";
     gltfLoader.load(url_spear, (gltf) => {
@@ -678,7 +652,7 @@ export function createSpear2() {
 
       // FIFTH SPEAR
       spear.rotation.set(-1.5, 0, 0); // rotation of the spear
-      spear.position.set(16.2, 39, 455 + 600); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
+      spear.position.set(16.2, 39, 397 + 600); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
       spearClone = spear.clone();
       scene.add(spearClone);
       setSpearHHHB(spearClone.position.x, spearClone.position.y, spearClone.position.z);
@@ -686,7 +660,7 @@ export function createSpear2() {
 
       // SIXTH SPEAR
       spear.rotation.set(0, 0, 0); // rotation of the spear
-      spear.position.set(16.2, -1, 500 + 600); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
+      spear.position.set(16.2, -1, 430 + 600); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
       spearClone = spear.clone();
       scene.add(spearClone);
       setSpearHB(spearClone.position.x, spearClone.position.y, spearClone.position.z);
@@ -710,9 +684,9 @@ export function createSpear2() {
 
 }
 
-export function createCup() {
+function createCup() {
 
-  cup = new THREE.Scene();
+  var cup = new THREE.Scene();
   {
     const url_cup = "./cup/scene.gltf";
     gltfLoader.load(url_cup, (gltf) => {
@@ -720,7 +694,7 @@ export function createCup() {
       cup.name = "cup";
       cup.scale.set(2, 2, 2);
       cup.rotation.set(0, 0, 0); // rotation of the torch
-      cup.position.set(25, -14, 1249); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
+      cup.position.set(25, -14, 1130); // posizione in profondità (=1) , posizione y, distanza tra loro + distanza da 0
       cupClone = cup.clone();
       scene.add(cupClone);
 

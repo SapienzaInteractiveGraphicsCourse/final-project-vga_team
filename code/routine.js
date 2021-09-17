@@ -46,7 +46,7 @@ function gameRoutine(){
 	}
 	if(sk1[enNum-1]) sk1[enNum-1].position.set(enemyBox[enNum-1].position.x, enemyBox[enNum-1].position.y-11, enemyBox[enNum-1].position.z);
 
-	if(enemyBox[enNum-1] == null && charBox.position.z >= 1248 && gameover == false){
+	if(enemyBox[enNum-1] == null && charBox.position.z >= 1129 && gameover == false){
 		document.getElementById("game").classList = "invisible";
 		document.getElementById("win").classList = "visible container";
 		win = true;
